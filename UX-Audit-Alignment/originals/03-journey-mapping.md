@@ -1,0 +1,23 @@
+# Section 03 — End-to-End CX Journey
+
+## Purpose
+This is the flow-inventory heart of the audit: one concrete, real, numbered journey — not a persona-level abstraction — that walks a single user from zero to the loop closing, touching every major destination named in the IA tree. This is what actually answers "what flows have been built."
+
+## Method
+1. Pick ONE concrete scenario, with a real example filled in (a real goal name, a real automation name, a real percentage) — never a placeholder like "the user sets up their workflow." Specificity is what makes the flow auditable; abstraction hides gaps.
+2. Number every step starting at 0 if there's a first-run/onboarding moment, otherwise at 1. Sub-steps get decimal numbers (0.1, 0.2...).
+3. For every step, capture:
+   - **Location** — the exact destination breadcrumb (`Automations → Refund Order → Build`), which must match a node in the Section 02 tree exactly.
+   - **Type/timing badge** if relevant — one-time vs. recurring, elapsed time, dismissable, etc.
+   - **What happens** — described through real UI actions (click, select, type) and real copy where it exists.
+   - **Branches** — if the step forks (multiple valid next actions), name every branch as its own labeled sub-block ("Three ways forward: Fix it now / Deploy partial / Override"), not a single "then the user decides" sentence.
+4. Explicitly call out every point where the flow lands on a destination that was already established in Section 02 — this is what proves "nothing is invented mid-flow." If a step needs a destination not in the tree, stop and either add it to Section 02 (and flag it as new) or flag it as a gap in Section 05/06.
+5. End the journey at a state that demonstrates the loop closing — not just task completion, but the system doing something with the result (a metric updates, a suggestion appears, a version is recorded).
+
+## Output format
+A numbered step list. Each step: number, short title, location, badge (if any), description, branch call-outs (if any).
+
+## Quality bar
+- If the flow doesn't include at least one moment of friction, failure, or decision (a test failing, a suggestion needing review, an edge case), the scenario was chosen too easily and won't surface real gaps. Prefer a scenario that stresses the system.
+- Cross-check every destination name against Section 02. Zero tolerance for invented screens.
+- The journey should be long enough to cross multiple IA branches (not stay in one corner of the product) — that's what makes it a *platform* journey, not a feature walkthrough.

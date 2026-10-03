@@ -1,0 +1,83 @@
+/* =====================================================================
+   Kustomer typography overlay — aligns the hybrid prototype to the
+   2026 design-system scale (13px base, hybrid Minor Third/Major Second).
+   Loaded after colors_and_type.css to override.
+   ===================================================================== */
+
+:root {
+  /* NEW product type scale (13px base) */
+  --text-h1:         1.692rem;   /* 22px */
+  --text-h2:         1.408rem;   /* 18.3px */
+  --text-h3:         1.177rem;   /* 15.3px */
+  --text-h4:         1.077rem;   /* 14px */
+  --text-label:      1.000rem;   /* 13px */
+  --text-body:       1.000rem;   /* 13px */
+  --text-value:      0.889rem;   /* 11.6px */
+  --text-accent:     0.790rem;   /* 10.3px */
+  --text-data:       2.615rem;   /* 34px */
+  --text-data-unit:  1.615rem;   /* 21px */
+
+  /* Line heights */
+  --leading-h1:        1.64;
+  --leading-h2:        1.22;
+  --leading-h3:        1.25;
+  --leading-h4:        1.43;
+  --leading-label:     1.43;
+  --leading-body:      1.43;
+  --leading-value:     1.38;
+  --leading-accent:    1.33;
+  --leading-data:      1.24;
+  --leading-data-unit: 1.24;
+}
+
+/* Reset base — 13px root */
+html { font-size: 13px; }
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: 400;
+  line-height: var(--leading-body);
+  color: var(--gray-120);
+}
+
+/* Semantic element defaults — UI Inter, NOT the legacy display Fraunces */
+h1, .k-h1 {
+  font-family: var(--font-sans);
+  font-size: var(--text-h1); font-weight: 700; line-height: var(--leading-h1);
+  letter-spacing: -0.01em; color: var(--gray-120); margin: 0;
+}
+h2, .k-h2 {
+  font-family: var(--font-sans);
+  font-size: var(--text-h2); font-weight: 700; line-height: var(--leading-h2);
+  letter-spacing: -0.005em; color: var(--gray-120); margin: 0;
+}
+h3, .k-h3 {
+  font-family: var(--font-sans);
+  font-size: var(--text-h3); font-weight: 700; line-height: var(--leading-h3);
+  color: var(--gray-120); margin: 0;
+}
+h4, .k-h4 {
+  font-family: var(--font-sans);
+  font-size: var(--text-h4); font-weight: 700; line-height: var(--leading-h4);
+  color: var(--gray-120); margin: 0;
+}
+
+p, .k-body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body); font-weight: 400; line-height: var(--leading-body);
+  color: var(--gray-95);
+}
+
+.k-label  { font-family: var(--font-sans); font-size: var(--text-label);  font-weight: 600; line-height: var(--leading-label);  color: var(--gray-120); }
+.k-value  { font-family: var(--font-sans); font-size: var(--text-value);  font-weight: 600; line-height: var(--leading-value);  color: var(--gray-120); }
+.k-accent { font-family: var(--font-sans); font-size: var(--text-accent); font-weight: 400; line-height: var(--leading-accent); color: var(--gray-95);  }
+
+.k-data       { font-family: var(--font-sans); font-size: var(--text-data);      font-weight: 700; line-height: var(--leading-data);      color: var(--gray-120); }
+.k-data-unit  { font-family: var(--font-sans); font-size: var(--text-data-unit); font-weight: 700; line-height: var(--leading-data-unit); color: var(--gray-120); }
+
+/* Inputs + buttons use Body by default */
+button, input, select, textarea {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+}

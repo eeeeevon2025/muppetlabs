@@ -1,0 +1,812 @@
+{
+  "branch": "brief-spacing-normalize",
+  "scale": "8px increments (8, 16, 24, 32, 40, 64…)",
+  "recruiterPages": [
+    "/",
+    "/org-impact",
+    "/contact",
+    "/about",
+    "/work",
+    "/recruiter-brief",
+    "/hiring-mgr-brief",
+    "/founder-brief"
+  ],
+  "totalOffScale": 1951,
+  "byBreakpoint": {
+    "desktop": 842,
+    "tablet": 554,
+    "phone": 555
+  },
+  "commonOffValues": [
+    {
+      "px": 4,
+      "count": 132
+    },
+    {
+      "px": 5,
+      "count": 3
+    },
+    {
+      "px": 7,
+      "count": 3
+    },
+    {
+      "px": 9,
+      "count": 18
+    },
+    {
+      "px": 10,
+      "count": 1687
+    },
+    {
+      "px": 12,
+      "count": 9
+    },
+    {
+      "px": 14,
+      "count": 21
+    },
+    {
+      "px": 15,
+      "count": 3
+    },
+    {
+      "px": 17,
+      "count": 6
+    },
+    {
+      "px": 20,
+      "count": 9
+    },
+    {
+      "px": 22,
+      "count": 12
+    },
+    {
+      "px": 23,
+      "count": 3
+    },
+    {
+      "px": 25,
+      "count": 6
+    },
+    {
+      "px": 44,
+      "count": 2
+    },
+    {
+      "px": 60,
+      "count": 4
+    },
+    {
+      "px": 66,
+      "count": 12
+    },
+    {
+      "px": 74,
+      "count": 3
+    },
+    {
+      "px": 84,
+      "count": 18
+    }
+  ],
+  "briefSection": [
+    {
+      "page": "/",
+      "breakpoint": "phone",
+      "nodeId": "h8Q9sPSCdz9HDRPIxV",
+      "name": "Briefs-layout",
+      "field": "gap",
+      "value": "20px",
+      "offValue": 20,
+      "nearest": 24
+    }
+  ],
+  "prioritySections": [
+    {
+      "page": "/",
+      "breakpoint": "desktop",
+      "nodeId": "MmeIA4odk",
+      "name": "Section - HERO",
+      "field": "gap",
+      "value": "14px",
+      "offValue": 14,
+      "nearest": 16
+    },
+    {
+      "page": "/",
+      "breakpoint": "desktop",
+      "nodeId": "iSAn89Fnc",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 66,
+      "nearest": 64
+    },
+    {
+      "page": "/",
+      "breakpoint": "desktop",
+      "nodeId": "iSAn89Fnc",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 22,
+      "nearest": 24
+    },
+    {
+      "page": "/",
+      "breakpoint": "desktop",
+      "nodeId": "iSAn89Fnc",
+      "name": "Section - HERO",
+      "field": "gap",
+      "value": "14px",
+      "offValue": 14,
+      "nearest": 16
+    },
+    {
+      "page": "/",
+      "breakpoint": "desktop",
+      "nodeId": "JrXEIx_Qp",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 66,
+      "nearest": 64
+    },
+    {
+      "page": "/",
+      "breakpoint": "desktop",
+      "nodeId": "JrXEIx_Qp",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 22,
+      "nearest": 24
+    },
+    {
+      "page": "/",
+      "breakpoint": "desktop",
+      "nodeId": "JrXEIx_Qp",
+      "name": "Section - HERO",
+      "field": "gap",
+      "value": "14px",
+      "offValue": 14,
+      "nearest": 16
+    },
+    {
+      "page": "/",
+      "breakpoint": "desktop",
+      "nodeId": "CjiCw9173",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 66,
+      "nearest": 64
+    },
+    {
+      "page": "/",
+      "breakpoint": "desktop",
+      "nodeId": "CjiCw9173",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 22,
+      "nearest": 24
+    },
+    {
+      "page": "/",
+      "breakpoint": "desktop",
+      "nodeId": "CjiCw9173",
+      "name": "Section - HERO",
+      "field": "gap",
+      "value": "14px",
+      "offValue": 14,
+      "nearest": 16
+    },
+    {
+      "page": "/",
+      "breakpoint": "desktop",
+      "nodeId": "UWurnxJkX",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 66,
+      "nearest": 64
+    },
+    {
+      "page": "/",
+      "breakpoint": "desktop",
+      "nodeId": "UWurnxJkX",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 22,
+      "nearest": 24
+    },
+    {
+      "page": "/",
+      "breakpoint": "desktop",
+      "nodeId": "UWurnxJkX",
+      "name": "Section - HERO",
+      "field": "gap",
+      "value": "14px",
+      "offValue": 14,
+      "nearest": 16
+    },
+    {
+      "page": "/",
+      "breakpoint": "tablet",
+      "nodeId": "Z1LpPdvW7MmeIA4odk",
+      "name": "Section - HERO",
+      "field": "gap",
+      "value": "14px",
+      "offValue": 14,
+      "nearest": 16
+    },
+    {
+      "page": "/",
+      "breakpoint": "tablet",
+      "nodeId": "Z1LpPdvW7iSAn89Fnc",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 66,
+      "nearest": 64
+    },
+    {
+      "page": "/",
+      "breakpoint": "tablet",
+      "nodeId": "Z1LpPdvW7iSAn89Fnc",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 22,
+      "nearest": 24
+    },
+    {
+      "page": "/",
+      "breakpoint": "tablet",
+      "nodeId": "Z1LpPdvW7iSAn89Fnc",
+      "name": "Section - HERO",
+      "field": "gap",
+      "value": "14px",
+      "offValue": 14,
+      "nearest": 16
+    },
+    {
+      "page": "/",
+      "breakpoint": "tablet",
+      "nodeId": "Z1LpPdvW7JrXEIx_Qp",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 66,
+      "nearest": 64
+    },
+    {
+      "page": "/",
+      "breakpoint": "tablet",
+      "nodeId": "Z1LpPdvW7JrXEIx_Qp",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 22,
+      "nearest": 24
+    },
+    {
+      "page": "/",
+      "breakpoint": "tablet",
+      "nodeId": "Z1LpPdvW7JrXEIx_Qp",
+      "name": "Section - HERO",
+      "field": "gap",
+      "value": "14px",
+      "offValue": 14,
+      "nearest": 16
+    },
+    {
+      "page": "/",
+      "breakpoint": "tablet",
+      "nodeId": "Z1LpPdvW7CjiCw9173",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 66,
+      "nearest": 64
+    },
+    {
+      "page": "/",
+      "breakpoint": "tablet",
+      "nodeId": "Z1LpPdvW7CjiCw9173",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 22,
+      "nearest": 24
+    },
+    {
+      "page": "/",
+      "breakpoint": "tablet",
+      "nodeId": "Z1LpPdvW7CjiCw9173",
+      "name": "Section - HERO",
+      "field": "gap",
+      "value": "14px",
+      "offValue": 14,
+      "nearest": 16
+    },
+    {
+      "page": "/",
+      "breakpoint": "tablet",
+      "nodeId": "Z1LpPdvW7UWurnxJkX",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 66,
+      "nearest": 64
+    },
+    {
+      "page": "/",
+      "breakpoint": "tablet",
+      "nodeId": "Z1LpPdvW7UWurnxJkX",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 22,
+      "nearest": 24
+    },
+    {
+      "page": "/",
+      "breakpoint": "tablet",
+      "nodeId": "Z1LpPdvW7UWurnxJkX",
+      "name": "Section - HERO",
+      "field": "gap",
+      "value": "14px",
+      "offValue": 14,
+      "nearest": 16
+    },
+    {
+      "page": "/",
+      "breakpoint": "phone",
+      "nodeId": "h8Q9sPSCdMmeIA4odk",
+      "name": "Section - HERO",
+      "field": "gap",
+      "value": "14px",
+      "offValue": 14,
+      "nearest": 16
+    },
+    {
+      "page": "/",
+      "breakpoint": "phone",
+      "nodeId": "h8Q9sPSCdiSAn89Fnc",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 66,
+      "nearest": 64
+    },
+    {
+      "page": "/",
+      "breakpoint": "phone",
+      "nodeId": "h8Q9sPSCdiSAn89Fnc",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 22,
+      "nearest": 24
+    },
+    {
+      "page": "/",
+      "breakpoint": "phone",
+      "nodeId": "h8Q9sPSCdiSAn89Fnc",
+      "name": "Section - HERO",
+      "field": "gap",
+      "value": "14px",
+      "offValue": 14,
+      "nearest": 16
+    },
+    {
+      "page": "/",
+      "breakpoint": "phone",
+      "nodeId": "h8Q9sPSCdJrXEIx_Qp",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 66,
+      "nearest": 64
+    },
+    {
+      "page": "/",
+      "breakpoint": "phone",
+      "nodeId": "h8Q9sPSCdJrXEIx_Qp",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 22,
+      "nearest": 24
+    },
+    {
+      "page": "/",
+      "breakpoint": "phone",
+      "nodeId": "h8Q9sPSCdJrXEIx_Qp",
+      "name": "Section - HERO",
+      "field": "gap",
+      "value": "14px",
+      "offValue": 14,
+      "nearest": 16
+    },
+    {
+      "page": "/",
+      "breakpoint": "phone",
+      "nodeId": "h8Q9sPSCdCjiCw9173",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 66,
+      "nearest": 64
+    },
+    {
+      "page": "/",
+      "breakpoint": "phone",
+      "nodeId": "h8Q9sPSCdCjiCw9173",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 22,
+      "nearest": 24
+    },
+    {
+      "page": "/",
+      "breakpoint": "phone",
+      "nodeId": "h8Q9sPSCdCjiCw9173",
+      "name": "Section - HERO",
+      "field": "gap",
+      "value": "14px",
+      "offValue": 14,
+      "nearest": 16
+    },
+    {
+      "page": "/",
+      "breakpoint": "phone",
+      "nodeId": "h8Q9sPSCdUWurnxJkX",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 66,
+      "nearest": 64
+    },
+    {
+      "page": "/",
+      "breakpoint": "phone",
+      "nodeId": "h8Q9sPSCdUWurnxJkX",
+      "name": "Section - HERO",
+      "field": "padding",
+      "value": "66px 22px 24px 22px",
+      "offValue": 22,
+      "nearest": 24
+    },
+    {
+      "page": "/",
+      "breakpoint": "phone",
+      "nodeId": "h8Q9sPSCdUWurnxJkX",
+      "name": "Section - HERO",
+      "field": "gap",
+      "value": "14px",
+      "offValue": 14,
+      "nearest": 16
+    },
+    {
+      "page": "/",
+      "breakpoint": "phone",
+      "nodeId": "h8Q9sPSCdz9HDRPIxV",
+      "name": "Briefs-layout",
+      "field": "gap",
+      "value": "20px",
+      "offValue": 20,
+      "nearest": 24
+    },
+    {
+      "page": "/work",
+      "breakpoint": "desktop",
+      "nodeId": "Xj6FTSN1I",
+      "name": "Hero Content",
+      "field": "gap",
+      "value": "15px",
+      "offValue": 15,
+      "nearest": 16
+    },
+    {
+      "page": "/work",
+      "breakpoint": "desktop",
+      "nodeId": "AGIiuGOH3",
+      "name": "case study section headers",
+      "field": "gap",
+      "value": "10px",
+      "offValue": 10,
+      "nearest": 8
+    },
+    {
+      "page": "/work",
+      "breakpoint": "desktop",
+      "nodeId": "DUBCns4G3Xj6FTSN1I",
+      "name": "Hero Content",
+      "field": "gap",
+      "value": "15px",
+      "offValue": 15,
+      "nearest": 16
+    },
+    {
+      "page": "/work",
+      "breakpoint": "desktop",
+      "nodeId": "DUBCns4G3AGIiuGOH3",
+      "name": "case study section headers",
+      "field": "gap",
+      "value": "10px",
+      "offValue": 10,
+      "nearest": 8
+    },
+    {
+      "page": "/work",
+      "breakpoint": "desktop",
+      "nodeId": "FGGu5W986Xj6FTSN1I",
+      "name": "Hero Content",
+      "field": "gap",
+      "value": "15px",
+      "offValue": 15,
+      "nearest": 16
+    },
+    {
+      "page": "/work",
+      "breakpoint": "desktop",
+      "nodeId": "FGGu5W986AGIiuGOH3",
+      "name": "case study section headers",
+      "field": "gap",
+      "value": "10px",
+      "offValue": 10,
+      "nearest": 8
+    }
+  ],
+  "allByPage": {
+    "/": {
+      "total": 1663,
+      "byBp": [
+        {
+          "bp": "desktop",
+          "count": 554
+        },
+        {
+          "bp": "tablet",
+          "count": 554
+        },
+        {
+          "bp": "phone",
+          "count": 555
+        }
+      ],
+      "topIssues": [
+        {
+          "px": 10,
+          "count": 1488
+        },
+        {
+          "px": 4,
+          "count": 72
+        },
+        {
+          "px": 14,
+          "count": 21
+        },
+        {
+          "px": 9,
+          "count": 18
+        },
+        {
+          "px": 84,
+          "count": 18
+        },
+        {
+          "px": 22,
+          "count": 12
+        },
+        {
+          "px": 66,
+          "count": 12
+        },
+        {
+          "px": 17,
+          "count": 6
+        }
+      ]
+    },
+    "/org-impact": {
+      "total": 61,
+      "byBp": [
+        {
+          "bp": "desktop",
+          "count": 61
+        },
+        {
+          "bp": "tablet",
+          "count": 0
+        },
+        {
+          "bp": "phone",
+          "count": 0
+        }
+      ],
+      "topIssues": [
+        {
+          "px": 10,
+          "count": 59
+        },
+        {
+          "px": 44,
+          "count": 2
+        }
+      ]
+    },
+    "/contact": {
+      "total": 27,
+      "byBp": [
+        {
+          "bp": "desktop",
+          "count": 27
+        },
+        {
+          "bp": "tablet",
+          "count": 0
+        },
+        {
+          "bp": "phone",
+          "count": 0
+        }
+      ],
+      "topIssues": [
+        {
+          "px": 10,
+          "count": 12
+        },
+        {
+          "px": 12,
+          "count": 9
+        },
+        {
+          "px": 20,
+          "count": 6
+        }
+      ]
+    },
+    "/about": {
+      "total": 93,
+      "byBp": [
+        {
+          "bp": "desktop",
+          "count": 93
+        },
+        {
+          "bp": "tablet",
+          "count": 0
+        },
+        {
+          "bp": "phone",
+          "count": 0
+        }
+      ],
+      "topIssues": [
+        {
+          "px": 10,
+          "count": 65
+        },
+        {
+          "px": 4,
+          "count": 27
+        },
+        {
+          "px": 20,
+          "count": 1
+        }
+      ]
+    },
+    "/work": {
+      "total": 105,
+      "byBp": [
+        {
+          "bp": "desktop",
+          "count": 105
+        },
+        {
+          "bp": "tablet",
+          "count": 0
+        },
+        {
+          "bp": "phone",
+          "count": 0
+        }
+      ],
+      "topIssues": [
+        {
+          "px": 10,
+          "count": 61
+        },
+        {
+          "px": 4,
+          "count": 33
+        },
+        {
+          "px": 60,
+          "count": 4
+        },
+        {
+          "px": 5,
+          "count": 3
+        },
+        {
+          "px": 15,
+          "count": 3
+        },
+        {
+          "px": 20,
+          "count": 1
+        }
+      ]
+    },
+    "/recruiter-brief": {
+      "total": 0,
+      "byBp": [
+        {
+          "bp": "desktop",
+          "count": 0
+        },
+        {
+          "bp": "tablet",
+          "count": 0
+        },
+        {
+          "bp": "phone",
+          "count": 0
+        }
+      ],
+      "topIssues": []
+    },
+    "/hiring-mgr-brief": {
+      "total": 0,
+      "byBp": [
+        {
+          "bp": "desktop",
+          "count": 0
+        },
+        {
+          "bp": "tablet",
+          "count": 0
+        },
+        {
+          "bp": "phone",
+          "count": 0
+        }
+      ],
+      "topIssues": []
+    },
+    "/founder-brief": {
+      "total": 2,
+      "byBp": [
+        {
+          "bp": "desktop",
+          "count": 2
+        },
+        {
+          "bp": "tablet",
+          "count": 0
+        },
+        {
+          "bp": "phone",
+          "count": 0
+        }
+      ],
+      "topIssues": [
+        {
+          "px": 10,
+          "count": 2
+        }
+      ]
+    }
+  }
+}

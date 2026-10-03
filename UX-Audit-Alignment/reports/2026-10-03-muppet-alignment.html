@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>The Muppet Personality Project, Prototype alignment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shell/report.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="kicker">Prototype alignment audit</p>
+      <h1>The quiz is the job.<br><span class="hl">The rail disagrees.</span></h1>
+      <p class="lede">The product context names one primary surface: quiz, then result. The built site puts that quiz in a rail of eleven equal destinations, including a demo store, trivia, news, and a show builder that does not need a match.</p>
+      <ul class="hero-facts">
+        <li><b>11</b><span>equal items in the rail</span></li>
+        <li><b>1</b><span>primary job in the product context</span></li>
+        <li><b>0</b><span>earlier snapshots in the repo</span></li>
+      </ul>
+    </div>
+  </header>
+
+  <nav class="section-nav" aria-label="Report sections">
+    <div class="wrap">
+      <a href="#summary">01 Principles</a>
+      <a href="#map">02 IA tree</a>
+      <a href="#experience">03 Journey</a>
+      <a href="#loop">04 Loop</a>
+      <a href="#newprobs">05 Risks</a>
+      <a href="#redundancy">06 Friction</a>
+      <a href="#jtbd">07 Test plan</a>
+    </div>
+  </nav>
+
+  <section id="summary">
+    <div class="wrap">
+      <h2><span class="num">01</span>Codified principles</h2>
+      <p class="section-lead">Rules the built site is already following. Each one can be checked against the tree and the journey.</p>
+      <ol class="principles">
+        <li><span><b>The quiz is the front door.</b> The home hero button is “Take the quiz,” and the page closes on “Start the quiz.”</span></li>
+        <li><span><b>Compare borrows the quiz.</b> An invite opens <span class="mono">/quiz?compare=</span>, keeps the same twelve questions, and only changes the badge to “Friend compare” and the title to “Take the quiz to compare.”</span></li>
+        <li><span><b>The result is the handoff.</b> “Copy share link,” “Compare with a friend,” and “Build your Muppet show” all sit on the result, not in the rail.</span></li>
+        <li><span><b>The directory holds the cast.</b> “Read the full profile” goes to a <span class="mono">/muppets/[slug]</span> page. Home’s “See full directory” goes to “Muppet Directory.”</span></li>
+        <li><span><b>Theory is a preface, not a gate.</b> The secondary hero action is “Read the theory first.” The quiz never requires Theory.</span></li>
+        <li><span><b>A show is five steps, then a card.</b> Show builder steps are Show details, Director, Main cast, Conflict, and Finale. Submit publishes an episode card.</span></li>
+        <li><span><b>An invite is not a shared session.</b> “Compare with a friend” on the result creates a token. The friend takes the quiz separately.</span></li>
+        <li><span><b>The rail does not rank jobs.</b> Quiz, Compare, Show, Muppets, Theory, News, Leaderboard, Trivia, Store, Contact, and About render as the same kind of link.</span></li>
+        <li><span><b>A name is optional.</b> The last quiz step says “What should we call you on your result? Totally optional.” The field placeholder is “Anonymous Fan.”</span></li>
+        <li><span><b>A result does not require an account.</b> Home says “No email required to see your result.” The product context says storage is file-based JSON, with no user accounts.</span></li>
+      </ol>
+      <div class="toolbar">
+        <button class="btn" type="button" onclick="downloadPrinciplesMd()">Download .md</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="map">
+    <div class="wrap">
+      <h2><span class="num">02</span>IA tree</h2>
+      <p class="section-lead">Every destination in the built site, starting at the product rather than at the quiz. No node is marked new or moved: this repo has no earlier production snapshot to diff against.</p>
+      <div class="tree-tools">
+        <span></span>
+        <div>
+          <button class="btn" id="btn-expand" type="button">Expand all</button>
+          <button class="btn" id="btn-collapse" type="button">Collapse</button>
+        </div>
+      </div>
+      <div class="explorer">
+        <div id="tree"></div>
+        <div id="detail"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2><span class="num">03</span>End-to-end journey</h2>
+      <p class="section-lead">Alex wants a match, then wants a friend to take the same quiz. The result page is where that loop can close. The rail offers several ways to leave before it does.</p>
+
+      <div class="flow-node">
+        <div class="num">1</div>
+        <div>
+          <h4>Land on the pitch</h4>
+          <div class="crumbs">Home</div>
+          <p>Alex reads “Which Muppet are you, actually?” and the line “Answer twelve questions.” The accent button is “Take the quiz.” Beside it, “Read the theory first” is available and not required.</p>
+        </div>
+      </div>
+      <div class="flow-node">
+        <div class="num">2</div>
+        <div>
+          <h4>Answer the curtain question</h4>
+          <div class="crumbs">Home → Quiz</div>
+          <p>The title is “The Muppet Personality Quiz.” Question one asks, “Backstage, five minutes before curtain, something is on fire (again). You:” Alex chooses “Add it to the show — the audience will love it,” then clicks Next. Eleven questions remain. Back is available after the first answer.</p>
+        </div>
+      </div>
+      <div class="flow-node">
+        <div class="num">3</div>
+        <div>
+          <h4>Name the result, optionally</h4>
+          <div class="crumbs">Home → Quiz</div>
+          <p>The last step is titled “One last thing” and says “What should we call you on your result? Totally optional.” Alex types Alex. The button reads “See my result,” then “Matching you…” while the result is saved.</p>
+        </div>
+      </div>
+      <div class="flow-node">
+        <div class="num">4</div>
+        <div>
+          <h4>Read the match</h4>
+          <div class="crumbs">Home → Quiz → Result</div>
+          <p>The page says “You are…” and the name of one of the fourteen cast members, plus trait bars and a runner-up when one exists. This audit does not claim which cast member Alex matched. That depends on the twelve answers.</p>
+        </div>
+      </div>
+
+      <div class="flow-fork">
+        <div class="flow-branch">
+          <h6>Copy share link</h6>
+          <p>The button label flips to “Link copied!” The result URL can be sent as-is. No friend quiz is started.</p>
+        </div>
+        <div class="flow-branch">
+          <h6>Compare with a friend</h6>
+          <p>The button creates an invite and opens Compare invite. This is the only control that starts a compare.</p>
+        </div>
+        <div class="flow-branch">
+          <h6>Leave the match</h6>
+          <p>“Read the full profile,” “Take it again,” and “Build your Muppet show” are also on this page. The show path does not use the match.</p>
+        </div>
+      </div>
+      <div class="flow-merge">→ Alex chooses Compare with a friend</div>
+
+      <div class="flow-node">
+        <div class="num">5</div>
+        <div>
+          <h4>Wait for the friend</h4>
+          <div class="crumbs">Result → Compare invite</div>
+          <p>Before the friend finishes, the page title is “Waiting for friend.” The friend is sent to the quiz with the compare token. If the invite expires, the page says “This compare link timed out” and offers “Take the quiz” and “About compare.”</p>
+        </div>
+      </div>
+      <div class="flow-node">
+        <div class="num">6</div>
+        <div>
+          <h4>Friend takes the same quiz</h4>
+          <div class="crumbs">Compare invite → Quiz</div>
+          <p>The friend’s quiz badge is “Friend compare” and the title is “Take the quiz to compare.” The questions are the same Quiz set. There is no second questionnaire.</p>
+        </div>
+      </div>
+      <div class="flow-node">
+        <div class="num">7</div>
+        <div>
+          <h4>The verdict closes the loop</h4>
+          <div class="crumbs">Quiz → Compare invite</div>
+          <p>The page title becomes “Compare results.” The heading is one of five verdicts from the compare model: “Same Muppet, same energy,” “Near twins backstage,” “Opposites, on purpose,” “The classic duo,” or “Different icons, shared stage.” Two result cards, a trait-overlap panel, and “Map distance” sit under it. The actions are “Copy compare link,” “Take the quiz,” and “Build your Muppet show.”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="loop">
+    <div class="wrap">
+      <h2><span class="num">04</span>Match, then hand off</h2>
+      <p class="method-note">This section follows the orchestrator and the report architecture. The detailed pattern-extraction file was not in the source pack.</p>
+      <p class="section-lead">The structural loop is not a recommendation engine. It is: a signal on Home, twelve answers, a named result, then a handoff the result page has to offer because the rail will not.</p>
+
+      <div class="loop-stage">
+        <h3>Stage 1, Signal</h3>
+        <ul class="loop-list">
+          <li>Home states the job in the headline and in “Answer twelve questions.”</li>
+          <li>The same page also offers Compare, Show, Theory, Trivia, Store, and Leaderboard before the quiz starts.</li>
+        </ul>
+        <div class="loop-mini-card">From the journey: Alex can click “Take the quiz” or leave through “Open show builder,” which skips the explainer and opens Show builder.</div>
+      </div>
+      <div class="loop-stage">
+        <h3>Stage 2, Answer</h3>
+        <ul class="loop-list">
+          <li>QuizWizard asks twelve questions. Next and Back move through them.</li>
+          <li>Compare does not add questions. It sets <span class="mono">?compare=</span> on the same wizard.</li>
+        </ul>
+        <div class="loop-mini-card">From the journey: “Add it to the show — the audience will love it” is a real option on question one, not a paraphrase.</div>
+      </div>
+      <div class="loop-stage">
+        <h3>Stage 3, Reveal</h3>
+        <ul class="loop-list">
+          <li>Result says “You are…” plus a cast name, trait bars, and a runner-up link into Profile.</li>
+          <li>The page is the first place the match can be shared, compared, or abandoned for the show builder.</li>
+        </ul>
+        <div class="loop-mini-card">From the journey: “See my result” is the commit. “Copy share link” does not create an invite.</div>
+      </div>
+      <div class="loop-stage">
+        <h3>Stage 4, Hand off</h3>
+        <ul class="loop-list">
+          <li>“Compare with a friend” creates the invite and opens Compare invite.</li>
+          <li>The loop closes when Compare results shows a verdict headline, two cards, and a map distance.</li>
+        </ul>
+        <div class="loop-targets">
+          <div class="loop-targets-head">The four places a finished match can go</div>
+          <div class="loop-target"><b>Copy share link</b> — copies the result URL. No second person enters the quiz.</div>
+          <div class="loop-target"><b>Compare with a friend</b> — creates the token and waits on Compare invite.</div>
+          <div class="loop-target"><b>Read the full profile</b> — opens that cast member’s Profile.</div>
+          <div class="loop-target"><b>Build your Muppet show</b> — opens Show builder with no requirement to use the match.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="newprobs">
+    <div class="wrap">
+      <h2><span class="num">05</span>Risks</h2>
+      <p class="method-note">This section follows the orchestrator and the report architecture. The detailed risk-rubric file was not in the source pack. Severity here is the blast radius stated in the row, not a separate score.</p>
+      <div class="table-wrap">
+        <table>
+          <tr><th>#</th><th>Risk</th><th>Severity</th><th>Why it hurts</th></tr>
+          <tr>
+            <td>1</td>
+            <td>Eleven equal rail items</td>
+            <td><span class="pill high">High</span></td>
+            <td>NavLinks gives Store, News, Trivia, and Leaderboard the same treatment as Quiz. A first visit can miss “Discover my Muppet match,” the primary job in the product context. Blast radius: the whole first screen.</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Compare in the rail cannot start a compare</td>
+            <td><span class="pill med">Medium</span></td>
+            <td>Nav “Compare” opens an explainer whose button is “Take the quiz first.” The invite is created only by “Compare with a friend” on the result. Blast radius: anyone who starts from the rail item named Compare.</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Show builder ignores the match</td>
+            <td><span class="pill med">Medium</span></td>
+            <td>Home links “Open show builder” straight to Show builder. The five steps never require a quiz result, so the episode card can be unrelated to “which Muppet are you.” Blast radius: the show job, and the result-page handoff that offers it anyway.</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>No baseline to price the drift</td>
+            <td><span class="pill low">Low</span></td>
+            <td>The product context says the primary surface is Quiz → Result, and the repo contains the expanded site. There is no older snapshot, so this audit cannot say what was added later or what a migration would cost. Blast radius: the confidence of every “new” claim. None are marked new.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="redundancy">
+    <div class="wrap">
+      <h2><span class="num">06</span>Friction and resolutions</h2>
+      <p class="section-lead">Places the same job has two doors, or a door that looks like the job and is not.</p>
+      <div class="table-wrap">
+        <table>
+          <tr><th>Friction</th><th>What’s happening</th><th>Contract</th></tr>
+          <tr>
+            <td>Compare has two doors</td>
+            <td>The rail opens Compare, an explainer that sends Alex to Quiz. The result opens Compare invite by creating a token. Only the second one starts the friend loop.</td>
+            <td>The result button is the only invite creator. The rail page is instructions. That split is already true in the code. It is not explained on the explainer.</td>
+          </tr>
+          <tr>
+            <td>Show has two doors</td>
+            <td>Nav “Show” opens the five-step explainer. Home’s “Open show builder” skips it and opens Show builder. “Start building” on the explainer also goes to Show builder.</td>
+            <td>Show is the explainer. Show builder is the wizard. Home currently treats the wizard as the front door.</td>
+          </tr>
+          <tr>
+            <td>The verdict does not return to the profiles</td>
+            <td>Compare results shows two cast names and then “Copy compare link,” “Take the quiz,” and “Build your Muppet show.” “Read the full profile” exists only on Result.</td>
+            <td>No contract in the IA yet. Stated intention, not a shipped rule: each verdict card should reach that cast member’s Profile.</td>
+          </tr>
+          <tr class="resolved">
+            <td>A second quiz <span class="pill ok">Resolved</span></td>
+            <td>Compare could have shipped its own questions. It does not. The friend path reuses QuizWizard and changes the badge and title.</td>
+            <td>Friend compare is <span class="mono">/quiz?compare=</span>. One question set. This is already reflected in Quiz and in the journey.</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="jtbd">
+    <div class="wrap">
+      <h2><span class="num">07</span>Usability test plan</h2>
+      <p class="section-lead">Hypothesis-driven, not yet field-validated. The product context lists jobs and does not cite a research study. No prior usability report is in this repo.</p>
+
+      <div class="jtbd-pillar">
+        <h3>Match</h3>
+        <p class="jtbd-pillar-sub">Tests “The quiz is the front door” and the eleven-item rail.</p>
+        <div class="jtbd-grid">
+          <div class="jtbd-card">
+            <div class="jtbd-card-num">1</div>
+            <h4>Find the quiz from the home page</h4>
+            <p class="jtbd-scenario">“You want to find out which Muppet you are. Start from the home page and get as far as the first question.”</p>
+            <p><b>Success</b> The participant clicks “Take the quiz” or “Start the quiz” and reaches “The Muppet Personality Quiz” without opening Store, News, or Trivia.</p>
+            <p><b>Tests</b> Principle “The quiz is the front door,” and risk 1.</p>
+          </div>
+          <div class="jtbd-card">
+            <div class="jtbd-card-num">2</div>
+            <h4>Finish without inventing an account</h4>
+            <p class="jtbd-scenario">“Answer the questions however you like. When it asks what to call you, decide whether to type a name. Get to the page that tells you who you are.”</p>
+            <p><b>Success</b> The participant reaches Result. If they skip the name, the result still loads. They do not look for a sign-up form.</p>
+            <p><b>Tests</b> “A name is optional” and “A result does not require an account.”</p>
+          </div>
+          <div class="jtbd-card">
+            <div class="jtbd-card-num">3</div>
+            <h4>Tell the result from the directory</h4>
+            <p class="jtbd-scenario">“You’re on the page that says which Muppet you are. Open the full write-up of that character, then come back.”</p>
+            <p><b>Success</b> The participant uses “Read the full profile,” lands on that Profile, and can say it is the cast page rather than their personal result.</p>
+            <p><b>Tests</b> “The directory holds the cast.”</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="jtbd-pillar">
+        <h3>Compare</h3>
+        <p class="jtbd-pillar-sub">Tests the two Compare doors and the reused quiz.</p>
+        <div class="jtbd-grid">
+          <div class="jtbd-card">
+            <div class="jtbd-card-num">4</div>
+            <h4>Start a compare from the rail</h4>
+            <p class="jtbd-scenario">“You have not taken the quiz. A friend wants to compare results. Use the site navigation, not the home-page cards, and try to start that.”</p>
+            <p><b>Success</b> The participant opens Compare, hits “Take the quiz first,” and can say they do not yet have an invite link.</p>
+            <p><b>Tests</b> Friction “Compare has two doors,” and risk 2.</p>
+          </div>
+          <div class="jtbd-card">
+            <div class="jtbd-card-num">5</div>
+            <h4>Start a compare from the result</h4>
+            <p class="jtbd-scenario">“You already have a result. Send your friend something they can use to take the quiz against you.”</p>
+            <p><b>Success</b> The participant clicks “Compare with a friend,” lands on Compare invite, and does not click “Copy share link” first. If they do, they notice it did not create the invite and recover without help.</p>
+            <p><b>Tests</b> “An invite is not a shared session,” and the handoff targets in section 04.</p>
+          </div>
+          <div class="jtbd-card">
+            <div class="jtbd-card-num">6</div>
+            <h4>Recognize the friend’s quiz</h4>
+            <p class="jtbd-scenario">“Your friend opens the invite. Before answering, say what this quiz is for.”</p>
+            <p><b>Success</b> The participant reads “Friend compare” or “Take the quiz to compare” and does not describe it as a different quiz.</p>
+            <p><b>Tests</b> “Compare borrows the quiz,” and the resolved second-quiz row.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="jtbd-pillar">
+        <h3>Show</h3>
+        <p class="jtbd-pillar-sub">Tests whether the episode card is understood as optional, and separate from the match.</p>
+        <div class="jtbd-grid">
+          <div class="jtbd-card">
+            <div class="jtbd-card-num">7</div>
+            <h4>Reach the builder from Home</h4>
+            <p class="jtbd-scenario">“You want to cast a short Muppet show. Start on the home page. Get to the step that asks for a director.”</p>
+            <p><b>Success</b> The participant uses “Open show builder” or the Show rail plus “Start building,” and reaches the Director step. Note which door they used.</p>
+            <p><b>Tests</b> Friction “Show has two doors.”</p>
+          </div>
+          <div class="jtbd-card">
+            <div class="jtbd-card-num">8</div>
+            <h4>Notice the quiz is not required</h4>
+            <p class="jtbd-scenario">“You have not taken the personality quiz. Build a show anyway, using any cast members, and publish the episode card.”</p>
+            <p><b>Success</b> The participant completes Show details, Director, Main cast, Conflict, and Finale and reaches an episode card without being sent to Quiz.</p>
+            <p><b>Tests</b> Risk 3, “Show builder ignores the match.”</p>
+          </div>
+          <div class="jtbd-card">
+            <div class="jtbd-card-num">9</div>
+            <h4>Leave the verdict without losing the match</h4>
+            <p class="jtbd-scenario">“You’re looking at a finished compare. You want the full profile of one of the two Muppets, not a new quiz and not a show.”</p>
+            <p><b>Success</b> Watch the path. The shipped page does not offer “Read the full profile” here. Record whether the participant hunts, gives up, or leaves through “Take the quiz.”</p>
+            <p><b>Tests</b> Friction “The verdict does not return to the profiles.”</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="report-footer">
+    <div class="wrap">
+      Prepared for talk attendees · source vision: Product Context — Muppet Personality Project, updated 2026-07-18, no named author · baseline: routes in this repository on 2026-10-03; no earlier production snapshot
+    </div>
+  </footer>
+
+  <script>
+    window.IA_TREE = {
+      id: "site",
+      label: "Muppet Personality Project",
+      iconClass: "home",
+      iconName: "home",
+      detail: {
+        one_liner: "A fan quiz that also ships compare, a show builder, a cast directory, and several peer extras.",
+        purpose: "The whole product. The rail treats every top-level destination as a peer.",
+        contents: ["Home hero and the eleven-item nav", "No account gate"],
+        rationale: "Lives at the root because the audit is about the product, not a single feature. Principle: the rail does not rank jobs.",
+        sources: [{ kind: "canon", label: "product-context.md", note: "updated 2026-07-18" }]
+      },
+      children: [
+        {
+          id: "home",
+          label: "Home",
+          iconClass: "quiz",
+          iconName: "home",
+          detail: {
+            one_liner: "Which Muppet are you, actually?",
+            purpose: "Pitch the quiz and offer the other jobs before the visitor has a match.",
+            contents: ["Take the quiz", "Read the theory first", "Compare, show, and theory cards", "Trivia, store, and leaderboard cards", "Start the quiz"],
+            rationale: "The hero follows “The quiz is the front door.” The cards below it follow “The rail does not rank jobs.”",
+            sketch: "HERO  Which Muppet are you, actually?\n      [Take the quiz]  [Read the theory first]\nCAST  four cards → See full directory\nJOBS  Compare · Show · Theory\nALSO  Trivia · Store · Leaderboard",
+            touchpoints: ["Nav is present here too"]
+          }
+        },
+        {
+          id: "quiz",
+          label: "Quiz",
+          iconClass: "quiz",
+          iconName: "quiz",
+          detail: {
+            one_liner: "The Muppet Personality Quiz",
+            purpose: "Collect twelve answers and an optional display name.",
+            contents: ["Badge Quiz, or Friend compare", "Next and Back", "One last thing", "See my result"],
+            rationale: "Primary surface in the product context. Compare reuses this screen instead of a second quiz.",
+            sketch: "Q1  something is on fire (again)\n    ( ) Add it to the show — the audience will love it\n                         Back    Next",
+            touchpoints: ["Home", "Compare", "Show", "Compare invite"]
+          },
+          children: [
+            {
+              id: "result",
+              label: "Result",
+              iconClass: "quiz",
+              iconName: "quiz",
+              detail: {
+                one_liner: "You are… plus a cast name.",
+                purpose: "Show the match and offer the only real handoffs.",
+                contents: ["Trait bars", "Runner-up", "Copy share link", "Read the full profile", "Take it again", "Compare with a friend", "Build your Muppet show"],
+                rationale: "The result is the handoff. Compare and Show are offered here because finishing the quiz is what makes them meaningful.",
+                touchpoints: ["Profile", "Compare invite", "Show builder"]
+              }
+            }
+          ]
+        },
+        {
+          id: "compare",
+          label: "Compare",
+          iconClass: "compare",
+          iconName: "users",
+          detail: {
+            one_liner: "Compare with a friend",
+            purpose: "Explain the invite loop. It does not create the invite.",
+            contents: ["Four numbered steps", "Take the quiz first", "Back to home"],
+            rationale: "A rail peer of Quiz, which is why risk 2 exists. The actual invite control lives on Result.",
+            touchpoints: ["Quiz", "Result"]
+          },
+          children: [
+            {
+              id: "compare-invite",
+              label: "Compare invite",
+              iconClass: "compare",
+              iconName: "users",
+              detail: {
+                one_liner: "Waiting for friend, then Compare results.",
+                purpose: "Hold the token, then show the verdict once both quizzes exist.",
+                contents: ["Take the quiz to compare, while waiting", "This compare link timed out", "A verdict headline", "Two result cards", "Trait overlap and map distance", "Copy compare link", "Take the quiz", "Build your Muppet show"],
+                rationale: "One route, two states. Splitting them into two destinations would invent a screen.",
+                touchpoints: ["Quiz", "Show builder"]
+              }
+            }
+          ]
+        },
+        {
+          id: "show",
+          label: "Show",
+          iconClass: "show",
+          iconName: "stage",
+          detail: {
+            one_liner: "Build your Muppet show",
+            purpose: "Explain the five steps before the wizard.",
+            contents: ["Start building", "Take the quiz first"],
+            rationale: "The explainer is the rail destination. Home bypasses it.",
+            touchpoints: ["Show builder", "Quiz"]
+          },
+          children: [
+            {
+              id: "show-build",
+              label: "Show builder",
+              iconClass: "show",
+              iconName: "stage",
+              detail: {
+                one_liner: "Five steps from pitch to episode card.",
+                purpose: "Collect a show without requiring a personality match.",
+                contents: ["Show details", "Director", "Main cast", "Conflict", "Finale"],
+                rationale: "A show is five steps, then a card. The quiz-first link on the explainer is optional.",
+                touchpoints: ["Home", "Result", "Episode card"]
+              }
+            },
+            {
+              id: "episode",
+              label: "Episode card",
+              iconClass: "show",
+              iconName: "stage",
+              detail: {
+                one_liner: "The published show.",
+                purpose: "Show the episode that was just saved.",
+                contents: ["Episode title", "Build another show", "Compare with a friend, linking to the Compare explainer"],
+                rationale: "The publish target of Show builder. The compare button here opens Compare. It does not create an invite.",
+                touchpoints: ["Show builder", "Compare"]
+              }
+            }
+          ]
+        },
+        {
+          id: "muppets",
+          label: "Muppet directory",
+          iconClass: "cast",
+          iconName: "cast",
+          detail: {
+            one_liner: "Fourteen archetypes.",
+            purpose: "Browse the cast without taking the quiz.",
+            contents: ["Cast list", "Links into each Profile"],
+            rationale: "The directory holds the cast. It is a peer of Quiz, not a step inside it.",
+            touchpoints: ["Home", "Profile", "Result"]
+          },
+          children: [
+            {
+              id: "profile",
+              label: "Profile",
+              iconClass: "cast",
+              iconName: "cast",
+              detail: {
+                one_liner: "One cast member.",
+                purpose: "The full write-up linked from the result and the directory.",
+                contents: ["Cast name as the page title"],
+                rationale: "Separated from Result so a personal match and a public profile are not the same page.",
+                touchpoints: ["Result", "Muppet directory"]
+              }
+            }
+          ]
+        },
+        {
+          id: "theory",
+          label: "Theory",
+          iconClass: "cast",
+          iconName: "book",
+          detail: {
+            one_liner: "The Theory",
+            purpose: "Explain the four traits. Not required to be matched.",
+            contents: ["Long-form explanation of the model"],
+            rationale: "Theory is a preface, not a gate. Home offers it beside the quiz.",
+            touchpoints: ["Home"]
+          }
+        },
+        {
+          id: "news",
+          label: "News",
+          iconClass: "extra",
+          iconName: "book",
+          detail: {
+            one_liner: "News",
+            purpose: "Community stories, peer to the quiz in the rail.",
+            contents: ["Story list"],
+            rationale: "Product context lists news as a job. The rail gives it equal rank with Quiz.",
+            touchpoints: ["Article"]
+          },
+          children: [
+            {
+              id: "article",
+              label: "Article",
+              iconClass: "extra",
+              iconName: "book",
+              detail: {
+                one_liner: "One news story.",
+                purpose: "Read a single article.",
+                contents: ["Title from that article"],
+                rationale: "A child of News, not a rail item.",
+                touchpoints: ["News"]
+              }
+            }
+          ]
+        },
+        {
+          id: "leaderboard",
+          label: "Leaderboard",
+          iconClass: "extra",
+          iconName: "pin",
+          detail: {
+            one_liner: "Leaderboard",
+            purpose: "Show common matches and trivia ranks.",
+            contents: ["Match frequency", "Trivia ranks"],
+            rationale: "A peer extra. Home also links it from the lower card row.",
+            touchpoints: ["Home", "Trivia"]
+          }
+        },
+        {
+          id: "trivia",
+          label: "Trivia",
+          iconClass: "extra",
+          iconName: "quiz",
+          detail: {
+            one_liner: "Trivia Night",
+            purpose: "A second question set, separate from the personality quiz.",
+            contents: ["Eight questions, per the home card", "Submit a score"],
+            rationale: "Not the match quiz. Placing it in the same rail is part of risk 1.",
+            touchpoints: ["Home", "Leaderboard"]
+          }
+        },
+        {
+          id: "store",
+          label: "Store",
+          iconClass: "extra",
+          iconName: "bag",
+          detail: {
+            one_liner: "Store",
+            purpose: "Demo merch. The product context says there is no real payment processing.",
+            contents: ["Catalog"],
+            rationale: "A peer of Quiz in the rail even though the product context calls the store a demo.",
+            touchpoints: ["Cart"]
+          },
+          children: [
+            {
+              id: "cart",
+              label: "Cart",
+              iconClass: "extra",
+              iconName: "bag",
+              detail: {
+                one_liner: "Your Cart",
+                purpose: "Hold demo merch before checkout.",
+                contents: ["Cart contents"],
+                rationale: "Child of Store, not a rail item.",
+                touchpoints: ["Store", "Checkout"]
+              }
+            },
+            {
+              id: "checkout",
+              label: "Checkout",
+              iconClass: "extra",
+              iconName: "bag",
+              detail: {
+                one_liner: "Checkout",
+                purpose: "Demo checkout. Not real payment.",
+                contents: ["Checkout form"],
+                rationale: "Included so the store is not described as a single page when the routes go further.",
+                sources: [{ kind: "canon", label: "product-context.md", note: "No real payment processing" }],
+                touchpoints: ["Cart", "Order confirmed"]
+              }
+            },
+            {
+              id: "order",
+              label: "Order confirmed",
+              iconClass: "extra",
+              iconName: "bag",
+              detail: {
+                one_liner: "Order Confirmed",
+                purpose: "The end of the demo purchase.",
+                contents: ["Confirmation"],
+                rationale: "Child of Store.",
+                touchpoints: ["Checkout"]
+              }
+            }
+          ]
+        },
+        {
+          id: "contact",
+          label: "Contact",
+          iconClass: "extra",
+          iconName: "dot",
+          detail: {
+            one_liner: "Contact",
+            purpose: "Utility page in the same rail as the quiz.",
+            contents: ["Contact form or details on that page"],
+            rationale: "Kept in the tree because it is a real nav item. It is not part of the match loop.",
+            touchpoints: ["Nav"]
+          }
+        },
+        {
+          id: "about",
+          label: "About",
+          iconClass: "extra",
+          iconName: "dot",
+          detail: {
+            one_liner: "About & Credits",
+            purpose: "Credits and project context.",
+            contents: ["About copy"],
+            rationale: "A rail peer, same as Contact. Not a step in the quiz.",
+            touchpoints: ["Nav"]
+          }
+        }
+      ]
+    };
+
+    function downloadPrinciplesMd() {
+      const lines = [...document.querySelectorAll("#summary .principles li")].map((li, index) => {
+        return (index + 1) + ". " + li.innerText.replace(/\s+/g, " ").trim();
+      });
+      const blob = new Blob([lines.join("\n\n") + "\n"], { type: "text/markdown" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "muppet-alignment-principles.md";
+      link.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+  <script src="../shell/tree.js"></script>
+</body>
+</html>

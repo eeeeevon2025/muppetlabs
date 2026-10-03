@@ -1,0 +1,35 @@
+PROTOTYPE ALIGNMENT AUDIT — CLAUDE DESIGN SOURCE FILES
+
+Purpose
+Use this example source pack to compare a proposed prototype or information architecture with its intended product vision/PRD and current production baseline. The requested report maps principles, navigation, journeys, risks, friction, and a draft usability test plan. It supports a team discussion about prototype drift and fragmented context.
+
+This is the prototype alignment audit demo companion. It is different from the field kit's resource 01, which audits claims and builds decision briefs.
+
+Contents
+The originals/ folder contains the eight supplied files, unchanged:
+- 00-orchestrator.md: inputs, section order, operating rules.
+- 01-principles-extraction.md: identify proposed structural principles.
+- 02-ia-tree-mapping.md: map destinations and differences from the baseline.
+- 03-journey-mapping.md: trace a concrete journey and its branches.
+- 06-friction-audit.md: examine ambiguity, duplication, and documented resolutions.
+- 07-usability-test-generator.md: draft scenarios and observable success criteria.
+- output-style-guide.md: source-specific visual instructions.
+- report-architecture.md: HTML/report structure and IA tree schema.
+
+Before using or sharing
+This is a source pack, not a complete application, installed skill, completed audit, or validated usability study.
+The orchestrator also references 04-pattern-extraction.md and 05-risk-assessment.md. Those files were not included in this upload. Obtain them before attempting the full prescribed seven-section workflow; do not silently invent their instructions or severity/confidence rubrics.
+The architecture describes building an interactive HTML report. It does not include a completed renderer, full CSS token block, production baseline, PRD, or prototype. Generation and testing are still required. Its font example loads Google Fonts, so that example is not fully offline.
+The style guide identifies its source as the Kustomer product design system. Confirm permission to redistribute and reuse that material before public release, or replace those styling instructions with an approved neutral style. This package does not grant third-party rights.
+
+Suggested use
+1. Unzip the pack. Review the source files and resolve the missing dependencies above.
+2. Use an AI environment approved for your project information. Provide only prototype, PRD/vision, and baseline material you are allowed to share with that environment and intended report audience.
+3. Attach the relevant files and project inputs. Start from 00-orchestrator.md; use the visual/build specifications only when generating the report presentation.
+4. Ask the assistant to identify inaccessible inputs and missing files before analysis. A document or URL does not create access. These files do not install connectors or grant permissions.
+5. Keep observed structure separate from inferred rationale, proposed improvements, and unknowns. Do not invent user research, values, destinations, resolutions, or evidence to meet a requested count. Treat example labels and values as examples, not facts about your project.
+6. Review the draft against its actual sources with the team. A prototype mismatch is a finding to discuss, not automatic proof that the prototype or PRD is wrong. Missing baseline evidence cannot establish migration cost.
+7. Review research tasks for neutrality and fit. An AI-generated test plan is a draft to run with appropriate participants, not completed validation. If HTML is generated, inspect and test its links, tree behavior, accessibility, and output before sharing or running it.
+
+Originals preserved
+All eight original files are included byte-for-byte. This introduction describes the package and its known limitations; it does not silently repair or replace the original methodology.

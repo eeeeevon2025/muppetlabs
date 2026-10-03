@@ -1,0 +1,502 @@
+/* =====================================================================
+   Kustomer Design System — Colors & Type
+   Based on the 2024 brand evolution: "Sunshine Yellow" leads a palette
+   with Periwinkle + Slate Green, paired with Quincy (serif display)
+   and a modern geometric sans for body.
+   ===================================================================== */
+
+/* ------- Webfonts ------- */
+/* Inter is the primary product/UI typeface, served from local variable files.
+   Kanvas (Kustomer's web design library) uses Inter at 13–16px for UI,
+   Space Mono / JetBrains Mono for code, and Quincy CF (licensed) for display
+   marketing moments — substituted with Fraunces until the licensed file is
+   provided. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/Inter-VariableFont_opsz_wght.ttf") format("truetype-variations"),
+       url("fonts/Inter-VariableFont_opsz_wght.ttf") format("truetype");
+  font-variation-settings: "opsz" 16;
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/Inter-Italic-VariableFont_opsz_wght.ttf") format("truetype-variations"),
+       url("fonts/Inter-Italic-VariableFont_opsz_wght.ttf") format("truetype");
+  font-variation-settings: "opsz" 16;
+}
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* =====================================================================
+     PRIMITIVE COLOR RAMPS — sourced directly from the Kustomer
+     "Color Tokens" Figma file (Color Palette → Light page).
+     Each ramp runs 10 → 130 in 5-step increments. The 70 step is the
+     "default" rest state for that hue.
+     ===================================================================== */
+
+  /* ---- Gray (neutral) ---- */
+  --gray-10:  #FCFDFF;
+  --gray-15:  #FAFBFE;
+  --gray-20:  #F6F7FA;
+  --gray-25:  #F2F3F7;
+  --gray-30:  #E8EAF0;
+  --gray-35:  #E2E5ED;
+  --gray-40:  #DCE0E9;
+  --gray-45:  #D7DBE5;
+  --gray-50:  #D1D6E1;
+  --gray-55:  #BBC2D2;
+  --gray-60:  #B3BBCB;
+  --gray-65:  #A7B0C0;
+  --gray-70:  #9099AB;
+  --gray-75:  #8992A4;
+  --gray-80:  #7C8596;
+  --gray-85:  #747D8E;
+  --gray-90:  #697182;
+  --gray-95:  #5F6675;
+  --gray-100: #545B68;
+  --gray-105: #4D535F;
+  --gray-110: #3F444F;
+  --gray-115: #2E333D;
+  --gray-120: #1F242D;   /* primary text */
+  --gray-125: #1C212B;
+  --gray-130: #161B25;
+  --gray-135: #121720;
+  --gray-140: #0D1119;
+  --gray-145: #080B11;
+  --gray-150: #010307;   /* primary inverse / Ink */
+
+  /* ---- Blue (primary action) ---- */
+  --blue-10:  #EBF1FF;
+  --blue-15:  #DBE7FF;
+  --blue-20:  #CBDCFF;
+  --blue-25:  #BBD1FF;
+  --blue-30:  #A3C1FF;
+  --blue-35:  #93B8FF;
+  --blue-40:  #77A7FF;
+  --blue-45:  #5C9AFF;
+  --blue-50:  #3F8CFF;
+  --blue-55:  #2886FF;
+  --blue-60:  #007CFF;
+  --blue-65:  #0175F6;
+  --blue-70:  #006CEC;   /* default action */
+  --blue-75:  #0165E4;
+  --blue-80:  #005BD8;
+  --blue-85:  #0152CA;
+  --blue-90:  #0047B9;
+  --blue-95:  #0140AE;
+  --blue-100: #00349A;
+  --blue-105: #0E3280;
+  --blue-110: #0D2873;
+  --blue-115: #11225E;
+  --blue-120: #00105B;
+  --blue-125: #010C4B;
+  --blue-130: #00022C;
+
+  /* ---- Purple ---- */
+  --purple-10:  #FAF4FF;
+  --purple-15:  #F5EBFD;
+  --purple-20:  #EBD2FF;
+  --purple-25:  #E7C7FF;
+  --purple-30:  #DDAFFF;
+  --purple-35:  #D8A6FA;
+  --purple-40:  #D189FF;
+  --purple-45:  #CD7DFC;
+  --purple-50:  #C65DFF;
+  --purple-55:  #C455FB;
+  --purple-60:  #C139FF;
+  --purple-65:  #BA34F4;
+  --purple-70:  #B31DF0;
+  --purple-75:  #A821E1;
+  --purple-80:  #9A24CD;
+  --purple-85:  #8E24BD;
+  --purple-90:  #7B22A4;
+  --purple-95:  #6E2092;
+  --purple-100: #5E1D7D;
+  --purple-105: #521A6D;
+  --purple-110: #43165A;
+  --purple-115: #38124C;
+  --purple-120: #2B0D3B;
+  --purple-125: #210A2E;
+  --purple-130: #0E0316;
+
+  /* ---- Red (danger) ---- */
+  --red-10:  #FFF4F4;
+  --red-15:  #FFE8E9;
+  --red-20:  #FFD0D2;
+  --red-25:  #FFC3C5;
+  --red-30:  #FFAAAD;
+  --red-35:  #FF9B9F;
+  --red-40:  #FF8186;
+  --red-45:  #FF6F75;
+  --red-50:  #FF4C55;
+  --red-55:  #F53F4E;
+  --red-60:  #FF0526;
+  --red-65:  #EB132B;
+  --red-70:  #E21325;
+  --red-75:  #CD1D2B;
+  --red-80:  #C41923;
+  --red-85:  #B01921;
+  --red-90:  #9E181E;
+  --red-95:  #8E171C;
+  --red-100: #7A1518;
+  --red-105: #6B1315;
+  --red-110: #590F11;
+  --red-115: #490C0D;
+  --red-120: #3A0909;
+  --red-125: #29070F;
+  --red-130: #160202;
+
+  /* ---- Yellow (warning) ---- */
+  --yellow-10:  #FFFEF2;
+  --yellow-15:  #FFFDE5;
+  --yellow-20:  #FEFAD2;
+  --yellow-25:  #FEF8C3;
+  --yellow-30:  #FDF4B2;
+  --yellow-35:  #FDF1A4;
+  --yellow-40:  #FCED92;
+  --yellow-45:  #FBE775;
+  --yellow-50:  #F9DF53;
+  --yellow-55:  #F7D530;
+  --yellow-60:  #F4CC10;
+  --yellow-65:  #F3CB18;
+  --yellow-70:  #F1C91E;
+  --yellow-75:  #E7C11F;
+  --yellow-80:  #DBB71E;
+  --yellow-85:  #CCAB1E;
+  --yellow-90:  #AF931D;
+  --yellow-95:  #9B831D;
+  --yellow-100: #826F1C;
+  --yellow-105: #79681D;
+  --yellow-110: #6C5E1C;
+  --yellow-115: #584E1C;
+  --yellow-120: #403A1B;
+  --yellow-125: #2E261A;
+  --yellow-130: #1F1F1A;
+
+  /* ---- Green (success) ---- */
+  --green-10:  #EAFBED;
+  --green-15:  #DBF5E0;
+  --green-20:  #91F0A5;
+  --green-25:  #87E79C;
+  --green-30:  #75D58A;
+  --green-35:  #6CCB81;
+  --green-40:  #5BBA71;
+  --green-45:  #4FB267;
+  --green-50:  #35A153;
+  --green-55:  #209C4B;
+  --green-60:  #00943D;
+  --green-65:  #018E3A;
+  --green-70:  #008435;
+  --green-75:  #017C32;
+  --green-80:  #00732E;
+  --green-85:  #016A2A;
+  --green-90:  #005D24;
+  --green-95:  #015520;
+  --green-100: #00481A;
+  --green-105: #013F16;
+  --green-110: #003411;
+  --green-115: #012B0D;
+  --green-120: #002108;
+  --green-125: #011606;
+  --green-130: #000A02;
+
+  /* ---- Teal (chat / info-secondary) ---- */
+  --teal-10:  #EAFBFA;
+  --teal-15:  #DEF7FA;
+  --teal-20:  #B9EEF9;
+  --teal-25:  #9EEEFA;
+  --teal-30:  #8FF4FF;
+  --teal-35:  #7EF2FF;
+  --teal-40:  #66EFFF;
+  --teal-45:  #50E9FA;
+  --teal-50:  #29E9FF;
+  --teal-55:  #1AE2F9;
+  --teal-60:  #00E5FF;
+  --teal-65:  #01DCF5;
+  --teal-70:  #00C9E0;
+  --teal-75:  #01C1D7;
+  --teal-80:  #00B6CC;
+  --teal-85:  #01A8BC;
+  --teal-90:  #0096A8;
+  --teal-95:  #018B9C;
+  --teal-100: #007B8A;
+  --teal-105: #016E7C;
+  --teal-110: #005966;
+  --teal-115: #014C58;
+  --teal-120: #003D47;
+  --teal-125: #012F37;
+  --teal-130: #001D24;
+
+  /* =====================================================================
+     CHANNEL COLORS — per-channel brand stamps used in conversation chips,
+     timeline icons and routing badges.
+     ===================================================================== */
+  --channel-chat:                var(--teal-90);   /* #0096A8 */
+  --channel-email:               var(--blue-70);
+  --channel-sms:                 var(--green-50);
+  --channel-voice:               var(--red-40);
+  --channel-note:                var(--yellow-70);
+  --channel-forward:             var(--yellow-50);
+  --channel-empty-convo:         var(--gray-70);
+  --channel-multichannel:        var(--purple-70);
+  --channel-facebook:            #7747FD;
+  --channel-facebook-wallpost:   #0082FF;
+  --channel-instagram-dm:        #B31DF0;
+  --channel-instagram-comment:   #CD486B;
+  --channel-twitter:             #00AEF3;
+  --channel-twitter-dm:          #27C8CE;
+  --channel-whatsapp:            #00AC4F;
+  --channel-zipwhip:             #FB713F;
+  --channel-gmail:               #D44638;
+  --channel-slack:               #3235C5;
+  --channel-form:                #007CFF;
+  --channel-portal:              #F4A11A;
+  --channel-tiktok-shop:         #FE2858;
+  --channel-other-apps:          var(--gray-50);
+
+  /* =====================================================================
+     LEGACY KUS-* ALIASES — keep ONLY for backwards compat with existing
+     prototypes. New work should reference the primitive ramps above or the
+     semantic tokens below.
+     ===================================================================== */
+  --kus-yellow:        var(--yellow-60);
+  --kus-yellow-soft:   var(--yellow-25);
+  --kus-yellow-deep:   var(--yellow-80);
+  --kus-periwinkle:        var(--blue-40);
+  --kus-periwinkle-soft:   var(--blue-15);
+  --kus-periwinkle-deep:   var(--blue-70);
+  --kus-ink:           var(--gray-120);
+  --kus-ink-80:        var(--gray-100);
+  --kus-ink-60:        var(--gray-80);
+  --kus-ink-40:        var(--gray-60);
+  --kus-ink-20:        var(--gray-40);
+  --kus-ink-10:        var(--gray-30);
+  --kus-ink-5:         var(--gray-20);
+  --kus-cream:         var(--gray-10);
+  --kus-paper:         #FFFFFF;
+  --kus-sand:          var(--yellow-15);
+  --kus-coral:         var(--red-50);
+  --kus-mint:          var(--green-30);
+  --kus-sky:           var(--teal-25);
+
+  /* Semantic state colors */
+  --color-success:     var(--green-70);
+  --color-success-bg:  var(--green-15);
+  --color-warning:     var(--yellow-70);
+  --color-warning-bg:  var(--yellow-20);
+  --color-danger:      var(--red-70);
+  --color-danger-bg:   var(--red-15);
+  --color-info:        var(--blue-70);
+  --color-info-bg:     var(--blue-15);
+
+  /* =====================================================================
+     SEMANTIC TOKENS — light theme. Mapped from the Kustomer Color Tokens
+     "Light" page. These are what product UI should consume; the primitive
+     ramps above are the source of truth, but components should reference
+     semantic tokens so dark-mode swaps work cleanly.
+     ===================================================================== */
+
+  /* Backgrounds */
+  --bg-primary:                  #FFFFFF;
+  --bg-primary-inverse:          var(--gray-150);
+  --bg-primary-hover:            var(--gray-20);
+  --bg-primary-active:           var(--gray-30);
+  --bg-secondary:                var(--gray-20);
+  --bg-secondary-hover:          var(--gray-30);
+  --bg-tertiary:                 var(--gray-30);
+  --bg-tertiary-hover:           var(--gray-40);
+
+  /* Text */
+  --text-primary:                var(--gray-120);
+  --text-primary-inverse:        var(--gray-10);
+  --text-secondary:              var(--gray-100);
+  --text-secondary-hover:        var(--gray-110);
+  --text-hint:                   var(--blue-70);
+  --text-link:                   var(--blue-70);
+  --text-link-hover:             var(--blue-90);
+  --text-info:                   var(--blue-70);
+
+  /* Icons */
+  --icon-primary:                var(--gray-120);
+  --icon-primary-hover:          var(--gray-70);
+  --icon-primary-disabled:       var(--gray-60);
+  --icon-active:                 var(--blue-70);
+
+  /* Borders */
+  --border-primary:              var(--gray-40);
+
+  /* Forms */
+  --form-border:                 var(--gray-40);
+  --form-border-hover:           var(--blue-70);
+  --form-border-active:          var(--blue-70);
+  --form-bubble-bg:              var(--gray-30);
+  --form-bubble-multi-bg:        var(--gray-50);
+  --form-bubble-multi-bg-hover:  var(--gray-60);
+  --form-bg-disabled:            var(--gray-30);
+  --form-text-disabled:          var(--gray-90);
+  --form-text-placeholder:       var(--gray-70);
+
+  /* Toggles */
+  --toggle-unselected-marker:        #FFFFFF;
+  --toggle-unselected-bg:            var(--gray-80);
+  --toggle-unselected-bg-hover:      var(--gray-90);
+  --toggle-unselected-bg-disabled:   var(--gray-30);
+  --toggle-selected-marker:          #FFFFFF;
+  --toggle-selected-bg:              var(--blue-70);
+  --toggle-selected-bg-hover:        var(--blue-80);
+  --toggle-selected-bg-disabled:     var(--blue-40);
+
+  /* Controls (radio / checkbox) */
+  --control-unselected-border:           var(--gray-70);
+  --control-unselected-border-hover:     var(--blue-70);
+  --control-unselected-bg:               #FFFFFF;
+  --control-unselected-bg-hover:         var(--blue-10);
+  --control-selected-marker:             #FFFFFF;
+  --control-selected-border:             var(--blue-70);
+  --control-selected-border-hover:       var(--blue-80);
+  --control-selected-bg:                 var(--blue-70);
+  --control-selected-bg-hover:           var(--blue-80);
+
+  /* ---------- Backwards-compat semantic aliases ---------- */
+  --fg-1:              var(--text-primary);
+  --fg-2:              var(--text-secondary);
+  --fg-3:              var(--gray-80);
+  --fg-4:              var(--gray-60);
+  --fg-on-yellow:      var(--gray-120);
+  --fg-on-ink:         #FFFFFF;
+
+  --bg-app:            var(--gray-15);
+  --bg-surface:        #FFFFFF;
+  --bg-sunken:         var(--gray-25);
+  --bg-inverse:        var(--gray-150);
+  --bg-brand:          var(--yellow-60);
+
+  --border-1:          var(--gray-30);
+  --border-2:          var(--gray-40);
+  --border-strong:     var(--gray-80);
+  --border-focus:      var(--blue-70);
+
+  /* ---------- Type families ---------- */
+  --font-display: "Fraunces", "Quincy CF", "Cooper Light", "Iowan Old Style", Georgia, serif;
+  --font-sans:    "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* ---------- Type scale (16px base) ---------- */
+  --fs-12: 0.75rem;
+  --fs-13: 0.8125rem;
+  --fs-14: 0.875rem;
+  --fs-15: 0.9375rem;
+  --fs-16: 1rem;
+  --fs-18: 1.125rem;
+  --fs-20: 1.25rem;
+  --fs-24: 1.5rem;
+  --fs-28: 1.75rem;
+  --fs-32: 2rem;
+  --fs-40: 2.5rem;
+  --fs-48: 3rem;
+  --fs-64: 4rem;
+  --fs-80: 5rem;
+  --fs-96: 6rem;
+
+  /* line heights */
+  --lh-tight: 1.05;
+  --lh-snug:  1.2;
+  --lh-body:  1.5;
+  --lh-loose: 1.65;
+
+  /* tracking */
+  --tr-tight: -0.02em;
+  --tr-snug:  -0.01em;
+  --tr-normal: 0;
+  --tr-wide:  0.04em;
+
+  /* ---------- Spacing ---------- */
+  --space-0:  0;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ---------- Radii ---------- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-pill: 999px;
+  /* Kusty-style squircle — used on brand marks, big illustrations */
+  --radius-squircle: 32% / 32%;
+
+  /* ---------- Elevation ---------- */
+  --shadow-xs: 0 1px 2px rgba(31, 42, 46, 0.06);
+  --shadow-sm: 0 2px 6px rgba(31, 42, 46, 0.08);
+  --shadow-md: 0 8px 24px rgba(31, 42, 46, 0.10);
+  --shadow-lg: 0 20px 48px rgba(31, 42, 46, 0.14);
+  --shadow-xl: 0 32px 80px rgba(31, 42, 46, 0.18);
+  --shadow-inset-hair: inset 0 0 0 1px rgba(31, 42, 46, 0.08);
+
+  /* ---------- Motion ---------- */
+  --ease-standard: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in:       cubic-bezier(0.5, 0, 0.75, 0);
+  --dur-1: 120ms;
+  --dur-2: 180ms;
+  --dur-3: 260ms;
+  --dur-4: 400ms;
+}
+
+/* ========== Base type roles ========== */
+html { font-size: 16px; }
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-16);
+  line-height: var(--lh-body);
+  color: var(--fg-1);
+  background: var(--bg-app);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display (Fraunces / Quincy) — for marketing hero + narrative moments */
+.k-display-xl { font-family: var(--font-display); font-weight: 500; font-size: clamp(3.5rem, 7vw, var(--fs-96)); line-height: var(--lh-tight); letter-spacing: var(--tr-tight); }
+.k-display-lg { font-family: var(--font-display); font-weight: 500; font-size: clamp(2.75rem, 5vw, var(--fs-80)); line-height: var(--lh-tight); letter-spacing: var(--tr-tight); }
+.k-display-md { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-64); line-height: var(--lh-tight); letter-spacing: var(--tr-snug); }
+.k-display-sm { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-48); line-height: var(--lh-snug); letter-spacing: var(--tr-snug); }
+
+/* Headings (sans) — for product + docs */
+h1, .k-h1 { font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-32); line-height: var(--lh-snug); letter-spacing: var(--tr-snug); color: var(--fg-1); }
+h2, .k-h2 { font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-24); line-height: var(--lh-snug); letter-spacing: var(--tr-snug); color: var(--fg-1); }
+h3, .k-h3 { font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-20); line-height: var(--lh-snug); color: var(--fg-1); }
+h4, .k-h4 { font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-16); line-height: var(--lh-body); color: var(--fg-1); }
+.k-eyebrow  { font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-12); letter-spacing: var(--tr-wide); text-transform: uppercase; color: var(--fg-3); }
+
+/* Body */
+.k-body-lg { font-size: var(--fs-18); line-height: var(--lh-body); color: var(--fg-2); }
+p, .k-body { font-size: var(--fs-16); line-height: var(--lh-body); color: var(--fg-2); text-wrap: pretty; }
+.k-body-sm { font-size: var(--fs-14); line-height: var(--lh-body); color: var(--fg-2); }
+.k-caption { font-size: var(--fs-12); line-height: 1.4; color: var(--fg-3); }
+
+/* Utility */
+.k-mono, code, kbd, samp { font-family: var(--font-mono); font-size: 0.92em; }
+code { background: var(--bg-sunken); padding: 2px 6px; border-radius: var(--radius-xs); }
+
+/* Links */
+a { color: var(--kus-periwinkle-deep); text-decoration: none; }
+a:hover { color: var(--kus-ink); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Selection */
+::selection { background: var(--kus-yellow); color: var(--kus-ink); }

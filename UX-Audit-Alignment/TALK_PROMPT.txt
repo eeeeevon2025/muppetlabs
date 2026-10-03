@@ -1,0 +1,5 @@
+Run the prototype alignment audit on the Muppet Personality Project.
+
+Use the method in UX-Audit-Alignment/ux-audit-all-depracated/prototype-audit/claude-project.
+Match the look of UX-Audit-Alignment/ux-audit-all-depracated/Goals based config 1/Goals-First IA Recommendation.html.
+Audit the site in src/app. Write muppet-alignment.html in that same Goals folder. Do not copy the Kustomer findings.

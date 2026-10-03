@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>UX Audit — Pick what to implement</title>
+<style>
+  :root {
+    --paper: #FBFBFA;
+    --paper-2: #F4F4F2;
+    --paper-3: #ECECE8;
+    --card: #FFFFFF;
+    --ink-100: #15150F;
+    --ink-80: #34342C;
+    --ink-60: #5E5E54;
+    --ink-50: #76766B;
+    --ink-40: #9A9A8E;
+    --hair: #E5E5DF;
+    --hair-2: #D8D8D0;
+    --accent: #C8643C;
+    --accent-bg: #FBEDE6;
+    --accent-edge: #EAC3B0;
+    --high: #B4452E;
+    --high-bg: #FBE9E4;
+    --med: #9A6B16;
+    --med-bg: #F8EFDB;
+    --low: #4F6B57;
+    --low-bg: #E7F0E9;
+    --done: #3F7A55;
+    --done-bg: #E6F1E9;
+    --mono: ui-monospace, "SF Mono", Menlo, monospace;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink-100);
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .app {
+    display: grid;
+    grid-template-columns: 256px 1fr;
+    height: 100vh;
+  }
+
+  /* ---- Sidebar ---- */
+  .side {
+    border-right: 1px solid var(--hair);
+    background: var(--paper-2);
+    padding: 22px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    overflow-y: auto;
+  }
+  .side-brand {
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .side-brand .dot {
+    width: 18px; height: 18px; border-radius: 5px;
+    background: var(--accent);
+    display: inline-flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 11px; font-weight: 700;
+  }
+  .side-h {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.07em;
+    text-transform: uppercase; color: var(--ink-40);
+    margin-bottom: 8px;
+  }
+  .filters { display: flex; flex-direction: column; gap: 2px; }
+  .filter {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 7px 10px; border-radius: 7px;
+    font-size: 13px; color: var(--ink-80); cursor: pointer;
+    border: none; background: transparent; text-align: left; width: 100%;
+    font-family: inherit;
+  }
+  .filter:hover { background: var(--paper-3); }
+  .filter.active { background: var(--ink-100); color: #fff; }
+  .filter .count {
+    font-family: var(--mono); font-size: 11.5px;
+    color: var(--ink-40);
+  }
+  .filter.active .count { color: rgba(255,255,255,0.7); }
+
+  .legend { display: flex; flex-direction: column; gap: 9px; }
+  .legend-row { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink-60); }
+  .pri-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+
+  .side-note {
+    margin-top: auto;
+    font-size: 11.5px; color: var(--ink-50);
+    line-height: 1.5;
+    border-top: 1px solid var(--hair);
+    padding-top: 16px;
+  }
+
+  /* ---- Main ---- */
+  .main { overflow-y: auto; display: flex; flex-direction: column; }
+  .main-head {
+    padding: 26px 34px 18px;
+    border-bottom: 1px solid var(--hair);
+    position: sticky; top: 0; background: var(--paper); z-index: 5;
+  }
+  .main-head h1 { margin: 0; font-size: 21px; font-weight: 600; letter-spacing: -0.02em; }
+  .main-head p { margin: 5px 0 0; font-size: 13px; color: var(--ink-60); max-width: 64ch; }
+
+  .list { padding: 18px 34px 140px; display: flex; flex-direction: column; gap: 22px; }
+  .group-h {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--ink-40);
+    margin: 6px 0 -4px;
+  }
+
+  .item {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 14px;
+    background: var(--card);
+    border: 1px solid var(--hair);
+    border-radius: 12px;
+    padding: 16px 18px;
+    cursor: pointer;
+    transition: border-color 120ms, box-shadow 120ms, background 120ms;
+  }
+  .item:hover { border-color: var(--hair-2); }
+  .item.checked {
+    border-color: var(--accent-edge);
+    background: var(--accent-bg);
+    box-shadow: inset 0 0 0 1px var(--accent-edge);
+  }
+  .item.done { opacity: 0.62; }
+  .check {
+    width: 20px; height: 20px; border-radius: 6px;
+    border: 1.5px solid var(--hair-2); background: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-top: 1px;
+    transition: background 120ms, border-color 120ms;
+  }
+  .item.checked .check { background: var(--accent); border-color: var(--accent); }
+  .check svg { opacity: 0; }
+  .item.checked .check svg { opacity: 1; }
+  .item.done .check {
+    background: var(--done); border-color: var(--done);
+  }
+  .item.done .check svg { opacity: 1; }
+
+  .body .title-row {
+    display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  }
+  .body h3 { margin: 0; font-size: 14.5px; font-weight: 600; letter-spacing: -0.01em; }
+  .badges { display: inline-flex; gap: 6px; }
+  .badge {
+    font-size: 10.5px; font-weight: 600; letter-spacing: 0.02em;
+    padding: 2px 8px; border-radius: 999px;
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .badge.high { background: var(--high-bg); color: var(--high); }
+  .badge.med { background: var(--med-bg); color: var(--med); }
+  .badge.low { background: var(--low-bg); color: var(--low); }
+  .badge.done { background: var(--done-bg); color: var(--done); }
+  .badge.effort { background: var(--paper-3); color: var(--ink-60); font-family: var(--mono); }
+  .badge.area { background: transparent; color: var(--ink-40); border: 1px solid var(--hair-2); }
+
+  .body .what { margin: 7px 0 0; font-size: 13px; color: var(--ink-80); }
+  .body .why { margin: 5px 0 0; font-size: 12.5px; color: var(--ink-50); }
+  .body .why b { color: var(--ink-60); font-weight: 600; }
+
+  /* ---- Action bar ---- */
+  .bar {
+    position: fixed; left: 256px; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--hair);
+    padding: 14px 34px;
+    display: flex; align-items: center; gap: 16px;
+    z-index: 10;
+  }
+  .bar-count { font-size: 13.5px; font-weight: 600; }
+  .bar-count span { color: var(--accent); }
+  .bar-spacer { flex: 1; }
+  .btn {
+    font-family: inherit; font-size: 13px; font-weight: 500;
+    padding: 9px 15px; border-radius: 8px; cursor: pointer;
+    border: 1px solid var(--hair-2); background: #fff; color: var(--ink-80);
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .btn:hover { background: var(--paper-2); }
+  .btn.primary { background: var(--ink-100); color: #fff; border-color: var(--ink-100); }
+  .btn.primary:hover { background: #000; }
+  .btn:disabled { opacity: 0.4; cursor: default; }
+  .btn .badge-n {
+    background: rgba(255,255,255,0.22); color: #fff;
+    font-family: var(--mono); font-size: 11px;
+    padding: 1px 6px; border-radius: 5px;
+  }
+
+  .toast {
+    position: fixed; bottom: 78px; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: var(--ink-100); color: #fff;
+    padding: 10px 16px; border-radius: 9px; font-size: 12.5px;
+    opacity: 0; pointer-events: none; transition: opacity 200ms, transform 200ms;
+    z-index: 20; max-width: 80vw;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="side-brand"><span class="dot">K</span> UX Audit · Picker</div>
+
+    <div>
+      <div class="side-h">Filter</div>
+      <div class="filters" id="filters"></div>
+    </div>
+
+    <div>
+      <div class="side-h">Priority</div>
+      <div class="legend">
+        <div class="legend-row"><span class="pri-dot" style="background:var(--high)"></span> High — clarity blocker</div>
+        <div class="legend-row"><span class="pri-dot" style="background:var(--med)"></span> Medium — worth doing</div>
+        <div class="legend-row"><span class="pri-dot" style="background:var(--low)"></span> Low — polish</div>
+        <div class="legend-row"><span class="pri-dot" style="background:var(--done)"></span> Done this pass</div>
+      </div>
+    </div>
+
+    <div class="side-note">
+      Tick the items you want. When you're ready, hit <b>Copy selection</b> and paste it back to me, or just tell me the numbers — I'll implement them.
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="main-head">
+      <h1>Pick what to implement</h1>
+      <p>Each row is a recommendation from <b>ux-audit.md</b>. Open items are unchecked; the four already shipped this pass are marked done. Select the ones you want next.</p>
+    </div>
+    <div class="list" id="list"></div>
+  </main>
+</div>
+
+<div class="bar">
+  <div class="bar-count"><span id="ct">0</span> selected</div>
+  <div class="bar-spacer"></div>
+  <button class="btn" id="clear">Clear</button>
+  <button class="btn primary" id="copy">Copy selection <span class="badge-n" id="ctn">0</span></button>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const ITEMS = [
+  // OPEN ❗
+  { id: 1, area: "Analyze · Performance", pri: "high", effort: "Quick", status: "open",
+    title: "Add an inline definition for “Drift”",
+    what: "Gloss it wherever it appears, e.g. “Drift — a change in the AI’s behavior over time.”",
+    why: "Most technical term in the product, currently undefined for non-technical users." },
+  { id: 2, area: "Analyze · Performance · Reporting", pri: "high", effort: "Medium", status: "open",
+    title: "Add scope cues to the “how’s it doing?” surfaces",
+    what: "One line on each: Analyze = “this automation”, Performance = “all automations, across goals”, Reporting = “trends over time”.",
+    why: "Four overlapping surfaces answer the same question with no way to tell them apart." },
+  { id: 3, area: "Automations list", pri: "med", effort: "Quick", status: "open",
+    title: "Clarify the “Drives” column header",
+    what: "Rename column copy to “Goal it drives” (label only, not the entity).",
+    why: "Terse header doesn’t parse for non-technical scanners." },
+  { id: 4, area: "First-run · Topic table", pri: "med", effort: "Quick", status: "open",
+    title: "Spell out “AHT” inline",
+    what: "Show “Avg. handle time” in/under the column header, not only as a tooltip.",
+    why: "Abbreviation is cold on first read; tooltips are easy to miss." },
+  { id: 5, area: "Deploy", pri: "med", effort: "Quick", status: "open",
+    title: "Plain-language gloss for “Holdback group” & “Smart Routing”",
+    what: "Add a short parenthetical in the label itself, not just helper text below.",
+    why: "Insider SaaS terms that gate the deploy step." },
+  { id: 6, area: "Reporting", pri: "med", effort: "Larger", status: "open",
+    title: "Build the minimal Reporting → Topics view",
+    what: "Replace the stub so the many cross-page links to it actually pay off.",
+    why: "Pages assert the relationship to Reporting but the destination is empty." },
+  { id: 7, area: "Building Blocks", pri: "med", effort: "Medium", status: "open",
+    title: "Add a Building Blocks overview page",
+    what: "A landing that names all five blocks and the automations they feed.",
+    why: "Discoverability — blocks are reached only via the nav sub-list today." },
+  { id: 8, area: "First-run · Step 2", pri: "low", effort: "Quick", status: "open",
+    title: "Pre-teach Goal → Automation on draft-goal cards",
+    what: "Quiet line: “Pick a goal and we’ll set up the AI to drive it.”",
+    why: "The Goal→Automation link is taught later than it could be." },
+  { id: 9, area: "First-run · Step 1", pri: "low", effort: "Quick", status: "open",
+    title: "Inline micro-definition of “Topic” at first use",
+    what: "One-line “What’s a topic?” the first time the word appears in the wizard.",
+    why: "Reinforces the term before it’s used throughout the product." },
+  { id: 10, area: "Test", pri: "low", effort: "Medium", status: "open",
+    title: "Per-category “affects goal: …” tag on Test",
+    what: "Show which goal each test category protects, per row.",
+    why: "Connects test scores to the goal they endanger." },
+  { id: 11, area: "Performance", pri: "low", effort: "Quick", status: "open",
+    title: "Clarify Monitors vs Scorecards",
+    what: "State that a Scorecard is the output of a Monitor (or use one term in copy).",
+    why: "Two words circle the same idea." },
+  { id: 12, area: "Global · Help", pri: "low", effort: "Larger", status: "open",
+    title: "Add a “How it fits together” mini-diagram",
+    what: "Conversations→Topics→Goals→Automations→Building Blocks→Monitors, reachable from the help/primer button.",
+    why: "Gives users one place to see the whole chain." },
+  { id: 13, area: "Naming · needs sign-off", pri: "med", effort: "Medium", status: "open",
+    title: "Reconcile “AI for Customers/Reps” vs “Customer AI/Rep AI”",
+    what: "Pick one phrasing for nav and chips. Borders on a rename — needs your OK.",
+    why: "Same idea labeled two ways across nav and audience chips." },
+
+  // DONE ✅ (this pass)
+  { id: 101, area: "All pages", pri: "done", effort: "—", status: "done",
+    title: "Plain, relationship-aware page subtitles",
+    what: "Goals, Goal detail, Automations, Performance, and all Building Blocks rewritten to teach the chain.",
+    why: "Shipped this pass." },
+  { id: 102, area: "Navigation", pri: "done", effort: "—", status: "done",
+    title: "Unified Building Blocks & Guardrails naming",
+    what: "Nav “Shared library”→“Building Blocks”; page “Shared Guardrails”→“Guardrails”.",
+    why: "Shipped this pass." },
+  { id: 103, area: "Goal detail · Onboarding", pri: "done", effort: "—", status: "done",
+    title: "Topics: view in Reporting, manage in Settings",
+    what: "Removed the “manage topics in Reporting” contradiction.",
+    why: "Shipped this pass." },
+  { id: 104, area: "Onboarding primer", pri: "done", effort: "—", status: "done",
+    title: "Dropped “primitives”; taught Conversations→Topics→Goals",
+    what: "Primer lede + Topics card rewritten in plain language.",
+    why: "Shipped this pass." },
+];
+
+const FILTERS = [
+  { id: "open", label: "Open items", test: i => i.status === "open" },
+  { id: "high", label: "High priority", test: i => i.pri === "high" },
+  { id: "quick", label: "Quick wins", test: i => i.status === "open" && i.effort === "Quick" },
+  { id: "all", label: "Everything", test: () => true },
+  { id: "done", label: "Done this pass", test: i => i.status === "done" },
+];
+
+const CHECK_SVG = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2L4.8 8.5L9.5 3.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+let activeFilter = "open";
+const selected = new Set(JSON.parse(localStorage.getItem("ux-audit-picks") || "[]"));
+
+const listEl = document.getElementById("list");
+const filtersEl = document.getElementById("filters");
+const ctEl = document.getElementById("ct");
+const ctnEl = document.getElementById("ctn");
+const toastEl = document.getElementById("toast");
+
+function save() { localStorage.setItem("ux-audit-picks", JSON.stringify([...selected])); }
+
+function renderFilters() {
+  filtersEl.innerHTML = "";
+  FILTERS.forEach(f => {
+    const n = ITEMS.filter(f.test).length;
+    const b = document.createElement("button");
+    b.className = "filter" + (activeFilter === f.id ? " active" : "");
+    b.innerHTML = `<span>${f.label}</span><span class="count">${n}</span>`;
+    b.onclick = () => { activeFilter = f.id; render(); };
+    filtersEl.appendChild(b);
+  });
+}
+
+function render() {
+  renderFilters();
+  const f = FILTERS.find(x => x.id === activeFilter);
+  const items = ITEMS.filter(f.test);
+  listEl.innerHTML = "";
+
+  // group by status when showing "all" or "everything"
+  const groups = {};
+  items.forEach(i => { (groups[i.status] = groups[i.status] || []).push(i); });
+  const order = ["open", "done"];
+  const labels = { open: "Open — recommended for the next round", done: "Already shipped this pass" };
+
+  order.forEach(gk => {
+    if (!groups[gk]) return;
+    if (activeFilter === "all") {
+      const h = document.createElement("div");
+      h.className = "group-h";
+      h.textContent = labels[gk];
+      listEl.appendChild(h);
+    }
+    groups[gk].forEach(i => listEl.appendChild(card(i)));
+  });
+
+  ctEl.textContent = selected.size;
+  ctnEl.textContent = selected.size;
+}
+
+function card(i) {
+  const el = document.createElement("div");
+  const isChecked = selected.has(i.id);
+  el.className = "item" + (i.status === "done" ? " done" : (isChecked ? " checked" : ""));
+  const priBadge = i.status === "done"
+    ? '<span class="badge done">✓ Done</span>'
+    : `<span class="badge ${i.pri}">${i.pri[0].toUpperCase()+i.pri.slice(1)}</span>`;
+  const effortBadge = i.status === "done" ? "" : `<span class="badge effort">${i.effort}</span>`;
+  el.innerHTML = `
+    <div class="check">${CHECK_SVG}</div>
+    <div class="body">
+      <div class="title-row">
+        <h3>${i.status === "done" ? "" : "#" + i.id + " · "}${i.title}</h3>
+        <span class="badges">${priBadge}${effortBadge}<span class="badge area">${i.area}</span></span>
+      </div>
+      <p class="what">${i.what}</p>
+      <p class="why"><b>Why:</b> ${i.why}</p>
+    </div>`;
+  if (i.status !== "done") {
+    el.onclick = () => {
+      if (selected.has(i.id)) selected.delete(i.id); else selected.add(i.id);
+      save(); render();
+    };
+  }
+  return el;
+}
+
+document.getElementById("clear").onclick = () => { selected.clear(); save(); render(); };
+
+document.getElementById("copy").onclick = () => {
+  if (selected.size === 0) { toast("Nothing selected yet — tick some items first."); return; }
+  const picks = ITEMS.filter(i => selected.has(i.id));
+  const text = "Implement these UX audit items:\n" +
+    picks.map(i => `#${i.id} — ${i.title} (${i.pri}, ${i.effort}) [${i.area}]`).join("\n");
+  navigator.clipboard.writeText(text).then(
+    () => toast(`Copied ${selected.size} item${selected.size===1?"":"s"} — paste it back to me.`),
+    () => toast("Copy failed — you can also just tell me the numbers.")
+  );
+};
+
+let toastTimer;
+function toast(msg) {
+  toastEl.textContent = msg;
+  toastEl.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2600);
+}
+
+render();
+</script>
+</body>
+</html>

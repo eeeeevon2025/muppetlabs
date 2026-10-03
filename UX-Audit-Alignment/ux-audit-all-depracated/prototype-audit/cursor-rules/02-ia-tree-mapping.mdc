@@ -1,0 +1,27 @@
+---
+description: Apply when mapping or auditing the information architecture / nav tree of a prototype against the current baseline.
+globs:
+alwaysApply: false
+---
+
+# Section 02 — IA Tree
+
+## Purpose
+A complete, navigable inventory of what exists in the proposed structure, starting one level above the feature itself so the reader sees what got promoted, demoted, added, or removed relative to the whole product — not just the feature in isolation.
+
+## Method
+1. Start the tree at the platform level (or the nearest level that shows the feature's siblings), not at the feature's own root. If the audit is about one workspace, the tree still needs to show that workspace sitting next to Inbox, Reporting, Settings, etc. — sibling context is what makes promotion/demotion visible.
+2. For every node, capture three things:
+   - **Purpose** — what this destination is for, one sentence.
+   - **Placement rationale** — why it lives here and not somewhere else. This is the part most audits skip; it's the part that prevents the next redesign from re-litigating the same decision blind.
+   - **Screen sketch** — a short description of what the screen actually contains (not a wireframe, just enough that a reader can picture it: key modules, primary action, what data is shown).
+3. Mark any node that is new, moved, renamed, or removed relative to the current production baseline. This is what makes Section 02 double as a diff, not just a map.
+4. Nest to the depth the prototype actually specifies — don't pad with invented sub-levels, and don't collapse real distinctions to save space.
+
+## Output format
+A tree structure (interactive tree explorer if the output medium supports it; otherwise nested headers or an indented list). Every node: name, purpose, rationale, sketch, and a status flag (`new` / `moved` / `renamed` / `removed` / `unchanged`) relative to baseline.
+
+## Quality bar
+- Every destination named anywhere else in the report (journey steps, friction rows, risk rows) must appear in this tree. Cross-check before finalizing — an orphaned destination name is a sign the journey or friction section invented something.
+- Rationale must reference a principle from Section 01 where possible ("lives here because Goals are platform primitives"), or explicitly state it's a new judgment call not yet backed by a stated principle.
+- Do not describe a node's *content* in implementation detail (exact copy, pixel layout) — this is architecture, not visual design. One or two sentences of "what's on this screen" is the ceiling.

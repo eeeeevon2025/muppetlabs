@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Prototype A vs B — UX Comparison &amp; Hybrid Recommendation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="colors_and_type.css" />
+<link rel="stylesheet" href="hybrid/typography.css" />
+<style>
+  html, body { background: #fff; }
+  body { color: var(--gray-120); font-family: var(--font-sans); }
+  *, *::before, *::after { box-sizing: border-box; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+
+  /* Top bar */
+  .topbar {
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--gray-30);
+  }
+  .topbar-inner {
+    display: flex; align-items: center; gap: 24px;
+    padding: 14px 40px; max-width: 1280px; margin: 0 auto;
+  }
+  .topbar .mark { width: 28px; height: 28px; border-radius: 999px;
+    background: var(--yellow-60);
+    display: inline-flex; align-items: center; justify-content: center; overflow: hidden; }
+  .topbar .mark img { width: 28px; height: 27px; display: block; }
+  .topbar .title { font-size: 13px; font-weight: 700; color: var(--gray-120); }
+  .topbar .title .sub { font-weight: 400; color: var(--gray-95); margin-left: 8px; }
+  .topnav { display: flex; gap: 4px; margin-left: auto; }
+  .topnav a { font-size: 12px; font-weight: 500; color: var(--gray-95);
+    padding: 5px 10px; border-radius: 999px; text-decoration: none; }
+  .topnav a:hover { background: var(--gray-25); color: var(--gray-120); }
+
+  /* Hero */
+  .hero {
+    padding: 56px 0 36px;
+    background: linear-gradient(180deg, #FFFCE8 0%, #FFFFFF 100%);
+    border-bottom: 1px solid var(--gray-30);
+  }
+  .eyebrow {
+    font-size: var(--text-accent); font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-95);
+  }
+  .hero h1 {
+    font-family: var(--font-sans); font-size: 32px; font-weight: 700;
+    letter-spacing: -0.015em; color: var(--gray-120);
+    margin: 10px 0 14px; max-width: 22ch; line-height: 1.15;
+  }
+  .hero p.lede {
+    font-size: 15px; line-height: 1.55; color: var(--gray-95); max-width: 70ch; margin: 0;
+  }
+  .hero .meta {
+    display: flex; gap: 28px; margin-top: 28px; flex-wrap: wrap;
+    font-size: 11px; color: var(--gray-90);
+  }
+  .hero .meta b { display: block; font-weight: 700; font-size: 12px;
+    color: var(--gray-120); margin-bottom: 2px; }
+
+  /* Section base */
+  section { padding: 48px 0; border-bottom: 1px solid var(--gray-30); }
+  section h2 {
+    font-size: var(--text-h1); font-weight: 700;
+    letter-spacing: -0.01em; color: var(--gray-120);
+    line-height: var(--leading-h1); margin: 0 0 6px;
+  }
+  section h2 .num {
+    color: var(--gray-70); font-weight: 500; margin-right: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+  section .intro {
+    font-size: var(--text-body); line-height: var(--leading-body);
+    color: var(--gray-95); max-width: 72ch; margin: 0 0 28px;
+  }
+
+  /* Two-up cards */
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .card {
+    background: #fff; border: 1px solid var(--gray-30);
+    border-radius: 14px; padding: 22px;
+  }
+  .ribbon {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 3px 10px; border-radius: 999px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .ribbon.a { background: var(--blue-15); color: var(--blue-95); }
+  .ribbon.b { background: rgba(251,236,42,0.35); color: #6e5800; }
+  .ribbon.hybrid { background: var(--green-15); color: var(--green-80); }
+  .card h3 {
+    font-size: 17px; font-weight: 700; color: var(--gray-120);
+    margin: 14px 0 4px; letter-spacing: -0.005em;
+  }
+  .card .one-liner { font-size: 13px; color: var(--gray-95); margin: 0 0 16px; }
+  .proscons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .proscons h4 {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--gray-90); margin: 0 0 8px;
+  }
+  .proscons ul { padding: 0; margin: 0; list-style: none; display: grid; gap: 7px; }
+  .proscons li {
+    font-size: 12.5px; line-height: 1.5; color: var(--gray-105);
+    padding-left: 18px; position: relative;
+  }
+  .proscons li::before {
+    position: absolute; left: 0; top: 2px;
+    width: 12px; height: 12px; line-height: 12px; text-align: center;
+    border-radius: 4px; font-size: 10px;
+  }
+  .proscons .pros li::before { content: "+"; background: var(--green-15); color: var(--green-80); font-weight: 700; }
+  .proscons .cons li::before { content: "−"; background: var(--red-15); color: var(--red-80); font-weight: 700; }
+
+  /* Matrix table */
+  .matrix {
+    background: #fff; border: 1px solid var(--gray-30);
+    border-radius: 14px; overflow: hidden;
+  }
+  table.m { width: 100%; border-collapse: collapse; }
+  .m th, .m td {
+    padding: 13px 16px; text-align: left; font-size: 12.5px;
+    border-bottom: 1px solid var(--gray-30); vertical-align: top;
+  }
+  .m thead th {
+    background: var(--gray-15); font-weight: 700; color: var(--gray-95);
+    font-size: 10.5px; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .m tr:last-child td { border-bottom: none; }
+  .m td.dim { font-weight: 700; color: var(--gray-120); width: 24%; }
+  .m td.dim small { display: block; font-weight: 400; color: var(--gray-90); font-size: 11.5px; margin-top: 3px; }
+  .pips { display: inline-flex; gap: 3px; }
+  .pip { width: 11px; height: 11px; border-radius: 50%; background: var(--gray-30); }
+  .pip.on { background: var(--gray-120); }
+  .winner { padding: 2px 7px; border-radius: 999px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.02em; }
+  .winner.a { background: var(--blue-15); color: var(--blue-95); }
+  .winner.b { background: rgba(251,236,42,0.35); color: #6e5800; }
+  .winner.tie { background: var(--gray-25); color: var(--gray-95); }
+
+  /* IA tree side-by-side */
+  .trees { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .tree-card {
+    border: 1px solid var(--gray-30); border-radius: 14px;
+    background: #fff; overflow: hidden;
+  }
+  .tree-card header {
+    padding: 14px 20px; border-bottom: 1px solid var(--gray-30);
+    background: var(--gray-15); display: flex; align-items: center; justify-content: space-between;
+  }
+  .tree-card header .t { font-size: 13.5px; font-weight: 700; color: var(--gray-120); }
+  .tree-card pre {
+    margin: 0; padding: 18px 22px;
+    font-family: var(--font-mono); font-size: 11.5px;
+    line-height: 1.65; color: var(--gray-105);
+    white-space: pre; overflow-x: auto;
+  }
+
+  /* Persona analysis */
+  .personas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .persona {
+    border: 1px solid var(--gray-30); border-radius: 12px;
+    padding: 16px 18px; background: #fff;
+  }
+  .persona h4 {
+    font-size: 13.5px; font-weight: 700; color: var(--gray-120);
+    margin: 0 0 4px; display: flex; align-items: center; gap: 8px;
+  }
+  .persona h4 .badge {
+    padding: 2px 7px; border-radius: 999px;
+    font-size: 10.5px; font-weight: 700;
+    background: var(--gray-25); color: var(--gray-95);
+  }
+  .persona p { margin: 0; font-size: 12.5px; color: var(--gray-95); line-height: 1.55; }
+  .persona .row {
+    display: grid; grid-template-columns: 70px 1fr;
+    gap: 10px; padding: 8px 0;
+    border-top: 1px solid var(--gray-30); align-items: baseline;
+  }
+  .persona .row .k { font-size: 10.5px; font-weight: 700; color: var(--gray-90); letter-spacing: 0.04em; text-transform: uppercase; }
+  .persona .row .v { font-size: 12.5px; color: var(--gray-105); line-height: 1.5; }
+  .persona .row .v b { color: var(--gray-120); }
+
+  /* Hybrid IA boxes */
+  .hyb-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px;
+  }
+  .keep { border-left: 3px solid var(--blue-70); padding: 14px 18px; background: var(--gray-15); border-radius: 0 12px 12px 0; }
+  .replace { border-left: 3px solid #6e5800; padding: 14px 18px; background: #FFFCE8; border-radius: 0 12px 12px 0; }
+  .merge { border-left: 3px solid var(--green-70); padding: 14px 18px; background: var(--green-15); border-radius: 0 12px 12px 0; }
+  .keep h4, .replace h4, .merge h4 {
+    margin: 0 0 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .keep h4 { color: var(--blue-95); }
+  .replace h4 { color: #6e5800; }
+  .merge h4 { color: var(--green-80); }
+  .hyb-grid p { font-size: 12.5px; color: var(--gray-105); line-height: 1.5; margin: 0; }
+  .hyb-grid ul { margin: 6px 0 0; padding-left: 16px; font-size: 12.5px; color: var(--gray-105); line-height: 1.5; }
+
+  /* Wireframe */
+  .wire {
+    border: 1px solid var(--gray-30); border-radius: 12px;
+    padding: 22px; background: #fff;
+    font-family: var(--font-mono); font-size: 11.5px;
+    color: var(--gray-105); line-height: 1.65;
+    white-space: pre; overflow-x: auto;
+  }
+
+  /* Verdict box */
+  .verdict {
+    background: linear-gradient(180deg, #FFFCE8, #FFFFFF);
+    border: 1px solid #F9E089; border-radius: 14px;
+    padding: 24px 26px; margin-top: 24px;
+  }
+  .verdict h3 {
+    margin: 0 0 8px; font-size: 18px; font-weight: 700;
+    color: var(--gray-120); letter-spacing: -0.005em;
+  }
+  .verdict p { font-size: 13.5px; color: var(--gray-105); line-height: 1.6; margin: 0 0 10px; }
+  .verdict p:last-child { margin-bottom: 0; }
+  .verdict b { color: var(--gray-120); }
+
+  footer.foot {
+    padding: 28px 0 60px; color: var(--gray-90); font-size: 11.5px;
+  }
+
+  @media (max-width: 960px) {
+    .compare, .trees, .personas, .hyb-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="mark"><img src="hybrid/kusty-logomark.svg" alt="Kusty"/></span>
+    <span class="title">Prototype Comparison · UX Critique <span class="sub">A vs B + hybrid</span></span>
+    <nav class="topnav">
+      <a href="#exec">Summary</a>
+      <a href="#trees">IA trees</a>
+      <a href="#matrix">Matrix</a>
+      <a href="#strengths">Strengths</a>
+      <a href="#cognitive">Cognitive load</a>
+      <a href="#personas">Personas</a>
+      <a href="#hybrid">Hybrid</a>
+      <a href="#wires">Wireframes</a>
+      <a href="#verdict">Verdict</a>
+    </nav>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Strategic UX critique · 19 May 2026 · workspace artifact</div>
+    <h1>Goals as a setup step, or goals as the spine.</h1>
+    <p class="lede">
+      A senior-design comparison of two information architectures for Kustomer's agentic CX
+      platform — <b>Prototype A</b>, where goals are the input to a 5-step wizard and ongoing
+      work returns to a per-automation surface, and <b>Prototype B</b>, where goals are the
+      permanent organizing unit and monitoring/improvement live in a rich Performance area.
+      Includes a hybrid recommendation, not a winner-takes-all answer.
+    </p>
+    <div class="meta">
+      <div><b>Prototype A</b>Goals Based AI Outcome (setup-wizard model)</div>
+      <div><b>Prototype B</b>Hybrid Goals-First Prototype (goal-as-spine)</div>
+      <div><b>Author</b>Senior UX critique, prepared for Amisha</div>
+      <div><b>Scope</b>Onboarding · ongoing management · enterprise scale</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Executive summary ============ -->
+<section id="exec">
+  <div class="wrap">
+    <h2><span class="num">01</span>Executive summary</h2>
+    <p class="intro">
+      The two prototypes resolve the same brief — make Kustomer AI easier to configure and
+      more goal-driven — by inverting each other's bet. <b>A optimizes for the first 30
+      minutes</b>; <b>B optimizes for the next 12 months.</b> Neither is wrong; the right
+      answer is to keep A's intake clarity and graduate users into B's outcome-spine for
+      ongoing operations.
+    </p>
+
+    <div class="compare">
+      <div class="card">
+        <span class="ribbon a">Prototype A</span>
+        <h3>Goals as a 5-step setup wizard.</h3>
+        <p class="one-liner">
+          Set Goals · Build · Test &amp; Evaluate · Deploy · Analyze sit in a stepper.
+          After setup, work returns to a tool-first surface (Refund Order /
+          Manage Automations / Settings).
+        </p>
+        <div class="proscons">
+          <div class="pros">
+            <h4>Where it wins</h4>
+            <ul>
+              <li>Strongest first-run path of either design — single form, single CTA, very low cognitive load.</li>
+              <li>Auto-derivation cascade is real: goals × topics × audience produce procedures, monitors, scenarios.</li>
+              <li>Step indicator (Step 2 of 5, blue chip) gives clear progress + reassurance.</li>
+              <li>Audience pills (AIC blue / AIR purple) consistently labelled on every artifact.</li>
+              <li>Setup Assistant in-place during intake reduces the "ask a human" friction.</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <h4>Where it breaks down</h4>
+            <ul>
+              <li>Goals disappear from the nav once the wizard ends — users lose the frame they used to configure.</li>
+              <li>Sub-step nav inside Set Goals (Build/Test/Deploy/Analyze) collides with the legacy top-level Build/Test/Deploy concepts.</li>
+              <li>Manage Automations + per-automation cards remind users this is still tool-first under the surface.</li>
+              <li>No home for Quality Monitors, Suggestions, Anomaly Detection, or Computed Fields from the M1 spec.</li>
+              <li>Performance is one screen — fine for week one, thin at month six.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="ribbon b">Prototype B (Hybrid)</span>
+        <h3>Goals as the permanent spine, slide-out for config, Performance for depth.</h3>
+        <p class="one-liner">
+          Get Started wizard is the front door; Goals Home + a lightweight goal slide-out
+          replace the 11-tab workspace; Performance hosts Quality Monitors, Suggestions,
+          Anomalies, Reports — filterable by goal.
+        </p>
+        <div class="proscons">
+          <div class="pros">
+            <h4>Where it wins</h4>
+            <ul>
+              <li>Outcomes are the organizing unit forever — matches the strategic brief past day one.</li>
+              <li>Goal slide-out is honest with M1: thin config, jump-links to depth — no over-promised editor.</li>
+              <li>Tabs in Performance map 1:1 to canonical M1 primitives (Quality Monitors, Suggestions, Anomalies, Reports).</li>
+              <li>Shared-resources model (Procedures, Knowledge, Tools, Guardrails) scales — goals reference, don't own.</li>
+              <li>Legacy preserved under Advanced with a LEGACY pill — honest migration path.</li>
+              <li>State-driven color (red wash for "needs attention") gives instant orientation.</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <h4>Where it strains</h4>
+            <ul>
+              <li>Drilling into a goal's monitors now requires a Performance jump with a goal filter — one extra hop.</li>
+              <li>"Plan editing lives in Resources" is structurally clean but takes a moment to land for first-time admins.</li>
+              <li>No persistent KPI hero per-goal — the slide-out is purposely sparse.</li>
+              <li>Setup Assistant is no longer present during the wizard — only the Goals Assistant in the rail.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <h3>The short version</h3>
+      <p>
+        <b>Prototype A is the better first hour. Prototype B is the better first year.</b>
+        A's wizard is a near-perfect intake — keep it. B's outcome spine is the only structure
+        that survives a customer asking "how is my AI doing on CSAT?" six months in — keep it.
+        Where they conflict — what happens after setup ends — graduate the user into B.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IA Trees side-by-side ============ -->
+<section id="trees">
+  <div class="wrap">
+    <h2><span class="num">02</span>Information architecture, side-by-side</h2>
+    <p class="intro">
+      Same product, two trees. The difference is whether <em>Goals</em> is a leaf inside a
+      wizard or the spine of the nav. Everything downstream falls out of that choice.
+    </p>
+
+    <div class="trees">
+      <div class="tree-card">
+        <header>
+          <div class="t">Prototype A · Goals Based AI Outcome</div>
+          <span class="ribbon a">Wizard model</span>
+        </header>
+<pre>Kustomer AI
+├── 🪄 Set Goals  (wizard root)
+│     ├── 💬 Build              (Step 2 — Procedures)
+│     ├── 🧪 Test &amp; Evaluate    (Step 3 — Test Categories)
+│     ├── 🚀 Deploy             (Step 4 — Conditions/Routing/Eval)
+│     └── 📊 Analyze            (Step 5 — Conversations table)
+├── 📈 Performance              (single dashboard, all goals)
+├── AI FOR CUSTOMERS
+│     ├── 🔵 Refund Order      ← per-automation card
+│     │       └── ⚙ Settings
+│     └── ⚡ Manage Automations
+├── AI FOR REPS
+│     └── ⚙ Settings
+└── RESOURCES
+      ├── 📖 Knowledge Sources
+      ├── 🗄 MCP Servers
+      └── 🔧 Tools
+
+Right rail: Setup Assistant (persistent, in-place during wizard).</pre>
+      </div>
+
+      <div class="tree-card">
+        <header>
+          <div class="t">Prototype B · Hybrid Goals-First</div>
+          <span class="ribbon b">Spine model</span>
+        </header>
+<pre>Kustomer AI
+├── 🪄 Get Started              (5-step wizard, default landing)
+├── 🎯 Goals                    (spine — Home + slide-out per goal)
+├── 📈 Performance              (subnav)
+│     ├── Dashboard
+│     ├── Quality Monitors       (M1 canonical)
+│     ├── Suggestions            (M1 canonical)
+│     ├── Anomalies              (M1 canonical)
+│     └── Reports                (M1 canonical)
+├── 📚 Resources                (shared library, edit-here)
+│     ├── Procedures
+│     ├── Knowledge Sources
+│     ├── Tools
+│     ├── Guardrails
+│     └── Computed Fields  (Read-only M1)
+├── 🔌 Connections
+├── ⚙ Settings
+│     ├── AI for Customers      (8 canonical sub-pages)
+│     └── AI for Reps           (Copilot · Summaries)
+└── ── For power users ──
+      └── 🔧 Advanced  [LEGACY]
+            ├── Build · Test · Deploy
+            └── Manage Automations · Settings
+
+Right rail: Goals Assistant (persistent, context-aware).</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Matrix ============ -->
+<section id="matrix">
+  <div class="wrap">
+    <h2><span class="num">03</span>Comparison matrix</h2>
+    <p class="intro">
+      Eleven dimensions, scored 1–5. Where Prototype A and B differ by &gt;1 pip the
+      explanation is in the notes column.
+    </p>
+
+    <div class="matrix">
+      <table class="m">
+        <thead>
+          <tr>
+            <th>Dimension</th>
+            <th style="width:90px">A</th>
+            <th style="width:90px">B</th>
+            <th style="width:80px">Winner</th>
+            <th>Why</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="dim">Onboarding clarity<small>first 30 minutes</small></td>
+            <td><span class="pips" data-s="5"></span></td>
+            <td><span class="pips" data-s="4"></span></td>
+            <td><span class="winner a">A</span></td>
+            <td>A's pill + visible Step 2/3/4 indicator + Setup Assistant in-place is the strongest intake of either design. B's wizard is structurally identical but loses the persistent Setup Assistant.</td>
+          </tr>
+          <tr>
+            <td class="dim">Long-term operational clarity<small>month 3+ admin life</small></td>
+            <td><span class="pips" data-s="2"></span></td>
+            <td><span class="pips" data-s="5"></span></td>
+            <td><span class="winner b">B</span></td>
+            <td>A returns users to Refund Order / Manage Automations — they have to translate "improve CSAT" into "which automation". B keeps the goal frame and routes from goal → monitors.</td>
+          </tr>
+          <tr>
+            <td class="dim">Cognitive load<small>density of competing actions</small></td>
+            <td><span class="pips" data-s="4"></span></td>
+            <td><span class="pips" data-s="4"></span></td>
+            <td><span class="winner tie">Tie</span></td>
+            <td>Both keep the right rail busy. A wins on intake (one form), B wins on browse (state-tinted rows scan instantly).</td>
+          </tr>
+          <tr>
+            <td class="dim">Discoverability of M1 primitives<small>Quality Monitors / Suggestions / Anomalies</small></td>
+            <td><span class="pips" data-s="1"></span></td>
+            <td><span class="pips" data-s="5"></span></td>
+            <td><span class="winner b">B</span></td>
+            <td>A has no home for them — these are M1's flagship capabilities and they appear nowhere in the nav. B promotes them to Performance subnav.</td>
+          </tr>
+          <tr>
+            <td class="dim">Scalability<small>can this hold 50 goals?</small></td>
+            <td><span class="pips" data-s="2"></span></td>
+            <td><span class="pips" data-s="5"></span></td>
+            <td><span class="winner b">B</span></td>
+            <td>A's per-automation cards in the nav don't scale past a handful. B's Goals Home is filterable, sortable, and stateful.</td>
+          </tr>
+          <tr>
+            <td class="dim">Migration / back-compat<small>existing customers</small></td>
+            <td><span class="pips" data-s="5"></span></td>
+            <td><span class="pips" data-s="4"></span></td>
+            <td><span class="winner a">A</span></td>
+            <td>A is the tool-first model — every existing customer already uses it. B preserves it under Advanced [LEGACY] but the demotion can confuse legacy admins.</td>
+          </tr>
+          <tr>
+            <td class="dim">AI-product UX patterns<small>does it feel agentic?</small></td>
+            <td><span class="pips" data-s="3"></span></td>
+            <td><span class="pips" data-s="5"></span></td>
+            <td><span class="winner b">B</span></td>
+            <td>A's Setup Assistant is excellent during onboarding but disappears later. B has a persistent context-aware Goals Assistant + plan-diff suggestions tightly integrated with the spine.</td>
+          </tr>
+          <tr>
+            <td class="dim">Enterprise readiness<small>governance, audit, blast radius</small></td>
+            <td><span class="pips" data-s="2"></span></td>
+            <td><span class="pips" data-s="5"></span></td>
+            <td><span class="winner b">B</span></td>
+            <td>B's shared Resources library with "attached to N goals" chips is the right model for enterprise governance. A has no equivalent surface.</td>
+          </tr>
+          <tr>
+            <td class="dim">Visual hierarchy &amp; polish<small>typographic clarity</small></td>
+            <td><span class="pips" data-s="4"></span></td>
+            <td><span class="pips" data-s="5"></span></td>
+            <td><span class="winner b">B</span></td>
+            <td>Both follow Kustomer's design system. B's state-driven color (red wash for attention) + slide-out animation feel more modern.</td>
+          </tr>
+          <tr>
+            <td class="dim">Trust / transparency<small>"what is the AI doing?"</small></td>
+            <td><span class="pips" data-s="3"></span></td>
+            <td><span class="pips" data-s="5"></span></td>
+            <td><span class="winner b">B</span></td>
+            <td>B's per-goal Plan section names the 4 ingredients clearly (CAI behaviors / Rep AI behaviors / Procedures / Guardrails) with examples in quotes. A's Build view shows procedures but doesn't separate surfaces.</td>
+          </tr>
+          <tr>
+            <td class="dim">Configuration ease<small>"set up the platform"</small></td>
+            <td><span class="pips" data-s="5"></span></td>
+            <td><span class="pips" data-s="5"></span></td>
+            <td><span class="winner tie">Tie</span></td>
+            <td>Both share the same wizard intake. Equalized.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Strengths / Weaknesses Deep Dive ============ -->
+<section id="strengths">
+  <div class="wrap">
+    <h2><span class="num">04</span>Strengths, friction, and missed opportunities</h2>
+    <p class="intro">
+      An opinionated read of what works, what hurts, and what each prototype <em>didn't
+      build but could have</em>.
+    </p>
+
+    <div class="compare" style="margin-bottom: 22px">
+      <div class="card">
+        <span class="ribbon a">Prototype A</span>
+        <h3>What works · what creates friction</h3>
+        <div class="proscons">
+          <div class="pros">
+            <h4>What works well</h4>
+            <ul>
+              <li>The single-form intake — explicit "Skip &amp; configure manually" affordance respects power users.</li>
+              <li>Numbered sections (1–8) make completion progress visible without a stepper.</li>
+              <li>The "Step 2 of 5" pill in the Build view ties wizard steps to real product surfaces.</li>
+              <li>Setup Assistant inline answers ("Suggest goals for my business", "What should escalate to a human?") demonstrate AI competency at the moment of need.</li>
+              <li>Test Categories with pass/warning/fail and last-run timestamps mirror a real CI pattern admins recognize.</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <h4>What creates friction</h4>
+            <ul>
+              <li>Wizard sub-steps Build/Test/Deploy/Analyze are ambiguous against legacy global Build/Test/Deploy concepts — they read like two different products.</li>
+              <li>"Refund Order" appearing as a fixed nav card hard-codes one automation example into the IA.</li>
+              <li>Performance is a single scrollable dashboard that mixes per-goal KPIs, insights, and topic performance — overwhelming and undelineated.</li>
+              <li>Quality Monitors / Anomalies are nowhere — admins who read the M1 spec will look and not find them.</li>
+              <li>After the wizard, there's no obvious "next" — what does an admin do on day 8?</li>
+            </ul>
+          </div>
+        </div>
+        <h4 style="margin: 16px 0 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-90);">Missed opportunities</h4>
+        <ul style="margin: 0; padding-left: 18px; font-size: 12.5px; color: var(--gray-105); line-height: 1.5;">
+          <li>Plan-diff suggestions ("we think you should tighten this guardrail") — invisible.</li>
+          <li>Per-goal trend reporting tied to GoalProgressSnapshot — buried in a single combined view.</li>
+          <li>No "Improve" surface — observations don't translate into actions inside the IA.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <span class="ribbon b">Prototype B</span>
+        <h3>What works · what creates friction</h3>
+        <div class="proscons">
+          <div class="pros">
+            <h4>What works well</h4>
+            <ul>
+              <li>Get Started is the default landing — empty-state = guided intake — and the wizard runs full-width.</li>
+              <li>Goals Home rows are instantly scannable: name · state pill · target · current · progress bar · suggestions count.</li>
+              <li>Goal slide-out resolves the "what is this goal made of?" question without committing to a workspace.</li>
+              <li>Plan section in the slide-out names the 4 ingredients with one-line definitions + examples in quotes.</li>
+              <li>"Suggest a change" CTA at the bottom of the Plan section turns the slide-out into an actionable surface.</li>
+              <li>Performance tabs are 1:1 with M1 canonical primitives — no invented surfaces.</li>
+              <li>Resources is the shared library with "attached to N goals" — blast-radius is visible at edit time.</li>
+            </ul>
+          </div>
+          <div class="cons">
+            <h4>What creates friction</h4>
+            <ul>
+              <li>"Plan editing lives in Resources" requires a mental model — first-time admins may try to edit in the slide-out.</li>
+              <li>The wizard's exit point lands on a slide-out, not a celebration screen — moment-of-success is muted.</li>
+              <li>No persistent per-goal KPI hero — to see live numbers you must click into Performance.</li>
+              <li>Goals nav is not expandable — to switch goals you go back to Goals Home (one extra click vs A's per-automation drill-in).</li>
+            </ul>
+          </div>
+        </div>
+        <h4 style="margin: 16px 0 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gray-90);">Missed opportunities</h4>
+        <ul style="margin: 0; padding-left: 18px; font-size: 12.5px; color: var(--gray-105); line-height: 1.5;">
+          <li>Setup Assistant inline copy during the wizard is gone — Goals Assistant in the rail is less integrated.</li>
+          <li>"You're live" celebration screen could surface first-monitor reading instead of a TBD placeholder.</li>
+          <li>Cross-goal comparison view — "show me CSAT across all goals" — not yet a destination.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Cognitive load ============ -->
+<section id="cognitive">
+  <div class="wrap">
+    <h2><span class="num">05</span>Cognitive load analysis</h2>
+    <p class="intro">
+      Three intervals — first session, ongoing usage, optimization workflow — measured by
+      <em>screens to first value</em>, <em>distinct concepts to hold in working memory</em>, and
+      <em>destinations needed to answer a common question</em>.
+    </p>
+
+    <div class="matrix">
+      <table class="m">
+        <thead>
+          <tr>
+            <th style="width:24%">Workflow</th>
+            <th style="width:30%">Prototype A</th>
+            <th style="width:30%">Prototype B</th>
+            <th>Winner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="dim">First-run setup<small>"deploy my first AI"</small></td>
+            <td>1 form → 4 read screens → live. <b>Excellent.</b> Setup Assistant in-place.</td>
+            <td>Same form-based path, but landing on a slide-out vs a celebration moment. Goals Assistant in rail, not inline.</td>
+            <td><span class="winner a">A</span></td>
+          </tr>
+          <tr>
+            <td class="dim">Ongoing health check<small>"how's CSAT doing?"</small></td>
+            <td>Performance (single page, scroll through goals + topics + insights). <b>1 destination but high density.</b></td>
+            <td>Performance → Dashboard, or Goals Home → click goal → Sparkline + jump to Reports. <b>Fewer concepts per screen.</b></td>
+            <td><span class="winner b">B</span></td>
+          </tr>
+          <tr>
+            <td class="dim">Tune a procedure<small>"refund logic is wrong"</small></td>
+            <td>Set Goals → Build → expand procedure → edit. Tied to one automation context.</td>
+            <td>Resources → Procedures → edit. Blast-radius chip warns of cross-goal impact.</td>
+            <td><span class="winner b">B</span></td>
+          </tr>
+          <tr>
+            <td class="dim">Triage a failure<small>"AI escalated something it shouldn't"</small></td>
+            <td>Performance dashboard → flagged conversations. Linear.</td>
+            <td>Anomalies tab in Performance (canonical M1 surface) → drill to conversation. More precise.</td>
+            <td><span class="winner b">B</span></td>
+          </tr>
+          <tr>
+            <td class="dim">Add a goal<small>second/third configuration</small></td>
+            <td>Re-enter wizard — risk of looking like first-time setup again.</td>
+            <td>"+ New goal" from Goals Home or Get Started — explicit and recurring.</td>
+            <td><span class="winner b">B</span></td>
+          </tr>
+          <tr>
+            <td class="dim">Apply a suggestion<small>plan-diff flow</small></td>
+            <td>Not present. Insights surface in Performance but no apply/dismiss UI.</td>
+            <td>Suggestions tab in Performance with confidence pill, before/after, Apply/Test/Dismiss.</td>
+            <td><span class="winner b">B</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Persona walkthroughs ============ -->
+<section id="personas">
+  <div class="wrap">
+    <h2><span class="num">06</span>Persona walkthroughs</h2>
+    <p class="intro">
+      Same task list, five user types, two prototypes. Where the success rate diverges is
+      where the IA does or doesn't fit the mental model.
+    </p>
+
+    <div class="personas">
+      <div class="persona">
+        <h4>First-time admin<span class="badge">Day 1</span></h4>
+        <p>Just turned on Kustomer AI for an e-commerce brand. Knows support, not AI.</p>
+        <div class="row"><div class="k">Best in A</div><div class="v"><b>Wizard intake</b> — single form, clear "Generate my AI setup" CTA, Setup Assistant answers questions inline.</div></div>
+        <div class="row"><div class="k">Best in B</div><div class="v"><b>Empty state</b> — wizard auto-opens on first visit (no goals = guided intake), then routes to Goals Home with their new goal sitting on top.</div></div>
+        <div class="row"><div class="k">Verdict</div><div class="v">A by a hair for the very first hour; B catches up the moment they want to look at the result.</div></div>
+      </div>
+
+      <div class="persona">
+        <h4>Support manager<span class="badge">Week 2</span></h4>
+        <p>Owns CSAT and escalation rate. Wants to know if AI is helping or hurting.</p>
+        <div class="row"><div class="k">In A</div><div class="v">Performance page — scrolls through 6 goal cards + 4 insights + topics table. Has to mentally bin the data into outcomes.</div></div>
+        <div class="row"><div class="k">In B</div><div class="v">Goals Home — sees 4 goals as rows, instantly orients on "Reduce reopen rate" trending wrong. Clicks → slide-out shows progress + jump to Performance with goal filter pre-applied.</div></div>
+        <div class="row"><div class="k">Verdict</div><div class="v"><b>B by a margin.</b> The mental model matches the role.</div></div>
+      </div>
+
+      <div class="persona">
+        <h4>Ops team lead<span class="badge">Month 1+</span></h4>
+        <p>Configures procedures, attaches guardrails, manages the shared library.</p>
+        <div class="row"><div class="k">In A</div><div class="v">Build view inside Set Goals → procedures listed but tied to one automation context. No "this procedure is shared with 3 other automations" warning.</div></div>
+        <div class="row"><div class="k">In B</div><div class="v">Resources → Procedures, central library. "Attached to N goals" chip on every row. Edits broadcast cleanly.</div></div>
+        <div class="row"><div class="k">Verdict</div><div class="v"><b>B clearly.</b> A's tool-first model breaks down under shared-resource workflows.</div></div>
+      </div>
+
+      <div class="persona">
+        <h4>Enterprise buyer<span class="badge">Pre-sale</span></h4>
+        <p>Evaluating Kustomer AI vs Sierra / Decagon. Cares about governance, audit, scale.</p>
+        <div class="row"><div class="k">In A</div><div class="v">Hard to demo what "monitoring my AI on real conversations" looks like — Performance shows topic data but not M1's Quality Monitors / Anomalies primitives.</div></div>
+        <div class="row"><div class="k">In B</div><div class="v">Performance subnav names exactly what the M1 spec promises (Quality Monitors / Suggestions / Anomalies / Reports). Resources shows shared-library governance.</div></div>
+        <div class="row"><div class="k">Verdict</div><div class="v"><b>B is the enterprise-credible IA.</b></div></div>
+      </div>
+
+      <div class="persona">
+        <h4>Daily power user<span class="badge">Month 6+</span></h4>
+        <p>Lives in Kustomer. Has 10+ goals running. Constantly tuning.</p>
+        <div class="row"><div class="k">In A</div><div class="v">Has to navigate per-automation cards in the nav. Manage Automations becomes a flat list of 20+ items.</div></div>
+        <div class="row"><div class="k">In B</div><div class="v">Goals Home with state filters (All / Needs attention / Running / Not yet live) handles 50 goals as cleanly as 5. Advanced surface for legacy edits.</div></div>
+        <div class="row"><div class="k">Verdict</div><div class="v"><b>B scales linearly; A doesn't.</b></div></div>
+      </div>
+
+      <div class="persona">
+        <h4>AI-curious exec<span class="badge">Quarterly</span></h4>
+        <p>Wants a one-screen "is our AI making us money?" view.</p>
+        <div class="row"><div class="k">In A</div><div class="v">Performance dashboard is closest — but mixes operational data with outcome data.</div></div>
+        <div class="row"><div class="k">In B</div><div class="v">Goals Home is exactly this view: every business outcome as a row with progress %.</div></div>
+        <div class="row"><div class="k">Verdict</div><div class="v"><b>B is the right exec surface.</b></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Hybrid recommendation ============ -->
+<section id="hybrid">
+  <div class="wrap">
+    <h2><span class="num">07</span>Recommended hybrid</h2>
+    <p class="intro">
+      Not "pick one." The hybrid is <b>Prototype B's structure + Prototype A's intake quality
+      + restored Setup Assistant + one new destination (Improve).</b> Below: what to keep from
+      A, what to take from B as-is, and what to merge.
+    </p>
+
+    <div class="hyb-grid">
+      <div class="keep">
+        <h4>Keep from A</h4>
+        <ul>
+          <li><b>The 5-step wizard</b> — Set Goals · Build · Test &amp; Evaluate · Deploy · Analyze, with the visible step indicator pill.</li>
+          <li><b>Setup Assistant inline</b> during the wizard — "Suggest goals", "What should escalate?", "Draft a tone" prompts at the moment of need.</li>
+          <li><b>Audience pills</b> (AIC blue / AIR purple) carried through every goal, procedure, monitor, test.</li>
+          <li><b>Numbered sections (1–8)</b> in the wizard form — progress is visible without a stepper.</li>
+          <li><b>Test Categories with pass / warning / fail</b> visual treatment — the green Continue-to-Deploy gating is excellent.</li>
+        </ul>
+      </div>
+
+      <div class="merge">
+        <h4>Take from B as-is</h4>
+        <ul>
+          <li><b>Goals as the spine</b> — Goals Home is the landing after first run; the slide-out replaces a heavy workspace.</li>
+          <li><b>Performance subnav</b> with canonical M1 tabs (Quality Monitors · Suggestions · Anomalies · Reports).</li>
+          <li><b>Resources as shared library</b> with "attached to N goals" chips and the "Plan editing lives here" banner.</li>
+          <li><b>Settings folds AIC + AIR surfaces</b> — they are not top-level peers.</li>
+          <li><b>Advanced [LEGACY]</b> for the tool-first surface — preserved, not promoted.</li>
+          <li><b>State-driven color</b> — red wash for goals needing attention, restraint elsewhere.</li>
+        </ul>
+      </div>
+
+      <div class="replace">
+        <h4>Merge / add new</h4>
+        <ul>
+          <li><b>Setup Assistant returns to the wizard</b> as inline panel (lift from A) — replaces the rail-only Goals Assistant during intake.</li>
+          <li><b>Promote "Improve" to a destination</b> — currently buried in Performance/Suggestions. A dedicated cross-goal Improve view ranks plan diffs by impact.</li>
+          <li><b>Per-goal "open in fullscreen"</b> escape hatch on the slide-out for power users who want the depth back temporarily.</li>
+          <li><b>"You're live" analyze step</b> shows first monitor reading or expected baseline, not "TBD".</li>
+          <li><b>Wizard exits to a fullscreen "Welcome to your goal" page</b> (single screen with goal hero, plan summary, first monitor) → THEN to the slide-out on close.</li>
+          <li><b>Goals nav supports a small "pinned goal" sub-list</b> (max 3 user-favorited) for daily power users who do want one-click goal switching.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Wireframes ============ -->
+<section id="wires">
+  <div class="wrap">
+    <h2><span class="num">08</span>Hybrid wireframes</h2>
+    <p class="intro">
+      Three text-mode sketches: (1) the wizard landing with the restored Setup Assistant
+      inline, (2) Goals Home with pinned goals + states, (3) the per-goal slide-out with
+      its "Improve" CTA promoted to the header.
+    </p>
+
+    <div style="display: grid; gap: 18px;">
+      <div>
+        <div style="font-size: 13px; font-weight: 700; color: var(--gray-120); margin-bottom: 6px;">
+          1. Wizard with restored Setup Assistant
+        </div>
+        <div class="wire">┌── Rail ─┬── Nav ─────────────┬─── Wizard body (32px 40px) ──────────┬── Setup Assistant ──┐
+│   K     │ Kustomer AI         │ ▒▒▒ yellow gradient hero ▒▒▒          │ ✦ Setup Assistant   │
+│ 🪄 ai⭐  │ 🪄 Get Started      │ Tell us about your business           │ Hi! Ask me anything │
+│ home    │ 🎯 Goals            │ Pick a goal you want to move…         │ as you fill out the │
+│ inbox 1 │ 📈 Performance ▼    │                                       │ form.               │
+│ …       │ 📚 Resources        │ ① About your company                  │                     │
+│         │ 🔌 Connections      │   [Acme Inc]  [Retail & Ecom]         │ • Suggest goals     │
+│         │ ⚙ Settings          │ ② What goals do you want to set?      │   for my business   │
+│         │ ── For power users ─│   ☑ Reduce escalations                │ • What should       │
+│         │ 🔧 Advanced [LEGACY]│   ☑ Improve CSAT                      │   escalate to       │
+│         │                     │   ☐ Speed up rep responses            │   a human?          │
+│         │                     │ ③ Where should your AI show up?       │ • Draft a tone for  │
+│         │                     │   ☑ AI for Customers                  │   my brand          │
+│         │                     │   ☑ AI for Reps                       │                     │
+│         │                     │ … (sections 4–8)                      │ [ Ask Kustomer AI ] │
+│         │                     │                  [ Generate my plan ] │                     │
+└─────────┴─────────────────────┴───────────────────────────────────────┴─────────────────────┘</div>
+      </div>
+
+      <div>
+        <div style="font-size: 13px; font-weight: 700; color: var(--gray-120); margin-bottom: 6px;">
+          2. Goals Home with pinned goals + state-tinted attention
+        </div>
+        <div class="wire">┌── Goals · yellow gradient hero ──────────────────────────────────┐
+│ GOALS                                                            │
+│ Your goals                            [Browse templates][+ New]  │
+│ Track how your AI is moving each outcome. Drill in to tune.      │
+├──────────────────────────────────────────────────────────────────┤
+│ [All · 4] [Needs attention · 1] [Running · 3] [Not yet · 0]      │
+│                                          24h │ 7d │ 30d ◀ pinned │
+├──────────────────────────────────────────────────────────────────┤
+│ ★ PINNED                                                         │
+│ ● Reduce escalations    Live    −34%   72% ████░░░░  3 sugs >   │
+│ ★ Improve CSAT          Live    +3.1   78% ██████░░  2 sugs >   │
+├──────────────────────────────────────────────────────────────────┤
+│ ▓ RED WASH for attention                                         │
+│ ● Reduce reopen rate    Attn ⚠  +4%    38% ███░░░░░  5 sugs >   │
+├──────────────────────────────────────────────────────────────────┤
+│ ● Increase upsell 15%   Limited +8.4%  56% █████░░░  4 sugs >   │
+└──────────────────────────────────────────────────────────────────┘</div>
+      </div>
+
+      <div>
+        <div style="font-size: 13px; font-weight: 700; color: var(--gray-120); margin-bottom: 6px;">
+          3. Goal slide-out — Plan section + promoted "Improve" CTA
+        </div>
+        <div class="wire">                            ┌── slide-out 520px ──────────────────────┐
+                            │ ← Goals · Support efficiency      ⋯ × │
+                            │ Reduce escalations                    │
+                            │ [● Live] −34%  vs baseline            │
+                            │ ▓▓▓░░░  72% to −40% by Q3      sparkl │
+                            ├───────────────────────────────────────┤
+                            │ ⚙ CONFIGURATION                       │
+                            │   Name · Target · Direction · Monitor │
+                            ├───────────────────────────────────────┤
+                            │ 🔔 ALERTS                             │
+                            │   Notify me     [● daily · email]     │
+                            ├───────────────────────────────────────┤
+                            │ ✨ IMPROVE  (3 suggestions)           │
+                            │   ⊕ high  Tighten escalation trigger  │
+                            │            [Review →]                 │
+                            │   ⊕ med   Add KB article …            │
+                            ├───────────────────────────────────────┤
+                            │ 📋 PLAN — what the AI is doing        │
+                            │   💬 Customer AI behaviors · 6 active │
+                            │      "Answer order-tracking…"         │
+                            │      [View all →]                     │
+                            │   🎧 Rep AI behaviors · 9 active      │
+                            │   📖 Procedures · 7 attached          │
+                            │      [Edit in Resources →]            │
+                            │   🛡 Guardrails · 5 active            │
+                            ├───────────────────────────────────────┤
+                            │ → Drill in                            │
+                            │   See monitors  · See trend report    │
+                            ├───────────────────────────────────────┤
+                            │ [Archive]      [Cancel] [Save changes]│
+                            └───────────────────────────────────────┘</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Verdict ============ -->
+<section id="verdict">
+  <div class="wrap">
+    <h2><span class="num">09</span>Strategic verdict</h2>
+    <p class="intro">
+      One direction, three actions.
+    </p>
+
+    <div class="verdict">
+      <h3>Go with Prototype B as the structural foundation.</h3>
+      <p>
+        It scales linearly with goal count, names the M1 primitives correctly, gives
+        enterprise buyers a credible governance story, and matches the role-based mental
+        model of every persona except the very-first-hour admin.
+      </p>
+      <p>
+        <b>Action 1 · Restore the Setup Assistant inline during the wizard.</b>
+        This is the single biggest thing A does better. The Goals Assistant in the rail is
+        too easy to ignore during a focused intake task. Bring back the inline panel with
+        the same three suggestion prompts.
+      </p>
+      <p>
+        <b>Action 2 · Add a "Welcome to your goal" celebration screen between Analyze
+        (step 5) and the goal slide-out.</b>
+        Show the first live monitor reading or expected baseline, the plan summary, and
+        a single "Open my goal" CTA. The wizard exit should feel like a launch, not a
+        pop-in.
+      </p>
+      <p>
+        <b>Action 3 · Promote Improve to a top-level destination,</b> or at minimum to a
+        permanent slot in the Performance subnav with its own badge count. Suggestions are
+        the agent's most demonstrable intelligence — they should not be buried.
+      </p>
+      <p style="margin-top: 14px; padding-top: 14px; border-top: 1px solid #F0E0A6;">
+        Everything else in B is correct as drawn. Ship the spine; iterate the surface.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    Prepared for Amisha · senior UX critique, comparison artifact. Lives separately from the
+    working prototype — no current screens were modified to produce this analysis.
+  </div>
+</footer>
+
+<script>
+  // pip filler
+  document.querySelectorAll(".pips").forEach(el => {
+    const s = parseInt(el.dataset.s, 10) || 0;
+    el.innerHTML = "";
+    for (let i = 0; i < 5; i++) {
+      const dot = document.createElement("span");
+      dot.className = "pip" + (i < s ? " on" : "");
+      el.appendChild(dot);
+    }
+  });
+</script>
+</body>
+</html>

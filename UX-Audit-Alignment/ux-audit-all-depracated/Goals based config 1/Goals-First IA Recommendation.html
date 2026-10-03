@@ -1,0 +1,2311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Goals-First IA Recommendation — Kustomer Platform</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="colors_and_type.css" />
+<style>
+  /* ---------- Page chrome ---------- */
+  html, body { background: var(--bg-app); }
+  body { color: var(--text-primary); font-family: var(--font-sans); }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+
+  /* Top bar */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.86);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--gray-30);
+  }
+  .topbar-inner {
+    display: flex; align-items: center; gap: 24px;
+    padding: 14px 32px; max-width: 1280px; margin: 0 auto;
+  }
+  .topbar .mark {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: var(--yellow-60); display: inline-flex;
+    align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 600; font-size: 14px;
+    color: var(--gray-120);
+  }
+  .topbar .title {
+    font-size: 14px; font-weight: 600; color: var(--gray-120);
+    letter-spacing: -0.005em;
+  }
+  .topbar .title .sub {
+    font-weight: 400; color: var(--gray-95); margin-left: 8px;
+  }
+  .topnav { display: flex; gap: 4px; margin-left: auto; }
+  .topnav a {
+    font-size: 13px; font-weight: 500; color: var(--gray-95);
+    padding: 6px 12px; border-radius: 999px; text-decoration: none;
+  }
+  .topnav a:hover { background: var(--gray-25); color: var(--gray-120); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 64px 0 40px;
+    background: linear-gradient(180deg, #FFFCE8 0%, #FFFFFF 100%);
+    border-bottom: 1px solid var(--gray-30);
+  }
+  .eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--gray-95);
+  }
+  .hero h1 {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: clamp(36px, 4.4vw, 56px);
+    line-height: 1.05; letter-spacing: -0.02em;
+    color: var(--gray-120); margin: 10px 0 18px;
+    max-width: 28ch; text-wrap: balance;
+  }
+  .hero p.lede {
+    font-size: 17px; line-height: 1.55; color: var(--gray-95);
+    max-width: 64ch; margin: 0;
+  }
+  .hero .meta {
+    display: flex; gap: 24px; margin-top: 36px;
+    font-size: 12px; color: var(--gray-90); flex-wrap: wrap;
+  }
+  .hero .meta .m { display: flex; flex-direction: column; gap: 2px; }
+  .hero .meta .m b { color: var(--gray-120); font-weight: 600; font-size: 13px; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 56px 0; border-bottom: 1px solid var(--gray-30); }
+  section h2 {
+    font-family: var(--font-sans); font-weight: 600; font-size: 24px;
+    letter-spacing: -0.01em; color: var(--gray-120); margin: 0 0 6px;
+  }
+  section h2 .num {
+    color: var(--gray-70); font-variant-numeric: tabular-nums;
+    font-weight: 500; margin-right: 12px;
+  }
+  section h2 + p {
+    font-size: 15px; line-height: 1.6; color: var(--gray-95);
+    max-width: 72ch; margin: 0 0 28px;
+  }
+  ul.tldr-list {
+    list-style: none; padding: 0;
+    margin: -12px 0 28px;
+    display: grid; gap: 8px;
+    font-size: 15px; line-height: 1.55; color: var(--gray-105);
+    max-width: 72ch;
+  }
+  ul.tldr-list li {
+    padding-left: 22px; position: relative;
+  }
+  ul.tldr-list li::before {
+    content: ""; position: absolute;
+    left: 4px; top: 9px; width: 6px; height: 6px;
+    border-radius: 999px; background: var(--gray-95);
+  }
+
+  /* ---------- Two-up compare cards ---------- */
+  .compare {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  .card {
+    background: #fff; border: 1px solid var(--gray-30);
+    border-radius: 14px; padding: 24px;
+  }
+  .card .ribbon {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 4px 10px; border-radius: 999px; font-size: 11px;
+    font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;
+  }
+  .ribbon.p1 { background: var(--blue-15); color: var(--blue-95); }
+  .ribbon.p2 { background: var(--purple-15); color: var(--purple-95); }
+  .ribbon.hybrid { background: var(--yellow-25); color: var(--yellow-110); }
+  .card h3 {
+    font-size: 19px; font-weight: 600; color: var(--gray-120);
+    margin: 14px 0 4px; letter-spacing: -0.005em;
+  }
+  .card .one-liner {
+    font-size: 13px; color: var(--gray-95); margin: 0 0 18px;
+  }
+  .proscons { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .proscons h4 {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--gray-90); margin: 0 0 10px;
+  }
+  .proscons ul { padding-left: 0; margin: 0; list-style: none; display: grid; gap: 8px; }
+  .proscons li {
+    font-size: 13px; line-height: 1.5; color: var(--gray-105);
+    padding-left: 18px; position: relative;
+  }
+  .proscons li::before {
+    position: absolute; left: 0; top: 2px; font-size: 10px;
+    width: 12px; height: 12px; line-height: 12px; text-align: center;
+    border-radius: 4px;
+  }
+  .proscons .pros li::before { content: "+"; background: var(--green-15); color: var(--green-80); font-weight: 700; }
+  .proscons .cons li::before { content: "−"; background: var(--red-15); color: var(--red-80); font-weight: 700; }
+
+  /* ---------- Scorecard table ---------- */
+  .scorecard {
+    background: #fff; border: 1px solid var(--gray-30);
+    border-radius: 14px; overflow: hidden;
+  }
+  .scorecard table { width: 100%; border-collapse: collapse; }
+  .scorecard th, .scorecard td {
+    padding: 14px 18px; text-align: left; font-size: 13px;
+    border-bottom: 1px solid var(--gray-30); vertical-align: top;
+  }
+  .scorecard thead th {
+    background: var(--gray-15); font-weight: 600; color: var(--gray-95);
+    font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .scorecard tr:last-child td { border-bottom: none; }
+  .scorecard td.dim { font-weight: 600; color: var(--gray-120); width: 28%; }
+  .scorecard td.dim small {
+    display: block; font-weight: 400; color: var(--gray-90);
+    font-size: 12px; margin-top: 3px;
+  }
+  .pips { display: inline-flex; gap: 3px; }
+  .pip {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--gray-30);
+  }
+  .pip.on { background: var(--gray-120); }
+  .winner {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 2px 8px; border-radius: 999px; font-size: 11px;
+    font-weight: 600;
+  }
+  .winner.tie { background: var(--gray-25); color: var(--gray-95); }
+  .winner.p1 { background: var(--blue-15); color: var(--blue-95); }
+  .winner.p2 { background: var(--purple-15); color: var(--purple-95); }
+  .winner.h { background: var(--yellow-25); color: var(--yellow-110); }
+  td.note { font-size: 12px; color: var(--gray-95); line-height: 1.5; }
+
+  /* ---------- Recommendation ---------- */
+  .reco-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px;
+    align-items: start;
+  }
+  .reco-narr p {
+    font-size: 15px; line-height: 1.7; color: var(--gray-105);
+    margin: 0 0 14px;
+  }
+  .reco-narr p strong { color: var(--gray-120); font-weight: 600; }
+  .principles {
+    background: var(--gray-15); border: 1px solid var(--gray-30);
+    border-radius: 14px; padding: 22px;
+  }
+  .principles h4 {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--gray-95); margin: 0 0 14px;
+  }
+  .principles ol {
+    margin: 0; padding-left: 0; list-style: none;
+    counter-reset: principle;
+  }
+  .principles li {
+    counter-increment: principle;
+    padding: 10px 0 10px 36px; position: relative;
+    border-top: 1px solid var(--gray-30);
+    font-size: 13.5px; line-height: 1.55; color: var(--gray-105);
+  }
+  .principles li:first-child { border-top: none; }
+  .principles li::before {
+    content: counter(principle);
+    position: absolute; left: 0; top: 12px;
+    width: 22px; height: 22px; border-radius: 999px;
+    background: var(--gray-120); color: #fff;
+    font-size: 11px; font-weight: 700;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .principles li b { color: var(--gray-120); font-weight: 600; }
+  .principles.principles-wide {
+    max-width: none;
+  }
+  .principles.principles-wide ol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 32px;
+  }
+  .principles.principles-wide li {
+    border-top: 1px solid var(--gray-30);
+  }
+  @media (max-width: 900px) {
+    .principles.principles-wide ol { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- IA Tree ---------- */
+  .map-frame {
+    background: #fff; border: 1px solid var(--gray-30);
+    border-radius: 16px; overflow: hidden;
+    display: grid; grid-template-columns: 420px minmax(0, 1fr);
+    min-height: 720px;
+  }
+  @media (max-width: 1100px) {
+    .map-frame { grid-template-columns: 1fr; }
+    .tree-col { border-right: none; border-bottom: 1px solid var(--gray-30); max-height: 480px; }
+  }
+  @media (max-width: 900px) {
+    .compare, .reco-grid { grid-template-columns: 1fr; }
+  }
+  .tree-col {
+    background: var(--gray-15); border-right: 1px solid var(--gray-30);
+    padding: 18px 8px 24px; overflow: auto;
+  }
+  .tree-col .tree-head {
+    padding: 6px 14px 14px; display: flex; align-items: center;
+    justify-content: space-between;
+  }
+  .tree-col .tree-head .tt {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--gray-95);
+  }
+  .tree-col .tree-head .controls {
+    display: flex; gap: 4px;
+  }
+  .tree-col .tree-head button {
+    border: 1px solid var(--gray-30); background: #fff;
+    color: var(--gray-95); font-size: 11px; font-weight: 500;
+    padding: 4px 10px; border-radius: 999px; cursor: pointer;
+  }
+  .tree-col .tree-head button:hover { color: var(--gray-120); border-color: var(--gray-50); }
+
+  .node {
+    user-select: none;
+  }
+  .node-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 30px;
+    padding: 4px 12px; cursor: pointer;
+    border-radius: 8px;
+    margin: 1px 4px;
+    transition: background 100ms ease;
+  }
+  .node-row:hover { background: var(--gray-25); }
+  .node-row.selected { background: var(--gray-30); }
+  .node-row.selected .label { color: var(--gray-120); font-weight: 600; }
+
+  .chev {
+    order: 99;
+    flex: 0 0 14px;
+    width: 14px; height: 14px; color: var(--gray-80);
+    transition: transform 160ms ease;
+  }
+  .chev.hidden { visibility: hidden; }
+  .node.open > .node-row > .chev { transform: rotate(90deg); }
+  .node-row > .label { flex: 1 1 auto; min-width: 0; }
+  .node-row > .pills { flex: 0 0 auto; display: inline-flex; gap: 4px; }
+
+  .icon {
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+    color: var(--gray-105);
+    background: transparent;
+  }
+  .icon.kusty { width: 18px; height: 18px; background: transparent; }
+  .icon.kusty img { width: 18px; height: 18px; display: block; }
+  .icon svg { width: 16px; height: 16px; }
+  /* Subtle background tints for category icons */
+  .icon.root, .icon.set, .icon.tab { background: transparent; }
+  .icon.launch  { color: oklch(0.56 0.26 270); }
+  .icon.goals   { color: oklch(0.65 0.18 70); }
+  .icon.perf    { color: oklch(0.55 0.16 145); }
+  .icon.res     { color: oklch(0.52 0.22 305); }
+  .icon.conn    { color: oklch(0.55 0.12 200); }
+  .icon.adv     { color: var(--gray-95); }
+  .icon.leaf {
+    width: 22px; height: 22px;
+    color: var(--gray-80);
+  }
+  .icon.leaf svg { width: 12px; height: 12px; }
+
+  .label {
+    font-size: 13px; color: var(--gray-105);
+    letter-spacing: -0.002em;
+  }
+  .node-row .meta-pill {
+    font-size: 9.5px; font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; padding: 2px 7px; border-radius: 999px;
+    background: var(--gray-25); color: var(--gray-95);
+  }
+  .meta-pill.new { background: var(--green-15); color: var(--green-80); }
+  .meta-pill.moved { background: var(--yellow-25); color: var(--yellow-110); }
+  .meta-pill.legacy { background: var(--gray-30); color: var(--gray-90); }
+  .meta-pill.tab { background: transparent; border: 1px solid var(--gray-30); color: var(--gray-95); }
+  .meta-pill.m1 { background: var(--blue-15); color: var(--blue-95); }
+  .meta-pill.layer-outcome { background: oklch(0.95 0.05 80); color: oklch(0.42 0.13 80); border: 1px solid oklch(0.85 0.08 80); }
+  .meta-pill.layer-operational { background: oklch(0.95 0.04 150); color: oklch(0.42 0.14 150); border: 1px solid oklch(0.83 0.08 150); }
+  .meta-pill.layer-per-auto { background: oklch(0.95 0.04 290); color: oklch(0.42 0.15 290); border: 1px solid oklch(0.83 0.08 290); }
+
+  .children { display: none; padding-left: 22px; }
+  .node.open > .children { display: block; }
+
+  /* Overflow / "More" node, renders like a regular row (dots are its icon).
+     Special handling here is just for the popover children. */
+  .node.is-overflow { position: relative; }
+  .node.is-overflow > .children {
+    display: none;
+    padding-left: 0;
+    position: fixed;
+    z-index: 1000;
+    min-width: 240px;
+    background: #fff;
+    border: 1px solid var(--gray-30);
+    border-radius: 10px;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18), 0 4px 12px rgba(15, 23, 42, 0.08);
+    padding: 6px;
+  }
+  .node.is-overflow.open > .children { display: block; }
+  .node.is-overflow > .children .node-row { margin: 0; }
+  .node.is-overflow.open > .node-row { background: var(--gray-25); }
+
+  /* Overflow menu rendered in the detail panel when "More" is clicked. */
+  .ovm-list {
+    display: grid; gap: 4px;
+    margin-top: 8px;
+  }
+  .ovm-item {
+    display: flex; align-items: center; gap: 12px;
+    background: #fff; border: 1px solid var(--gray-30);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font: inherit;
+    color: var(--gray-120);
+    text-align: left;
+    cursor: pointer;
+    transition: background 100ms ease, border-color 100ms ease;
+  }
+  .ovm-item:hover {
+    background: var(--gray-15);
+    border-color: var(--gray-50);
+  }
+  .ovm-item .ovm-icon {
+    width: 22px; height: 22px;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--gray-105);
+  }
+  .ovm-item .ovm-icon svg { width: 16px; height: 16px; }
+  .ovm-item .ovm-label {
+    flex: 1 1 auto;
+    font-size: 13.5px; font-weight: 500;
+    letter-spacing: -0.002em;
+  }
+  .ovm-item .ovm-pills { display: inline-flex; gap: 4px; }
+
+  /* Child subpages rendered as cards at the top of a parent's detail panel. */
+  .subpages {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 8px;
+    margin: 6px 0 22px;
+  }
+  .subpage-card {
+    display: flex; align-items: center; gap: 12px;
+    background: #fff; border: 1px solid var(--gray-30);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font: inherit;
+    color: var(--gray-120);
+    text-align: left;
+    cursor: pointer;
+    transition: background 100ms ease, border-color 100ms ease, transform 100ms ease;
+  }
+  .subpage-card:hover {
+    background: var(--gray-15);
+    border-color: var(--gray-50);
+  }
+  .subpage-card:active { transform: translateY(1px); }
+  .subpage-card .subpage-icon {
+    width: 24px; height: 24px;
+    display: inline-flex; align-items: center; justify-content: center;
+    color: var(--gray-105);
+    flex: 0 0 24px;
+  }
+  .subpage-card .subpage-icon svg { width: 18px; height: 18px; }
+  .subpage-card .subpage-body {
+    flex: 1 1 auto; min-width: 0;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .subpage-card .subpage-label {
+    font-size: 13px; font-weight: 600;
+    color: var(--gray-120); letter-spacing: -0.005em;
+  }
+  .subpage-card .subpage-desc {
+    font-size: 11.5px; color: var(--gray-95);
+    overflow: hidden; text-overflow: ellipsis;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  }
+
+  /* depth-tinting */
+  .children .node-row .label { color: var(--gray-100); }
+  .children .children .node-row .label { font-size: 12.5px; color: var(--gray-95); }
+
+  /* ---------- Detail panel ---------- */
+  .detail {
+    padding: 32px 36px;
+    background: #fff;
+    overflow: auto;
+    min-width: 0;
+  }
+  .detail .crumbs {
+    font-size: 12px; color: var(--gray-90); margin-bottom: 12px;
+    display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+  }
+  .detail .crumbs span.sep { color: var(--gray-60); }
+  .detail h3.dtitle {
+    font-family: var(--font-display); font-weight: 500;
+    font-size: 32px; letter-spacing: -0.015em; line-height: 1.1;
+    color: var(--gray-120); margin: 4px 0 14px;
+    text-wrap: balance;
+  }
+  .detail .sub {
+    font-size: 15px; line-height: 1.6; color: var(--gray-95);
+    margin: 0 0 28px; max-width: 60ch;
+  }
+  .layer-answers {
+    margin: -16px 0 24px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: var(--gray-15);
+    border-left: 3px solid var(--gray-95);
+    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  }
+  .layer-answers.layer-outcome { border-left-color: oklch(0.55 0.13 80); background: oklch(0.97 0.025 80); }
+  .layer-answers.layer-operational { border-left-color: oklch(0.50 0.14 150); background: oklch(0.97 0.02 150); }
+  .layer-answers.layer-per-auto { border-left-color: oklch(0.50 0.15 290); background: oklch(0.97 0.025 290); }
+  .layer-answers .layer-tag {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--gray-105);
+    padding: 3px 9px; border-radius: 999px;
+    background: #fff; border: 1px solid var(--gray-30);
+    flex: 0 0 auto;
+  }
+  .layer-answers.layer-outcome .layer-tag { color: oklch(0.42 0.13 80); border-color: oklch(0.82 0.08 80); }
+  .layer-answers.layer-operational .layer-tag { color: oklch(0.42 0.14 150); border-color: oklch(0.78 0.10 150); }
+  .layer-answers.layer-per-auto .layer-tag { color: oklch(0.42 0.15 290); border-color: oklch(0.80 0.08 290); }
+  .layer-answers .layer-q {
+    font-size: 13.5px; line-height: 1.5;
+    color: var(--gray-120); flex: 1 1 280px;
+  }
+  .layer-answers .layer-q b { color: var(--gray-120); font-weight: 600; }
+  .blocks { display: grid; gap: 18px; min-width: 0; }
+  .blocks > * { min-width: 0; }
+  .block {
+    border: 1px solid var(--gray-30); border-radius: 12px;
+    padding: 18px 20px; background: var(--gray-15);
+    min-width: 0;
+  }
+  .block h4 {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--gray-95);
+    margin: 0 0 10px;
+  }
+  .block p, .block li {
+    font-size: 13.5px; line-height: 1.6; color: var(--gray-105);
+  }
+  .block p { margin: 0; }
+  .block ul { padding-left: 18px; margin: 0; }
+  .block .row {
+    display: grid; grid-template-columns: 110px 1fr; gap: 12px;
+    padding: 6px 0; border-top: 1px solid var(--gray-30);
+    font-size: 13px; align-items: baseline;
+  }
+  .block .row:first-of-type { border-top: none; }
+  .block .row .k {
+    font-weight: 600; color: var(--gray-95); font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .block .row .v { color: var(--gray-105); line-height: 1.55; }
+  .block.block-goals {
+    background: linear-gradient(180deg, #FFFCE8 0%, #FFFFFF 100%);
+    border-color: #F9E089;
+  }
+  .block.block-goals h4 { color: oklch(0.45 0.13 80); }
+  .block.block-goals p { color: var(--gray-115); }
+  .block.block-topics {
+    background: linear-gradient(180deg, oklch(0.97 0.02 230) 0%, #FFFFFF 100%);
+    border-color: oklch(0.85 0.06 230);
+  }
+  .block.block-topics h4 { color: oklch(0.45 0.13 230); }
+  .block.block-topics p { color: var(--gray-115); }
+  .block.block-suggestions {
+    background: linear-gradient(180deg, oklch(0.97 0.03 290) 0%, #FFFFFF 100%);
+    border-color: oklch(0.85 0.08 290);
+  }
+  .block.block-suggestions h4 { color: oklch(0.45 0.18 290); }
+  .block.block-suggestions p { color: var(--gray-115); }
+  .block.block-touch {
+    background: linear-gradient(180deg, oklch(0.97 0.04 150) 0%, #FFFFFF 100%);
+    border-color: oklch(0.83 0.10 150);
+  }
+  .block.block-touch h4 { color: oklch(0.42 0.14 150); }
+  .block.block-touch ul {
+    margin: 8px 0 0; padding-left: 18px;
+    font-size: 12.5px; line-height: 1.55; color: var(--gray-115);
+  }
+  .block.block-touch ul li { margin: 2px 0; }
+  .block.block-touch ul li b { color: var(--gray-120); font-weight: 600; }
+  .block.block-ai-creates {
+    background: linear-gradient(180deg, oklch(0.97 0.03 280) 0%, #FFFFFF 100%);
+    border-color: oklch(0.85 0.08 280);
+  }
+  .block.block-ai-creates h4 { color: oklch(0.45 0.18 280); }
+  .block.block-ai-creates ul {
+    margin: 8px 0 0; padding-left: 18px;
+    font-size: 12.5px; line-height: 1.55; color: var(--gray-115);
+  }
+  .block.block-ai-creates ul li { margin: 2px 0; }
+  .block.block-ai-creates ul li b { color: var(--gray-120); font-weight: 600; }
+
+  /* Demo goal cards on the Goals destination */
+  .goal-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .goal-card {
+    background: #fff;
+    border: 1px solid var(--gray-30);
+    border-radius: 10px;
+    padding: 12px 14px;
+    color: var(--gray-105);
+  }
+  .goal-card-head {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; margin-bottom: 2px;
+  }
+  .goal-card-label {
+    font-size: 13px; font-weight: 600; color: var(--gray-120);
+    letter-spacing: -0.005em;
+  }
+  .goal-card-state {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 2px 7px; border-radius: 999px;
+    background: var(--gray-15); color: var(--gray-95);
+    border: 1px solid var(--gray-30);
+  }
+  .goal-card-subtitle {
+    font-size: 11.5px; color: var(--gray-95);
+    margin-bottom: 8px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .goal-card-spark {
+    width: 100%; height: 36px;
+    color: var(--gray-105);
+    display: block;
+  }
+  .goal-card-foot {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 6px;
+    font-size: 11px; color: var(--gray-95);
+  }
+  .goal-card-progress {
+    font-weight: 600; color: var(--gray-120);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Goal attach card — used on per-automation Settings and Manage Automations */
+  .block.block-goal-attach {
+    background: linear-gradient(180deg, #FFFCE8 0%, #FFFFFF 100%);
+    border-color: #F9E089;
+  }
+  .block.block-goal-attach h4 { color: oklch(0.45 0.13 80); }
+  .goal-attach-card {
+    margin-top: 8px;
+    background: #fff;
+    border: 1px solid var(--gray-30);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .ga-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .ga-pill {
+    font-size: 11.5px; font-weight: 500;
+    padding: 3px 9px; border-radius: 999px;
+    background: var(--gray-15); border: 1px solid var(--gray-30);
+    color: var(--gray-120);
+  }
+  .ga-actions {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    padding-top: 8px; border-top: 1px dashed var(--gray-30);
+  }
+  .ga-btn {
+    font: inherit; font-size: 12px; font-weight: 500;
+    padding: 6px 12px; border-radius: 6px; cursor: pointer;
+    background: #fff; color: var(--gray-120);
+    border: 1px solid var(--gray-50);
+  }
+  .ga-btn-primary { background: oklch(0.65 0.18 70); color: #fff; border-color: oklch(0.55 0.18 70); }
+  .ga-divider { font-size: 11px; color: var(--gray-90); }
+  .ga-note { margin: 10px 0 0; font-size: 11.5px; color: var(--gray-95); line-height: 1.5; }
+  .src-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 3px 8px; border-radius: 999px;
+    font-size: 11px; font-weight: 500;
+    margin: 2px 6px 2px 0;
+  }
+  .src-p1 { background: var(--blue-15); color: var(--blue-95); }
+  .src-p2 { background: var(--purple-15); color: var(--purple-95); }
+  .src-canon { background: var(--yellow-25); color: var(--yellow-110); }
+  .src-new { background: var(--green-15); color: var(--green-80); }
+
+  /* sketch */
+  .sketch {
+    border: 1px solid var(--gray-30); background: #fff;
+    border-radius: 10px; padding: 14px; min-height: 180px;
+    font-family: var(--font-mono); font-size: 11.5px; color: var(--gray-95);
+    white-space: pre; overflow: auto; line-height: 1.55;
+  }
+
+  /* Production screenshot, used in the "before" card of the Shift section. */
+  .prod-shot {
+    margin: 16px 0 0;
+    border: 1px solid var(--gray-30); background: var(--gray-15);
+    border-radius: 10px; padding: 12px;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+  }
+  .prod-shot img {
+    display: block; max-width: 100%; height: auto;
+    max-height: 520px; object-fit: contain;
+    border-radius: 6px;
+  }
+  .prod-shot figcaption {
+    font-size: 11px; color: var(--gray-90);
+    font-family: var(--font-mono); letter-spacing: 0.02em;
+  }
+
+  /* Open questions */
+  .q-list {
+    display: grid; gap: 10px;
+  }
+  .q-list .q {
+    background: #fff; border: 1px solid var(--gray-30);
+    border-radius: 12px; padding: 16px 18px;
+    display: grid; grid-template-columns: 22px 1fr; gap: 12px;
+    align-items: baseline;
+  }
+  .q-list .q .n {
+    background: var(--yellow-25); color: var(--yellow-110);
+    width: 22px; height: 22px; border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+  }
+  .q-list .q .txt { font-size: 13.5px; line-height: 1.55; color: var(--gray-105); }
+  .q-list .q .txt b { color: var(--gray-120); font-weight: 600; }
+
+  /* resolved/open variants */
+  .q-list .q.resolved {
+    background: #fff;
+    border-color: var(--gray-30);
+    box-shadow: inset 3px 0 0 0 var(--green-70);
+  }
+  .q-list .q.resolved .n {
+    background: var(--green-15); color: var(--green-80);
+  }
+  .q-list .q.open {
+    background: #fff;
+    box-shadow: inset 3px 0 0 0 var(--yellow-60);
+  }
+  .q-list .q.open .n.pending {
+    background: var(--yellow-25); color: var(--yellow-110);
+  }
+  .q-list .q .txt i {
+    color: var(--gray-90); font-style: normal;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase; padding: 1px 6px;
+    background: var(--gray-25); border-radius: 4px;
+    margin-right: 4px;
+  }
+
+  footer.foot {
+    padding: 40px 0 56px; color: var(--gray-90); font-size: 12px;
+  }
+  footer.foot a { color: var(--gray-95); }
+
+  /* ===== 2-column row for paired blocks (contents + ctas) ===== */
+  .blocks-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+  }
+  .blocks-row .block { margin: 0; }
+  .block.block-ctas {
+    background: linear-gradient(180deg, oklch(0.97 0.02 230) 0%, #fff 100%);
+    border-color: oklch(0.85 0.06 230);
+  }
+  .block.block-ctas h4 { color: oklch(0.45 0.13 230); }
+  .cta-list {
+    display: flex; flex-direction: column; gap: 8px;
+    margin: 0; padding: 0;
+  }
+  .cta-row {
+    display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+    padding: 4px 0;
+  }
+  .cta-chip {
+    font-size: 12px; font-weight: 600;
+    padding: 4px 10px; border-radius: 6px;
+    background: #fff; border: 1px solid var(--gray-40);
+    color: var(--gray-120);
+    white-space: nowrap;
+    letter-spacing: -0.002em;
+    flex: 0 0 auto;
+  }
+  .cta-chip.primary {
+    background: var(--gray-120); color: #fff; border-color: var(--gray-120);
+  }
+  .cta-chip.facet {
+    background: transparent; border-color: var(--gray-35);
+    color: var(--gray-95); font-weight: 500;
+  }
+  .cta-chip.destructive {
+    color: oklch(0.45 0.22 25); border-color: oklch(0.82 0.10 25);
+    background: oklch(0.98 0.03 25);
+  }
+  .cta-desc {
+    font-size: 12px; color: var(--gray-95); line-height: 1.5;
+    flex: 1 1 auto;
+  }
+  @media (max-width: 900px) {
+    .blocks-row { grid-template-columns: 1fr; }
+  }
+
+  /* ===== Primer cards (Step 0 visual treatment) ===== */
+  .primer-block {
+    background: var(--blue-15);
+    border: 1px solid oklch(0.82 0.06 230);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin: 0 0 18px;
+  }
+  .primer-block-head {
+    display: grid; grid-template-columns: 28px 1fr;
+    gap: 14px; align-items: start;
+    margin-bottom: 18px;
+  }
+  .primer-block-head .n {
+    width: 26px; height: 26px; border-radius: 999px;
+    background: var(--blue-95); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .primer-block-head h5 {
+    margin: 0; font-size: 15px; font-weight: 600;
+    color: var(--gray-120); letter-spacing: -0.005em;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  }
+  .primer-block-head h5 .where {
+    font-size: 9.5px; font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--blue-95);
+    padding: 3px 9px; border-radius: 999px;
+    background: #fff; border: 1px solid oklch(0.82 0.06 230);
+  }
+  .primer-block-head p {
+    margin: 4px 0 0; font-size: 12.5px; line-height: 1.55;
+    color: var(--gray-105);
+  }
+  .primer-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  /* Horizontal mini-flow variant: cards + arrows */
+  .primer-flow {
+    display: grid;
+    grid-template-columns: 1fr 18px 1fr 18px 1fr 18px 1fr;
+    gap: 0;
+    align-items: stretch;
+  }
+  .primer-step {
+    background: #fff;
+    border: 1px solid oklch(0.82 0.06 230);
+    border-radius: 10px;
+    padding: 14px 14px 0;
+    display: flex; flex-direction: column; gap: 8px;
+    min-height: 200px;
+  }
+  .primer-step.highlight {
+    background: var(--yellow-15);
+    border-color: var(--yellow-50);
+    box-shadow: 0 4px 14px oklch(0.85 0.12 80 / 0.20);
+  }
+  .primer-step-num {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.05em;
+    color: var(--blue-95);
+    padding: 3px 8px; border-radius: 999px;
+    background: var(--blue-15); border: 1px solid oklch(0.82 0.06 230);
+    align-self: flex-start;
+    font-variant-numeric: tabular-nums;
+  }
+  .primer-step.highlight .primer-step-num {
+    color: var(--yellow-110);
+    background: #fff;
+    border-color: var(--yellow-50);
+  }
+  .primer-step h6 {
+    margin: 0; font-size: 13px; font-weight: 600;
+    color: var(--gray-120); letter-spacing: -0.005em; line-height: 1.3;
+  }
+  .primer-step p {
+    margin: 0; font-size: 11.5px; line-height: 1.5;
+    color: var(--gray-105);
+  }
+  .primer-step-tag {
+    margin: auto -14px 0;
+    font-size: 10.5px; color: var(--gray-95); line-height: 1.45;
+    padding: 9px 14px;
+    border-top: 1px dashed var(--gray-40);
+  }
+  .primer-step-tag b { color: var(--gray-120); font-weight: 600; }
+  .primer-step-tag.canonical {
+    color: oklch(0.45 0.13 80);
+    background: var(--yellow-15);
+    border-top: 1px dashed var(--yellow-75);
+    border-radius: 0 0 9px 9px;
+  }
+  .primer-step-tag.canonical b { color: oklch(0.4 0.12 80); }
+  .primer-step-arrow {
+    align-self: center;
+    color: var(--blue-95);
+    font-size: 18px; font-weight: 700;
+    text-align: center;
+  }
+  .primer-card {
+    background: #fff;
+    border: 1px solid oklch(0.82 0.06 230);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex; flex-direction: column; gap: 10px;
+    min-height: 200px;
+  }
+  .primer-card.highlight {
+    background: var(--yellow-15);
+    border-color: var(--yellow-50);
+    box-shadow: 0 4px 14px oklch(0.85 0.12 80 / 0.20);
+  }
+  .primer-card-num {
+    width: 22px; height: 22px; border-radius: 999px;
+    background: var(--blue-95); color: #fff;
+    font-size: 10.5px; font-weight: 700;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-variant-numeric: tabular-nums;
+  }
+  .primer-card.highlight .primer-card-num {
+    background: var(--yellow-110);
+  }
+  .primer-card h6 {
+    margin: 0; font-size: 13px; font-weight: 600;
+    color: var(--gray-120); letter-spacing: -0.005em; line-height: 1.3;
+  }
+  .primer-card p {
+    margin: 0; font-size: 11.5px; line-height: 1.5;
+    color: var(--gray-105);
+  }
+  .primer-card-tag {
+    margin-top: auto;
+    font-size: 10.5px; color: var(--gray-95); line-height: 1.45;
+    padding-top: 9px; border-top: 1px dashed var(--gray-40);
+  }
+  .primer-card-tag b { color: var(--gray-120); font-weight: 600; }
+  .primer-card-tag.canonical {
+    color: oklch(0.45 0.13 80);
+    background: var(--yellow-15);
+    margin: 8px -16px -14px;
+    padding: 10px 16px;
+    border: none;
+    border-top: 1px dashed var(--yellow-75);
+    border-radius: 0 0 9px 9px;
+  }
+  .primer-card-tag.canonical b { color: var(--yellow-115, oklch(0.4 0.12 80)); }
+  .primer-migration {
+    margin-top: 14px;
+    background: var(--green-15);
+    border: 1px solid oklch(0.85 0.08 145);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: grid; grid-template-columns: 28px 1fr;
+    gap: 14px; align-items: start;
+  }
+  .primer-migration-icon {
+    width: 26px; height: 26px; border-radius: 7px;
+    background: var(--green-70); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700;
+  }
+  .primer-migration h6 {
+    margin: 0 0 4px; font-size: 12.5px; font-weight: 600;
+    color: var(--gray-120); letter-spacing: -0.005em;
+  }
+  .primer-migration p {
+    margin: 0; font-size: 11.5px; line-height: 1.55; color: var(--gray-105);
+  }
+  @media (max-width: 1100px) {
+    .primer-cards { grid-template-columns: repeat(2, 1fr); }
+    .primer-flow { grid-template-columns: 1fr; }
+    .primer-step-arrow { transform: rotate(90deg); padding: 4px 0; }
+  }
+  @media (max-width: 600px) {
+    .primer-cards { grid-template-columns: 1fr; }
+  }
+
+  /* ===== Recommendation loop diagram ===== */
+  .loop-frame {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0; align-items: stretch;
+    background: #fff; border: 1px solid var(--gray-30);
+    border-radius: 14px; overflow: hidden;
+    margin-bottom: 22px;
+  }
+  .loop-step {
+    padding: 22px 24px; min-height: 260px;
+    border-right: 1px solid var(--gray-30);
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+  .loop-step:last-child { border-right: none; }
+  .loop-step .loop-stage {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--gray-80);
+    margin-bottom: 8px;
+  }
+  .loop-step h3 {
+    font-family: var(--font-sans); font-weight: 600;
+    font-size: 16px; letter-spacing: -0.005em;
+    color: var(--gray-120); margin: 0 0 12px;
+  }
+  .loop-step .loop-list {
+    list-style: none; padding: 0; margin: 0 0 14px;
+    display: grid; gap: 6px;
+    font-size: 12.5px; line-height: 1.5; color: var(--gray-105);
+  }
+  .loop-step .loop-list li {
+    padding-left: 18px; position: relative;
+  }
+  .loop-step .loop-list li::before {
+    content: ""; position: absolute;
+    left: 2px; top: 9px; width: 5px; height: 5px;
+    border-radius: 999px; background: var(--gray-80);
+  }
+  .loop-mini-card {
+    margin-top: auto;
+    background: var(--gray-15);
+    border: 1px solid var(--gray-30);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-family: var(--font-mono); font-size: 11.5px;
+    color: var(--gray-105); line-height: 1.55;
+  }
+  .loop-mini-card b { color: var(--gray-120); font-weight: 600; font-family: var(--font-sans); }
+  .loop-mini-card .cta {
+    margin-top: 8px; padding-top: 8px;
+    border-top: 1px dashed var(--gray-50);
+    color: var(--blue-95);
+    font-weight: 600;
+    font-family: var(--font-sans);
+    font-size: 12px;
+  }
+  .loop-arrow-overlay {
+    position: absolute;
+    right: -10px; top: 50%; transform: translateY(-50%);
+    width: 20px; height: 20px; border-radius: 999px;
+    background: #fff; border: 1px solid var(--gray-50);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 11px; color: var(--gray-105); z-index: 2;
+  }
+  .loop-step:last-child .loop-arrow-overlay { display: none; }
+
+  .loop-targets-head {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--gray-90);
+    margin: 8px 0 10px;
+  }
+  .loop-targets {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+  }
+  .loop-target {
+    background: #fff; border: 1px solid var(--gray-30);
+    border-radius: 10px; padding: 12px 14px;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .loop-target .lt-cta {
+    font-size: 12px; font-weight: 600;
+    color: var(--blue-95);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .loop-target .lt-cta::before {
+    content: "→"; color: var(--blue-95); font-weight: 700;
+  }
+  .loop-target .lt-what {
+    font-size: 11.5px; color: var(--gray-95); line-height: 1.45;
+  }
+  @media (max-width: 1000px) {
+    .loop-frame { grid-template-columns: 1fr; }
+    .loop-step { border-right: none; border-bottom: 1px solid var(--gray-30); min-height: auto; }
+    .loop-step:last-child { border-bottom: none; }
+    .loop-arrow-overlay { display: none; }
+    .loop-targets { grid-template-columns: 1fr; }
+  }
+
+  /* ===== JTBD usability tests ===== */
+  .jtbd-pillar {
+    margin: 36px 0 16px;
+    display: flex; align-items: baseline; gap: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--gray-30);
+  }
+  .jtbd-pillar:first-of-type { margin-top: 8px; }
+  .jtbd-pillar h3 {
+    font-family: var(--font-sans); font-weight: 600;
+    font-size: 18px; letter-spacing: -0.005em;
+    color: var(--gray-120); margin: 0;
+  }
+  .jtbd-pillar .jtbd-pillar-sub {
+    font-size: 12.5px; color: var(--gray-95);
+    flex: 1 1 auto;
+  }
+  .jtbd-pillar .jtbd-pillar-count {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--gray-90);
+    padding: 3px 10px; border-radius: 999px;
+    background: var(--gray-15); border: 1px solid var(--gray-30);
+  }
+  .jtbd-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 14px;
+  }
+  .jtbd-card {
+    background: #fff; border: 1px solid var(--gray-30);
+    border-radius: 12px; padding: 18px 20px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .jtbd-card-head { display: flex; align-items: baseline; gap: 10px; }
+  .jtbd-card-num {
+    width: 24px; height: 24px; border-radius: 999px;
+    background: var(--gray-120); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 11.5px; font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    flex: 0 0 24px;
+  }
+  .jtbd-card h4 {
+    margin: 0; font-size: 14px; font-weight: 600;
+    color: var(--gray-120); letter-spacing: -0.005em;
+    line-height: 1.3;
+  }
+  .jtbd-scenario {
+    font-size: 12.5px; line-height: 1.55; color: var(--gray-105);
+    padding: 10px 12px; border-radius: 8px;
+    background: var(--gray-15);
+    border-left: 2px solid var(--gray-50);
+    font-style: italic;
+  }
+  .jtbd-scenario b { font-style: normal; color: var(--gray-120); font-weight: 600; }
+  .jtbd-row {
+    display: grid; grid-template-columns: 64px 1fr; gap: 10px;
+    font-size: 12px; line-height: 1.5;
+  }
+  .jtbd-row .k {
+    font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--gray-90);
+    font-size: 10px; padding-top: 2px;
+  }
+  .jtbd-row .v { color: var(--gray-105); }
+  .jtbd-row.success .k { color: var(--green-80); }
+  .jtbd-intro-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    margin: 0 0 28px;
+  }
+  .jtbd-intro-card {
+    border: 1px solid var(--gray-30); border-radius: 12px;
+    padding: 16px 18px; background: var(--gray-15);
+  }
+  .jtbd-intro-card h4 {
+    margin: 0 0 6px; font-size: 13px; font-weight: 600;
+    color: var(--gray-120); letter-spacing: -0.005em;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .jtbd-intro-card h4 .dot {
+    width: 8px; height: 8px; border-radius: 999px; background: var(--gray-120);
+  }
+  .jtbd-intro-card p { margin: 0; font-size: 12px; line-height: 1.5; color: var(--gray-95); }
+  @media (max-width: 900px) {
+    .jtbd-intro-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ===== Critique tables (sections 06–08) ===== */
+  .crit {
+    background: #fff; border: 1px solid var(--gray-30);
+    border-radius: 14px; overflow: hidden;
+  }
+  .crit table { width: 100%; border-collapse: collapse; }
+  .crit th, .crit td {
+    padding: 13px 16px; text-align: left; font-size: 12.5px;
+    border-bottom: 1px solid var(--gray-30); vertical-align: top;
+    line-height: 1.5;
+  }
+  .crit thead th {
+    background: var(--gray-15); font-weight: 600; color: var(--gray-95);
+    font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .crit tr:last-child td { border-bottom: none; }
+  .crit td.num {
+    width: 28px; font-variant-numeric: tabular-nums; color: var(--gray-90);
+    font-weight: 600;
+  }
+  .crit td.title { font-weight: 600; color: var(--gray-120); width: 24%; }
+  .crit td.what  { width: 32%; color: var(--gray-105); }
+  .status, .severity {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 2px 9px; border-radius: 999px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+  .status.solved   { background: var(--green-15);  color: var(--green-80); }
+  .status.partial  { background: var(--yellow-25); color: var(--yellow-110); }
+  .status.no       { background: var(--red-15);    color: var(--red-80); }
+  .status.unclear  { background: var(--gray-25);   color: var(--gray-95); }
+  .severity.high   { background: var(--red-15);    color: var(--red-80); }
+  .severity.med    { background: var(--yellow-25); color: var(--yellow-110); }
+  .severity.low    { background: var(--gray-25);   color: var(--gray-95); }
+  .score-summary {
+    margin-top: 14px; font-size: 13px; color: var(--gray-95);
+    padding: 12px 16px; background: var(--gray-15);
+    border-radius: 10px; border: 1px solid var(--gray-30);
+  }
+  .score-summary b { color: var(--gray-120); }
+
+  /* Next iteration */
+  .moves {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    margin-bottom: 24px;
+  }
+  .move {
+    border: 1px solid var(--gray-30); background: #fff;
+    border-radius: 12px; padding: 18px 20px;
+  }
+  .move .n {
+    width: 26px; height: 26px; border-radius: 999px;
+    background: var(--gray-120); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; margin-bottom: 10px;
+  }
+  .move h4 {
+    margin: 0 0 6px; font-size: 14px; font-weight: 600;
+    color: var(--gray-120); letter-spacing: -0.005em;
+  }
+  .move p { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--gray-105); }
+  .nav-block {
+    background: var(--gray-15); border: 1px solid var(--gray-30);
+    border-radius: 12px; padding: 22px 24px;
+    font-family: var(--font-mono); font-size: 12px; line-height: 1.65;
+    color: var(--gray-105); white-space: pre; overflow-x: auto;
+  }
+  .closing {
+    margin-top: 18px; font-size: 14px; line-height: 1.55;
+    color: var(--gray-120);
+  }
+  @media (max-width: 900px) {
+    .moves { grid-template-columns: 1fr; }
+  }
+
+  /* ===== Role-aware lens (section 05) ===== */
+  .roles-h3 {
+    font-family: var(--font-sans); font-weight: 600; font-size: 17px;
+    letter-spacing: -0.005em; color: var(--gray-120);
+    margin: 40px 0 16px;
+  }
+  .diag-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  }
+  @media (max-width: 1000px) { .diag-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 700px)  { .diag-grid { grid-template-columns: 1fr; } }
+  .diag {
+    background: #fff; border: 1px solid var(--gray-30);
+    border-radius: 12px; padding: 16px 18px;
+    position: relative;
+  }
+  .diag-num {
+    width: 24px; height: 24px; border-radius: 999px;
+    background: var(--gray-15); color: var(--gray-95);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700; margin-bottom: 10px;
+    font-variant-numeric: tabular-nums;
+  }
+  .diag h4 {
+    margin: 0 0 6px; font-size: 14px; font-weight: 600;
+    color: var(--gray-120); letter-spacing: -0.005em;
+  }
+  .diag p { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--gray-105); }
+
+  .subnav {
+    background: #fff; border: 1px solid var(--gray-30); border-radius: 14px;
+    overflow: hidden;
+  }
+  .subnav-row {
+    display: grid; grid-template-columns: 160px 1fr 280px; gap: 18px;
+    padding: 14px 18px; align-items: center;
+    border-bottom: 1px solid var(--gray-30);
+  }
+  .subnav-row:last-child { border-bottom: none; }
+  .subnav-label {
+    font-size: 13.5px; font-weight: 600; color: var(--gray-120);
+    letter-spacing: -0.005em;
+  }
+  .subnav-items {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .subnav-items span {
+    font-size: 12px; font-weight: 500; color: var(--gray-105);
+    padding: 4px 10px; border-radius: 999px;
+    border: 1px solid var(--gray-30); background: var(--gray-15);
+  }
+  .subnav-items span.legacy {
+    color: var(--gray-90); border-style: dashed; background: transparent;
+  }
+  .subnav-why {
+    font-size: 12px; color: var(--gray-95); line-height: 1.5;
+  }
+  @media (max-width: 1000px) {
+    .subnav-row { grid-template-columns: 1fr; gap: 8px; }
+    .subnav-why { padding-top: 4px; }
+  }
+  /* Customer journey, vertical flow map */
+  .flow {
+    max-width: 620px;
+    margin: 10px auto 0;
+    display: grid;
+    gap: 6px;
+  }
+  .flow-node {
+    border: 1px solid var(--gray-30);
+    background: #fff;
+    border-radius: 10px;
+    padding: 11px 14px;
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+  .flow-node .n {
+    width: 22px; height: 22px; border-radius: 999px;
+    background: var(--gray-120); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 10.5px; font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    margin-top: 1px;
+  }
+  .flow-node.pivot { border-color: var(--yellow-110); background: var(--yellow-15); }
+  .flow-node.pivot .n { background: var(--yellow-110); color: #fff; }
+  .flow-node.future { background: var(--gray-15); border-style: dashed; }
+  .flow-node.future .n { background: #fff; color: var(--gray-95); border: 1.5px dashed var(--gray-50); }
+  .flow-node.primer {
+    background: var(--blue-15);
+    border-color: oklch(0.82 0.06 230);
+  }
+  .flow-node.primer .n { background: var(--blue-95); color: #fff; }
+  .flow-node.primer .where { background: #fff; border-color: oklch(0.82 0.06 230); color: var(--blue-95); }
+  .flow-node.main-nav {
+    background: var(--gray-15);
+    border-color: var(--gray-30);
+    padding: 6px 14px;
+    color: var(--gray-95);
+  }
+  .flow-node.main-nav .n { background: var(--gray-80); color: #fff; }
+  .flow-node.main-nav h5 { color: var(--gray-95); font-weight: 500; font-size: 12.5px; margin: 0; }
+  .flow-node.main-nav h5 b { font-weight: 600; color: var(--gray-105); }
+  .flow-node.main-nav .where { background: #fff; border-color: var(--gray-30); color: var(--gray-90); }
+  .flow-node.main-nav p { display: none; }
+  .flow-node h5 {
+    margin: 0 0 3px; font-size: 13px; font-weight: 600;
+    color: var(--gray-120); letter-spacing: -0.005em;
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  }
+  .flow-node .where {
+    font-size: 9.5px; font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--gray-90);
+    padding: 2px 7px; border-radius: 999px;
+    background: var(--gray-15); border: 1px solid var(--gray-30);
+  }
+  .flow-node.pivot .where { background: #fff; border-color: var(--yellow-50); }
+  .flow-node p { margin: 0; font-size: 11.5px; line-height: 1.5; color: var(--gray-105); }
+  .flow-node ul.flow-list {
+    margin: 6px 0 0; padding-left: 16px;
+    font-size: 11.5px; line-height: 1.45; color: var(--gray-95);
+  }
+  .flow-node ul.flow-list li { margin: 1px 0; }
+
+  .flow-arrow {
+    justify-self: center;
+    width: 1px; height: 16px;
+    background: var(--gray-50);
+    position: relative;
+  }
+  .flow-arrow::after {
+    content: "";
+    position: absolute;
+    left: 50%; bottom: -1px;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid var(--gray-50);
+  }
+
+  /* 3-way fork for the Analyze branches */
+  .flow-fork-label {
+    text-align: center;
+    font-size: 10.5px; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--gray-90);
+    margin-top: 4px;
+  }
+  .flow-fork {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    position: relative;
+    padding-top: 16px;
+  }
+  .flow-fork::before {
+    content: "";
+    position: absolute;
+    left: calc(100% / 6); right: calc(100% / 6);
+    top: 0; height: 12px;
+    border-top: 1px solid var(--gray-50);
+    border-left: 1px solid var(--gray-50);
+    border-right: 1px solid var(--gray-50);
+  }
+  .flow-fork .flow-branch {
+    background: #fff; border: 1px solid var(--gray-30);
+    border-radius: 10px; padding: 10px 12px;
+  }
+  .flow-fork .flow-branch h6 {
+    margin: 0 0 3px; font-size: 11.5px; font-weight: 600;
+    color: var(--gray-120); letter-spacing: -0.002em;
+  }
+  .flow-fork .flow-branch p { font-size: 11px; color: var(--gray-95); margin: 0; line-height: 1.45; }
+  .flow-merge {
+    text-align: center;
+    font-size: 10.5px; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--gray-90);
+    padding: 6px 0 2px;
+  }
+
+  @media (max-width: 700px) {
+    .flow-fork { grid-template-columns: 1fr; }
+    .flow-fork::before { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ Top bar ============ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="mark">K</span>
+    <span class="title">Goals-First IA Recommendation <span class="sub">· Kustomer Platform</span></span>
+  </div>
+</div>
+
+<!-- ============ Hero ============ -->
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Analysis Prepared by Yvonne Doll, May 21 2026</div>
+    <h1>A goals-first IA for the whole Kustomer platform.</h1>
+    <p class="lede">
+      Goals and Performance become core platform destinations alongside Inbox.
+      Lower-frequency items move to overflow navigation, while the AI workspace
+      focuses on one job: simplifying AIC and AIR configuration around
+      organizational goals.
+    </p>
+  </div>
+</div>
+
+<!-- ============ TL;DR ============ -->
+<section id="summary">
+  <div class="wrap">
+    <h2><span class="num">01</span>Principles for the goals-first IA</h2>
+
+    <aside class="principles principles-wide">
+      <ol>
+        <li><b>Goals are platform primitives.</b> They live in the site rail. Every other destination references them.</li>
+        <li><b>Outcome on Goals, operational on AI.</b> Each goal shows its trajectory. AI → Analyze shows whether the automation is healthy. Performance is the cross-goal operational rollup.</li>
+        <li><b>Setup, not configuration.</b> AIC and AIR each get one opinionated setup surface. Defaults loud, advanced knobs quiet.</li>
+        <li><b>One wizard, two branches.</b> Get Started asks AIC, AIR, or both, then runs the right sequence end to end.</li>
+        <li><b>Goal context follows the user.</b> Conversations, alerts, suggestions, and report rows know which goals they touch and link back.</li>
+        <li><b>Automations are first-class and shared.</b> Procedures, tools, knowledge, and shared guardrails in Building Blocks are reused across automations. Edits propagate.</li>
+        <li><b>Per-automation settings live with the automation.</b> Competitors, Secrets, Tone, greetings, verification, routing live on each automation's Settings. Shared guardrails (refund ceilings, escalation triggers) live in Building Blocks and attach inline.</li>
+        <li><b>Topics are org-level.</b> One canonical taxonomy under Reporting → Topics, auto-detected from history. Goals select a subset; everything else references the same list.</li>
+        <li><b>Goals facet by audience, not by surface.</b> Every goal carries an audience tag (AIC, AIR, Sales, Human Reps, Other). The Goals destination filters by audience; AI Setup pre-filters to AI goals.</li>
+        <li><b>Advanced is preserved, not promoted.</b> Build, Test, Deploy, Manage Automations get a LEGACY pill under a "For power users" subheader.</li>
+        <li><b>Recommendations apply in place.</b> Every suggestion carries an "Apply in [block]" CTA that opens the affected procedure / KB / tool / guardrail inline. No page jumping.</li>
+        <li><b>Inline capture, canonical home, persistent provenance.</b> Capture new data where it's first needed (Company profile, Topics, audience tags). Store at its canonical org-level home. Stamp the home on every consuming surface with an edit link.</li>
+        <li><b>One lifecycle vocabulary: Build / Test / Deploy / Analyze.</b> Same verbs in AI Setup, per-automation tabs, suggestion CTAs.</li>
+        <li><b>One Build tab. First-run is a mode of it, not a separate destination.</b> Creating a new automation routes the admin to the same per-automation Build tab they'd edit on day 90, with a stepper, locked future tabs, and parser-drafted callouts overlaid until Deploy activates. No parallel "wizard" surface.</li>
+        <li><b>Build and Test share a right rail: Assistant + Test Console.</b> Persistent, collapsible. Assistant chats about the open guidance; Test Console sends live messages on a chosen channel and brand. Same rail, same widget contract on both tabs.</li>
+        <li><b>Procedures have associations, not owners.</b> Every procedure declares which surfaces it applies to: scope labels ("All AI for Customers", "All AI for Reps") and specific automation ids. The library is the canonical home; each automation's Build shows its slice. Editing a multi-scope procedure fires a blast-radius prompt.</li>
+        <li><b>Deploy is cross-audience by design.</b> One page with audience banners: an AIC section (conditions, smart routing, eval recap) and an AIR section (Copilot toggle, mode, teams). Same Activate button covers both. AIR Settings still owns steady-state Copilot config; Deploy owns the activation moment.</li>
+        <li><b>The recommendation→action loop is structural, not a link.</b> Every suggestion names its target block. The loop has its own affordance, its own pattern.</li>
+        <li><b>Three metric layers, one question each.</b> Goals = "did we hit the outcome?" · Performance = "are agents healthy right now?" · Analyze = "is this automation behaving?" Each surface declares its layer in chrome; drill direction is one-way.</li>
+      </ol>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ Interactive IA Map ============ -->
+<section id="map">
+  <div class="wrap">
+    <h2><span class="num">02</span>Explore the proposed IA</h2>
+    <p>
+      Click any node to read its purpose, the rationale for placing it here,
+      and a sketch of what its screen contains. The tree starts at the
+      Kustomer platform level so the introduction of Goals and the elevation of Performance are
+      visible at a glance.
+    </p>
+
+    <div class="map-frame">
+      <div class="tree-col">
+        <div class="tree-head">
+          <div class="tt">Kustomer Platform, IA Tree</div>
+          <div class="controls">
+            <button id="btn-expand">Expand all</button>
+            <button id="btn-collapse">Collapse</button>
+          </div>
+        </div>
+        <div id="tree"></div>
+      </div>
+      <div class="detail" id="detail"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ The full CX ============ -->
+<section id="experience">
+  <div class="wrap">
+    <h2><span class="num">03</span>The full CX, end to end</h2>
+    <p>
+      One concrete journey for an admin declaring an org-level goal,
+      attaching the AI, human workflows, and monitors that drive it, and
+      tuning the loop a month later. Goals are the spine, AI is one of
+      several things attached to them. Every step lands on a destination
+      that exists in the IA above; nothing is invented mid-flow.
+    </p>
+
+    <div class="primer-block">
+      <div class="primer-block-head">
+        <div class="n">0</div>
+        <div>
+          <h5>First-run primer <span class="where">One-time · ~30 seconds · dismissable</span></h5>
+          <p>The very first time an admin opens the platform, a stepped mini-flow introduces the new primitives. Each sub-step is a short card with what it is, where it lives, and how to get there. Skippable.</p>
+        </div>
+      </div>
+
+      <div class="primer-flow">
+        <div class="primer-step">
+          <div class="primer-step-num">0.1</div>
+          <h6>Goals are the spine</h6>
+          <p>Every AI automation, monitor, and human workflow connects to a goal. Goals organize the platform around outcomes.</p>
+          <div class="primer-step-tag">Lives in <b>Goals</b> (site rail)</div>
+        </div>
+        <div class="primer-step-arrow">→</div>
+        <div class="primer-step">
+          <div class="primer-step-num">0.2</div>
+          <h6>Topics, auto-detected</h6>
+          <p>The shared taxonomy of what customers ask about. Auto-detected from the last 90 days. Editable.</p>
+          <div class="primer-step-tag">View: <b>Reporting → Topics</b><br>Manage: <b>Settings → Topics</b></div>
+        </div>
+        <div class="primer-step-arrow">→</div>
+        <div class="primer-step">
+          <div class="primer-step-num">0.3</div>
+          <h6>Suggestions apply in place</h6>
+          <p>When AI proposes a fix, it surfaces where the affected block lives. Apply, edit, or dismiss inline.</p>
+          <div class="primer-step-tag">On every block + <b>Performance → Suggestions</b></div>
+        </div>
+        <div class="primer-step-arrow">→</div>
+        <div class="primer-step highlight">
+          <div class="primer-step-num">0.4</div>
+          <h6>Company profile, captured inline</h6>
+          <p>During your first goal, we'll ask about industry, channels, brands. Stored once, read everywhere.</p>
+          <div class="primer-step-tag canonical">Captured at <b>Goals → Create goal</b><br>Canonical home: <b>Settings → Company profile</b></div>
+        </div>
+      </div>
+
+      <div class="primer-migration">
+        <div class="primer-migration-icon">⤴</div>
+        <div>
+          <h6>For existing AI customers, a fifth migration sub-step (0.5)</h6>
+          <p>Lists per-automation goals found in the workspace with a one-click <b>Lift these into platform Goals</b> action. Topics taxonomy is seeded automatically from conversation history; admin reviews and approves.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow">
+      <div class="flow-node">
+        <div class="n">1</div>
+        <div>
+          <h5>Go to Goals <span class="where">Primary nav</span></h5>
+          <p>Click Goals in the site rail. Goals Home opens pre-filtered to the viewer's role (AIC for this admin), with the 6 OOTB templates as a lead-in.</p>
+        </div>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node">
+        <div class="n">2</div>
+        <div>
+          <h5>Create your first goal &amp; capture Company profile inline <span class="where">Goals → Create Goals slide-out</span></h5>
+          <p>Click <b>+ Create goal</b>. The slide-out opens with a <b>Start from a template</b> strip (6 OOTB templates: Reduce refund tickets, Auto-resolve order tracking, Deflect product FAQs, Cut account escalations, Save at-risk renewals, Improve rep CSAT) and a <b>Clone from existing goal</b> picker. Below: a <b>Company profile</b> section (industry, channels, brands, description) — captured inline on first run because it's needed for smart goal suggestions. The same form captures the goal itself: <em>"Reduce refund tickets by 20%"</em>, audience <em>AIC</em>, owner self, target <em>20% over 90 days</em>, topics (with <b>brand + locale scope filters and parent/child hierarchy</b> when C-5 is on), and the org's <b>rep-training doc / SOP</b>. Save commits the Company profile to <b>Settings → Company profile</b> (canonical home, edit there anytime) and creates the goal. Subsequent goals collapse the Company profile to a one-line context strip with an "Edit in Settings" link.</p>
+        </div>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node">
+        <div class="n">3</div>
+        <div>
+          <h5>Land on goal detail <span class="where">Goal detail</span></h5>
+          <p>Topic chips and coverage stats appear at the top ("3 of 5 topics, 54% of 90d volume"). The parser surfaces draft procedures + suggested tools + knowledge from the uploaded doc, ready to attach. Empty attached-resources state below invites attaching an AI automation, monitor, or human workflow.</p>
+        </div>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node">
+        <div class="n">4</div>
+        <div>
+          <h5>Attach AI automation <span class="where">Goal detail → + Attach AI automation</span></h5>
+          <p>Click <b>+ Attach AI automation</b>. The new <b>+ New automation</b> split menu offers four ways in: <em>From scratch</em>, <em>From template</em>, <em>Duplicate existing</em>, or <em>Import from CSV</em>. Pick “From scratch,” name it <em>Refund Order</em>. A new automation row is created in <b>Automations</b> in the <code>draft</code> state (ADR-001), and the admin lands on the new automation's <b>Build</b> tab. Same surface as steady-state editing, in first-time mode (stepper + locked future tabs + parser callouts).</p>
+        </div>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node">
+        <div class="n">5</div>
+        <div>
+          <h5>Build, in first-time mode <span class="where">Automations → Refund Order → Build</span></h5>
+          <p>Stepper at the top: <b>● Build</b> → ○ Test → ○ Deploy → ○ Analyze (future tabs locked). Goal-context strip at the top (topics, scenarios). The automation's lifecycle state is <b>draft</b> → transitions to <b>in_wizard</b> the moment this admin starts editing (pessimistic lock; other admins see a read-only view + "Request takeover" — see ADR-001). Capture only AI-specific knobs: <em>Where the AI shows up</em> (pre-set to AIC) → <em>Knowledge sources</em> → <em>Tone of voice</em>. Parser-drafted procedures, knowledge, and tools surface with "AI added" callouts, inline-editable. <b>Save &amp; continue</b> moves the state to <b>ready_for_test</b> and unlocks Test.</p>
+        </div>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node">
+        <div class="n">6</div>
+        <div>
+          <h5>Test <span class="where">Automations → Refund Order → Test</span></h5>
+          <p>Stepper: ● Build → <b>● Test</b> → ○ Deploy → ○ Analyze. Click <b>Run All Tests</b>. The AI runs against sample conversations grouped by category, Standard Refunds, Returns, Late Delivery, etc. Same Test tab the admin would use on day 90, with the stepper overlay.</p>
+        </div>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node pivot">
+        <div class="n">7</div>
+        <div>
+          <h5>Analyze test results <span class="where">Automations → Refund Order → Test (results view)</span></h5>
+          <p><b>5 pass</b>, <b>1 fails</b>, <em>Damaged or Defective Items</em> at 23%. Three ways forward.</p>
+        </div>
+      </div>
+
+      <div class="flow-fork-label">Three ways forward</div>
+      <div class="flow-fork">
+        <div class="flow-branch">
+          <h6>Fix it now</h6>
+          <p>Jump back to <b>Build</b> via the stepper. Refine procedures, knowledge, or tone inline. Re-test. Same surface, same automation row.</p>
+        </div>
+        <div class="flow-branch">
+          <h6>Deploy partial</h6>
+          <p>Activate, but exclude the failing category. Smart-routing rule auto-generated to hand it off.</p>
+        </div>
+        <div class="flow-branch">
+          <h6>Override</h6>
+          <p>Proceed with confirmation. Failing category flagged on the goal page so it isn't forgotten.</p>
+        </div>
+      </div>
+      <div class="flow-merge">→ continue to Deploy</div>
+
+      <div class="flow-arrow"></div>
+      <div class="flow-node">
+        <div class="n">8</div>
+        <div>
+          <h5>Deploy &amp; Activate <span class="where">Automations → Refund Order → Deploy</span></h5>
+          <p>Stepper: ● Build → ● Test → <b>● Deploy</b> → ○ Analyze. Set conditions (channel, body filters), confirm smart routing. <b>Activate is now a sequence</b> (C-1): pick the <b>environment</b> (sandbox → staging → production), set the <b>rollout percentage</b> (0/1/5/25/50/100 ladder, advance one step at a time), choose a <b>holdback group</b> (e.g. VIP tier excluded), and — with C-6 on — <b>request reviewer approval</b> from an AI Reviewer. The Activate button is gated until review is approved and reads <i>“Activate at X% in {env}”</i>. On activate, the lifecycle state flips to <b>live</b> (or <b>live_with_override</b> if a failing category was carried in): the stepper vanishes, all tabs unlock, audit row written.</p>
+        </div>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node">
+        <div class="n">9</div>
+        <div>
+          <h5>Back to goal detail, AI live <span class="where">Goal detail</span></h5>
+          <p>Goal shows <b>Refund Order</b>: <b>Active</b>. Performance section transitions from empty to live; trajectory begins. Outcome performance lives here on the goal; operational signals on the AI itself live in AI → Analyze.</p>
+        </div>
+      </div>
+      <div class="flow-arrow"></div>
+      <div class="flow-node future">
+        <div class="n">10</div>
+        <div>
+          <h5>Two weeks later, a suggestion appears <span class="where">Suggestions &amp; Alerts</span></h5>
+          <p>Goal shows <b>−14%</b>, on track. The Validation Agent has drafted <b>Suggest an upsell before applying a coupon code</b>: <b>High confidence (82%)</b>, tagged <em>Increase CSAT</em>. The card shows <b>why this may matter</b>, <b>how the pattern was detected</b> (33% of coupon requests came from customers who hadn't reviewed related products), the supporting <b>2 conversations failing the same way</b>, and the <b>before / after</b> diff inline. <b>Because the target procedure is shared</b> (Coupon Handling, attached to 4 AIC automations), the apply path now requires <i>Preview against eval suite</i> (C-2) and a reviewer's approval (C-6) before commit. Per-automation suggestions skip both gates. Three ways to act.</p>
+        </div>
+      </div>
+
+      <div class="flow-fork-label">Three ways to act on a suggestion</div>
+      <div class="flow-fork">
+        <div class="flow-branch">
+          <h6>Apply</h6>
+          <p>One click commits the AI-drafted diff. Slide-out closes; change is live on the procedure / KB / tool / guardrail. Version history records "applied from suggestion".</p>
+        </div>
+        <div class="flow-branch">
+          <h6>Edit &amp; apply</h6>
+          <p>Click <b>Edit Procedure</b>. Slide-out opens with the affected block pre-loaded and AI changes marked "AI added". Tweak inline, then <b>Save and apply</b>. No page navigation.</p>
+        </div>
+        <div class="flow-branch">
+          <h6>Dismiss</h6>
+          <p>Reject with a reason. Feeds back into the model so similar suggestions don't recur. Audit trail captured.</p>
+        </div>
+      </div>
+      <div class="flow-merge">→ change is live, performance keeps tracking</div>
+
+      <div class="flow-arrow"></div>
+      <div class="flow-node future">
+        <div class="n">11</div>
+        <div>
+          <h5>A month later, extend <span class="where">Goal detail, Automations</span></h5>
+          <p>From the goal page attach a <b>performance monitor</b> (Quality Monitor scorecard) and a <b>human workflow</b> for edge cases. If the goal needs a second AI flow ("Damaged Items"), click <b>+ New automation</b> on Automations or <b>+ Attach AI automation</b> from the goal, then go through Build / Test / Deploy in first-time mode again.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reco-narr" style="margin-top: 24px;">
+    </div>
+  </div>
+</section>
+
+<!-- ============ Recommendation loop ============ -->
+<section id="loop">
+  <div class="wrap">
+    <h2><span class="num">04</span>The recommendation→action loop</h2>
+    <p>
+      The structural pattern that closes the gap between detection and fix.
+      Every AI suggestion carries an explicit <em>Apply in [block]</em>
+      affordance that opens the exact procedure, monitor, KB article, tool,
+      guardrail, or coaching path being recommended, pre-scoped and ready to
+      edit. The loop has its own affordance, its own pattern, its own home
+      in the IA. It is the differentiator, not a footer link.
+    </p>
+
+    <div class="loop-frame">
+      <div class="loop-step">
+        <div class="loop-stage">Stage 1, Signal</div>
+        <h3>Something drifted</h3>
+        <ul class="loop-list">
+          <li>Monitor scorecard fails or trends down</li>
+          <li>Validation Agent flags an anomaly</li>
+          <li>Goal trajectory crosses an at-risk threshold</li>
+          <li>Pattern detected across a cluster of conversations</li>
+        </ul>
+        <div class="loop-mini-card">
+          <b>Refund eligibility check</b><br>
+          AIC v3 · Pass rate 62% · ↓14% over 7 days
+        </div>
+        <div class="loop-arrow-overlay">→</div>
+      </div>
+
+      <div class="loop-step">
+        <div class="loop-stage">Stage 2, Suggestion</div>
+        <h3>A draft fix appears, where it belongs</h3>
+        <ul class="loop-list">
+          <li>Card surfaces on the affected block + in the cross-AI Suggestions queue</li>
+          <li>Confidence score, goal tag, before / after diff inline</li>
+          <li>Why this matters, how the pattern was detected, supporting conversations</li>
+          <li>The card explicitly names its target block in the CTA</li>
+        </ul>
+        <div class="loop-mini-card">
+          <b>Suggest an upsell before applying a coupon</b><br>
+          High confidence (82%) · drives <em>Increase CSAT</em>
+          <div class="cta">→ Apply in Procedure: <span style="text-decoration: underline;">Coupon Handling</span></div>
+        </div>
+        <div class="loop-arrow-overlay">→</div>
+      </div>
+
+      <div class="loop-step shared">
+        <div class="loop-stage">Stage 2.5, Preview <span class="shared-only">shared blocks only</span></div>
+        <h3>Eval first, ship second</h3>
+        <ul class="loop-list">
+          <li>For target blocks attached to &gt;3 automations</li>
+          <li><b>Preview against eval suite</b> — runs the diff against the existing eval categories</li>
+          <li>Per-category before/after deltas visible inline; regression blocks Apply</li>
+          <li><b>Reviewer approval</b> required (two-person rule, AI Reviewer role)</li>
+          <li>Per-automation suggestions skip both gates</li>
+        </ul>
+        <div class="loop-mini-card">
+          <b>Coupon Handling · 4 associations</b><br>
+          <span style="color: var(--green-80);">Eval +5pt avg · 4 cats pass</span><br>
+          <span style="color: var(--gray-90);">Reviewer: Maria · approved</span>
+        </div>
+        <div class="loop-arrow-overlay">→</div>
+      </div>
+
+      <div class="loop-step">
+        <div class="loop-stage">Stage 3, Action</div>
+        <h3>The block opens in place</h3>
+        <ul class="loop-list">
+          <li>Inline slide-out opens with the block pre-loaded</li>
+          <li>AI-proposed changes marked "AI added"</li>
+          <li>Tweak, apply, or dismiss with reason, never leaving the page</li>
+          <li>Version history records "applied from suggestion #N"</li>
+        </ul>
+        <div class="loop-mini-card">
+          <b>Procedure: Coupon Handling</b><br>
+          <span style="color: var(--green-80);">+ Suggest upsell before code (AI added)</span><br>
+          <span style="color: var(--gray-90);">— Existing: validate code, then apply</span>
+          <div class="cta" style="color: var(--green-80);">[ Save and apply ]</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="loop-targets-head">The six target blocks a suggestion can open</div>
+    <div class="loop-targets">
+      <div class="loop-target">
+        <div class="lt-cta">Apply in Procedure</div>
+        <div class="lt-what">Opens the procedure body with AI changes inline; lives in Building Blocks, attached to the automation.</div>
+      </div>
+      <div class="loop-target">
+        <div class="lt-cta">Apply in Monitor</div>
+        <div class="lt-what">Opens the Quality Monitor scorecard criteria with weight or threshold tweaks pre-staged.</div>
+      </div>
+      <div class="loop-target">
+        <div class="lt-cta">Apply in KB Article</div>
+        <div class="lt-what">Opens the Knowledge Source article with AI-drafted content additions or corrections.</div>
+      </div>
+      <div class="loop-target">
+        <div class="lt-cta">Apply in Tool</div>
+        <div class="lt-what">Opens the tool config (auth, scope, parameters) with the proposed change pre-set.</div>
+      </div>
+      <div class="loop-target">
+        <div class="lt-cta">Apply in Guardrail</div>
+        <div class="lt-what">Opens the per-automation guardrail or the shared guardrail rule with the new constraint pre-filled.</div>
+      </div>
+      <div class="loop-target">
+        <div class="lt-cta">Apply in Coaching Path</div>
+        <div class="lt-what">For human-rep degradation: opens the coaching path with the targeted skill or scenario pre-selected.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Risks ============ -->
+<section id="newprobs">
+  <div class="wrap">
+    <h2><span class="num">05</span>Risks the new Goals primitive introduces</h2>
+    <p>
+      The strategic costs of treating Goals and Topics as platform primitives
+      and splitting outcome performance from operational performance.
+      Severity reflects blast radius across personas.
+    </p>
+
+    <div class="crit">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:32px">#</th>
+            <th style="width:24%">Risk</th>
+            <th style="width:11%">Severity</th>
+            <th style="width:38%">Why it hurts</th>
+            <th>Resolution</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num">1</td>
+            <td class="title">Rail real estate</td>
+            <td><span class="severity high">High</span></td>
+            <td>Goals and Performance newly promoted alongside the existing rail (Inbox, Searches, Reporting, TeamPulse, Rep Dashboard). Rail runs eight items deep before utility; Apps, KB, Widgets, Settings, Help all get pushed into overflow.</td>
+            <td><span class="res-tag resolved">Resolved</span> Mini icon rail surfaces top-level destinations only; <b>More</b> menu collects Apps, KB, Widgets, Settings, Help.</td>
+          </tr>
+          <tr>
+            <td class="num">2</td>
+            <td class="title">Cross-team primitive ownership</td>
+            <td><span class="severity high">High</span></td>
+            <td>One Goal object. One edit surface. One set of display primitives with contextual variants — every surface picks a variant, no surface draws its own.</td>
+            <td><span class="res-tag resolved">Resolved</span> <b>ADR-002</b>: Goal is an abstract primitive parameterized by <code>kind</code>; each kind contributes its own schema, slide-out form, rollup tile, picker chip, and report. 4 AI kinds at launch; non-AI kinds reserved.</td>
+          </tr>
+          <tr>
+            <td class="num">3</td>
+            <td class="title">Audience + topic tag drift</td>
+            <td><span class="severity med">Medium</span></td>
+            <td>Mis-tagged goals or conversations shatter every picker and rollup. Required-on-create, auto-detect confidence flags, and audit jobs mitigate.</td>
+            <td><span class="res-tag mitigated">Mitigated</span> Topic hierarchy + brand/locale scope filters now in the picker; "Manage Topics" affordance exposed. Hierarchy + merge-UX spec still required.</td>
+          </tr>
+          <tr>
+            <td class="num">4</td>
+            <td class="title">Audience boundary ambiguity</td>
+            <td><span class="severity med">Medium</span></td>
+            <td>"Improve CSAT" belongs to AIC, AIR, and Human Reps at once. Multi-select audience + primary-owner field + documented rubric.</td>
+            <td><span class="res-tag pending">Pending</span> ADR-002 separates <code>audience_tags[]</code> from <code>primary_audience</code>, but the field-level permission model is a separate ADR.</td>
+          </tr>
+          <tr>
+            <td class="num">5</td>
+            <td class="title">Goal reports left Reporting</td>
+            <td><span class="severity med">Medium</span></td>
+            <td>Goal-specific reports moved to Goals Home. Reporting users may not find them. Cross-link callouts from Data Explorer and Standard Reports.</td>
+            <td><span class="res-tag pending">Pending</span> Cross-link affordance not yet designed.</td>
+          </tr>
+          <tr>
+            <td class="num">6</td>
+            <td class="title">Goal-attribution noise</td>
+            <td><span class="severity med">Medium</span></td>
+            <td>Every block, toggle, monitor, and suggestion carries "drives Goal X" annotations. Without density rules they become wallpaper. Show only when scope is implied; cap per surface.</td>
+            <td><span class="res-tag pending">Pending</span> Density model still TBD (recommended: hover-reveal, per-surface cap of 1).</td>
+          </tr>
+          <tr>
+            <td class="num">7</td>
+            <td class="title">Primer skip + migration mis-mapping</td>
+            <td><span class="severity low">Low</span></td>
+            <td>Admins skim primers. Mitigation: Company profile is captured inline during first goal creation (can't be skipped); make the primer re-openable from the avatar menu; the auto-lift of per-automation goals into platform Goals runs a one-time audit on migrated goals.</td>
+            <td><span class="res-tag mitigated">Mitigated</span> Primer reopenable from three places: avatar menu, Tweaks panel, and a "?" button in the AI panel header. Cards click-through to their canonical homes.</td>
+          </tr>
+          <tr>
+            <td class="num">8</td>
+            <td class="title">"Override" exit on Analyze</td>
+            <td><span class="severity low">Low</span></td>
+            <td>The third branch (Override) ships an automation with a known-failing category. Goal page must flag it loudly so it isn't forgotten.</td>
+            <td><span class="res-tag mitigated">Mitigated</span> Override is now a distinct lifecycle state <code>live_with_override</code>; auto-create a recurring Suggestion + Monitor (ADR-001 follow-up).</td>
+          </tr>
+          <tr>
+            <td class="num">9</td>
+            <td class="title">"Resources" renamed to Building Blocks</td>
+            <td><span class="severity low">Low</span></td>
+            <td>Existing admins navigate by muscle memory. Add an inline "formerly Resources" hint for one release; redirect deep links.</td>
+            <td><span class="res-tag pending">Pending</span> Deep-link redirect plan not yet documented.</td>
+          </tr>
+          <tr>
+            <td class="num">10</td>
+            <td class="title">Per-automation surface scope creep</td>
+            <td><span class="severity low">Low</span></td>
+            <td>The per-automation Settings page could grow back into a multi-tab spread. New toggles default to advanced until usage promotes them.</td>
+            <td><span class="res-tag pending">Pending</span> Promotion rules not yet defined.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Redundancy table ============ -->
+<section id="redundancy">
+  <div class="wrap">
+    <h2><span class="num">06</span>Friction points and resolutions</h2>
+    <p>
+      Each remaining tension in the proposed IA, paired with the standing
+      contract that resolves it. Every contract below is documented in the
+      relevant IA node so the resolution rides with the structure.
+    </p>
+
+    <div class="crit">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:26%">Friction</th>
+            <th style="width:37%">What's happening</th>
+            <th>Contract (documented in IA)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="title">Goal authoring entry points diverge</td>
+            <td class="what">"+ Create goal" surfaces in six places: Goals Home, the Attached Goals card on Build, per-automation Settings, Manage Automations, AI Setup, and every goal-picker footer.</td>
+            <td>One authoring component, the Create Goals slide-out. Every entry point opens it with audience + topics pre-filled and returns the saved goal pre-selected.</td>
+          </tr>
+          <tr>
+            <td class="title">Outcome rollup vs operational rollup look alike</td>
+            <td class="what">Goals Home opens with an outcome summary ("hitting what we said?"). Performance is the operational rollup ("how are agents doing?"). Both look like dashboards.</td>
+            <td>Distinct framing copy in each header; never duplicate tiles. Goals Home tiles deep-link to Performance; Performance rows link back to the goal.</td>
+          </tr>
+          <tr>
+            <td class="title">Same primitives at platform and per-automation</td>
+            <td class="what">Monitors, Suggestions, Anomalies live as Performance children and as Analyze tabs inside every AIC automation. Same primitives, two scopes, unclear which to act on.</td>
+            <td><b>Resolved by ADR-003.</b> Performance is read-only aggregate; Analyze owns all authoring. Chrome ribbons enforce mode. Deep-link is the only path to act from Performance. 5s P95 / 30s max eventual-consistency SLA.</td>
+          </tr>
+          <tr>
+            <td class="title">Anomalies is AI-only inside a cross-agent rollup</td>
+            <td class="what">Performance's three children look like peers, but Anomalies (Validation Agent) is AI-only; only Monitors and Suggestions cover human work.</td>
+            <td>"AI only" subhead on Anomalies + one-line explainer on Performance. Human degradation surfaces via Monitors (dips) and Suggestions (coaching).</td>
+          </tr>
+          <tr>
+            <td class="title">Guardrails split into two flavors, one word</td>
+            <td class="what">Per-automation guardrails (Competitors, Secrets, Tone) live on each automation's Settings. Shared guardrails (refund ceilings, escalation triggers) live in Building Blocks. Same label, two homes.</td>
+            <td>Rename in chrome: "Per-automation guardrails" on Settings, "Shared guardrails" in Building Blocks. Inline "+ Attach shared guardrail" on each automation's Settings.</td>
+          </tr>
+          <tr>
+            <td class="title">"Mine" vs audience facets on Goals</td>
+            <td class="what">"Mine" overlaps with audience facets, an AI admin's "Mine" is almost always their AI goals.</td>
+            <td>Pre-select the audience facet by viewer role; "Mine" filters within whatever facet is active.</td>
+          </tr>
+          <tr>
+            <td class="title">Topics management vs Topics analytics</td>
+            <td class="what">Authoring (rename, merge, hide, custom instructions) lives in More → Settings → Topics. Analytics lives in Reporting → Topics. Same name, two homes.</td>
+            <td>Keep each page single-purpose; both already cross-link. Never duplicate controls across them.</td>
+          </tr>
+          <tr>
+            <td class="title">Computed Fields moved out of Building Blocks</td>
+            <td class="what">Computed Fields now live in More → Settings. AI admins who used to find them in the AI workspace may not discover the new home, and every goal threshold reads one.</td>
+            <td>Cross-link every goal threshold and scorecard into Settings → Computed Fields, field pre-selected. Reverse-link each field to the goals and monitors it feeds.</td>
+          </tr>
+          <tr>
+            <td class="title">AI Setup wizard duplicated per-automation tabs</td>
+            <td class="what">Old IA had AI Setup as a parallel surface authoring the same data the per-automation Build / Test / Deploy / Analyze tabs already capture, with the same verbs since the lifecycle-vocabulary rollout.</td>
+            <td><b>Resolved by ADR-001 + the rebuilt + New Automation menu.</b> AI Setup is removed. "+ New automation" is a split menu (From scratch / From template / Duplicate / Import CSV) that routes to the automation's Build tab in the <code>draft</code> lifecycle state. Same URL, same surface.</td>
+          </tr>
+          <tr>
+            <td class="title">AIC selector vs Manage Automations</td>
+            <td class="what">Clicking AI for Customers opens a switcher dropdown; Manage Automations is a separate destination. Both show the AIC automation list.</td>
+            <td>Dropdown is switch-only: name + status pill + "→ Manage all" footer. Manage Automations owns add, edit, delete, duplicate, filter, sort, bulk.</td>
+          </tr>
+          <tr>
+            <td class="title">Tools not visible in primary nav</td>
+            <td class="what">Shared Tools are the AI's hands, nesting them inside Building Blocks understates their operational weight when an integration breaks.</td>
+            <td>Flyout on the Building Blocks rail row exposes Procedures, Knowledge Sources, Tools as one-click destinations.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JTBD Usability Tests ============ -->
+<section id="jtbd">
+  <div class="wrap">
+    <h2><span class="num">07</span>Jobs to be done (Usability test)</h2>
+    <p>
+      Fifteen testable scenarios across the three pillars of the goals-first
+      thesis. Each task is framed as a participant-facing scenario with a
+      success signal a moderator can observe. Sources: Goals-Based AI
+      Monitoring (Aditya, Apr 2026), Goals-Based AI Setup (Amisha, May 2026),
+      and this IA recommendation.
+    </p>
+
+    <div class="jtbd-intro-grid">
+      <div class="jtbd-intro-card">
+        <h4><span class="dot"></span>Goals</h4>
+        <p>Goals as a platform primitive. Authoring, scoping, leadership rollup, and goal-context-follows-the-user.</p>
+      </div>
+      <div class="jtbd-intro-card">
+        <h4><span class="dot"></span>Monitors</h4>
+        <p>Quality + Anomaly monitoring of live AI. Per-criterion drill-down, alerting, suggestions, runtime QA.</p>
+      </div>
+      <div class="jtbd-intro-card">
+        <h4><span class="dot"></span>AI Config Setup</h4>
+        <p>Goals-first intake, plan trust, staged testing, scoped deploy, closed-loop recommendations.</p>
+      </div>
+    </div>
+
+    <!-- Pillar 1: Goals -->
+    <div class="jtbd-pillar">
+      <h3>Goals</h3>
+      <span class="jtbd-pillar-sub">Maps to monitoring JTBD 1, 4, 8 + the leadership rollup pattern</span>
+      <span class="jtbd-pillar-count">5 tasks</span>
+    </div>
+    <div class="jtbd-grid">
+      <div class="jtbd-card">
+        <div class="jtbd-card-head">
+          <div class="jtbd-card-num">1</div>
+          <h4>Declare a new business goal from scratch</h4>
+        </div>
+        <div class="jtbd-scenario">"You've been asked to reduce refund-related escalations. Set up a goal to track this."</div>
+        <div class="jtbd-row success"><div class="k">Success</div><div class="v">Participant lands on Goals, chooses Create, sets a target value, direction (lower is better), and unit without backtracking.</div></div>
+        <div class="jtbd-row tests"><div class="k">Tests</div><div class="v">Goals as primitive, slide-out authoring, defaults vs. custom.</div></div>
+      </div>
+
+      <div class="jtbd-card">
+        <div class="jtbd-card-head">
+          <div class="jtbd-card-num">2</div>
+          <h4>Scope a goal to a specific AI agent</h4>
+        </div>
+        <div class="jtbd-scenario">"Your refund agent is one of three AI agents. You only want this goal to track that agent's performance."</div>
+        <div class="jtbd-row success"><div class="k">Success</div><div class="v">Participant finds the Goal Resource control and selects the correct AIC automation.</div></div>
+        <div class="jtbd-row tests"><div class="k">Tests</div><div class="v">Resource scoping, goal-to-automation linkage, whether the relationship is discoverable.</div></div>
+      </div>
+
+      <div class="jtbd-card">
+        <div class="jtbd-card-head">
+          <div class="jtbd-card-num">3</div>
+          <h4>Read the leadership rollup, identify an at-risk goal</h4>
+        </div>
+        <div class="jtbd-scenario">"You're prepping for a Monday exec review. Tell me which goals are on track and which need attention."</div>
+        <div class="jtbd-row success"><div class="k">Success</div><div class="v">Participant uses Goals Home (cross-goal sparkline grid) to identify the at-risk goal within 30 seconds and can articulate why.</div></div>
+        <div class="jtbd-row tests"><div class="k">Tests</div><div class="v">Outcome rollup legibility, at-risk lane, sparkline comprehension.</div></div>
+      </div>
+
+      <div class="jtbd-card">
+        <div class="jtbd-card-head">
+          <div class="jtbd-card-num">4</div>
+          <h4>Trace a goal back to the conversations driving its score</h4>
+        </div>
+        <div class="jtbd-scenario">"Your CSAT goal is dipping. Show me the conversations contributing to last week's drop."</div>
+        <div class="jtbd-row success"><div class="k">Success</div><div class="v">Participant drills from the goal into the linked monitor's flagged conversations.</div></div>
+        <div class="jtbd-row tests"><div class="k">Tests</div><div class="v">Goal → Monitor → Conversation traceability, the "goal context follows the user" principle.</div></div>
+      </div>
+
+      <div class="jtbd-card">
+        <div class="jtbd-card-head">
+          <div class="jtbd-card-num">5</div>
+          <h4>Edit a goal's target mid-flight</h4>
+        </div>
+        <div class="jtbd-scenario">"Leadership has raised the bar, the team now needs to hit 90% CSAT instead of 85%. Update the goal."</div>
+        <div class="jtbd-row success"><div class="k">Success</div><div class="v">Participant finds the goal, opens it, edits the target, and saves without confusion about whether monitors or alerts need to be reconfigured.</div></div>
+        <div class="jtbd-row tests"><div class="k">Tests</div><div class="v">Edit affordance, whether dependencies are surfaced, optimistic vs. anxious editing behavior.</div></div>
+      </div>
+    </div>
+
+    <!-- Pillar 2: Monitors -->
+    <div class="jtbd-pillar">
+      <h3>Monitors</h3>
+      <span class="jtbd-pillar-sub">Maps to monitoring JTBD 2, 3, 5, 6, 7, 9</span>
+      <span class="jtbd-pillar-count">5 tasks</span>
+    </div>
+    <div class="jtbd-grid">
+      <div class="jtbd-card">
+        <div class="jtbd-card-head">
+          <div class="jtbd-card-num">1</div>
+          <h4>Find out why a specific conversation was flagged</h4>
+        </div>
+        <div class="jtbd-scenario">"This conversation was flagged by your Quality Monitor. Tell me which criterion it failed and why."</div>
+        <div class="jtbd-row success"><div class="k">Success</div><div class="v">Participant opens the conversation, sees per-criterion scores, weights, pass/fail, and rationale.</div></div>
+        <div class="jtbd-row tests"><div class="k">Tests</div><div class="v">Per-criterion drill-down (JTBD 5), readability of the rubric in context.</div></div>
+      </div>
+
+      <div class="jtbd-card">
+        <div class="jtbd-card-head">
+          <div class="jtbd-card-num">2</div>
+          <h4>Configure a custom monitor with weighted criteria</h4>
+        </div>
+        <div class="jtbd-scenario">"You want to start scoring AI conversations on tone and accuracy. Tone is twice as important as accuracy. If accuracy fails, the whole conversation fails."</div>
+        <div class="jtbd-row success"><div class="k">Success</div><div class="v">Participant creates a custom monitor, adds two criteria, sets weights, marks accuracy as essential, sets a pass threshold.</div></div>
+        <div class="jtbd-row tests"><div class="k">Tests</div><div class="v">Criteria authoring (JTBD 9), the essential flag concept, weight comprehension.</div></div>
+      </div>
+
+      <div class="jtbd-card">
+        <div class="jtbd-card-head">
+          <div class="jtbd-card-num">3</div>
+          <h4>Opt into alerting for a degrading monitor</h4>
+        </div>
+        <div class="jtbd-scenario">"You want to be told within the hour if this monitor's pass rate drops. Set that up."</div>
+        <div class="jtbd-row success"><div class="k">Success</div><div class="v">Participant turns on alerts, selects hourly cadence, confirms delivery channel.</div></div>
+        <div class="jtbd-row tests"><div class="k">Tests</div><div class="v">Opt-in alerting (JTBD 3), cadence selection, delivery channel clarity.</div></div>
+      </div>
+
+      <div class="jtbd-card">
+        <div class="jtbd-card-head">
+          <div class="jtbd-card-num">4</div>
+          <h4>Act on an AI-generated suggestion from a failed monitor</h4>
+        </div>
+        <div class="jtbd-scenario">"The monitor has produced a suggestion to update this procedure. Review it and either apply or dismiss it."</div>
+        <div class="jtbd-row success"><div class="k">Success</div><div class="v">Participant finds the suggestion card on the Suggestions &amp; Alerts surface, reads confidence + goal tag + the <b>before / after</b> diff inline, clicks <b>Edit Procedure</b> to open the inline slide-out with the affected procedure and AI-marked changes, applies (or edits then saves) or dismisses with a reason. No page navigation.</div></div>
+        <div class="jtbd-row tests"><div class="k">Tests</div><div class="v">Suggestion legibility (JTBD 6), before/after pattern, the inline slide-out edit-in-place affordance, dismiss-with-reason.</div></div>
+      </div>
+
+      <div class="jtbd-card">
+        <div class="jtbd-card-head">
+          <div class="jtbd-card-num">5</div>
+          <h4>Review anomalies surfaced by the Validation Agent</h4>
+        </div>
+        <div class="jtbd-scenario">"Your AI agent went off-script three times last week. Find those events and tell me what happened."</div>
+        <div class="jtbd-row success"><div class="k">Success</div><div class="v">Participant locates the Anomaly Detection Report, identifies the three events, and reads the anomaly type and affected resource.</div></div>
+        <div class="jtbd-row tests"><div class="k">Tests</div><div class="v">Anomaly Detection discoverability (JTBD 7), the connection between anomalies and suggestions, runtime QA as a separate concept from post-call QA.</div></div>
+      </div>
+    </div>
+
+    <!-- Pillar 3: AI Config Setup -->
+    <div class="jtbd-pillar">
+      <h3>AI Config Setup</h3>
+      <span class="jtbd-pillar-sub">Maps to the four JTBDs in the Goals-Based AI Setup doc + the 5-page flow</span>
+      <span class="jtbd-pillar-count">5 tasks</span>
+    </div>
+    <div class="jtbd-grid">
+      <div class="jtbd-card">
+        <div class="jtbd-card-head">
+          <div class="jtbd-card-num">1</div>
+          <h4>Set up Kustomer AI for the first time, anchored on an outcome</h4>
+        </div>
+        <div class="jtbd-scenario">"You just signed with Kustomer. You're responsible for reducing escalations on refund conversations. Get your AI configured."</div>
+        <div class="jtbd-row success"><div class="k">Success</div><div class="v">Participant completes the intake (company context, audience, goals, topics, monitors, knowledge, tone) without abandoning. Articulates that they're configuring around the escalation goal, not assembling parts.</div></div>
+        <div class="jtbd-row tests"><div class="k">Tests</div><div class="v">The core thesis: goals-first intake feels different from configuration-first. Measure abandonment, backtracking, and post-task sentiment.</div></div>
+      </div>
+
+      <div class="jtbd-card">
+        <div class="jtbd-card-head">
+          <div class="jtbd-card-num">2</div>
+          <h4>Review and trust the generated plan before saving</h4>
+        </div>
+        <div class="jtbd-scenario">"Kustomer just generated a plan based on your answers. Walk me through what it's going to do, and tell me whether you'd save it as-is or change something."</div>
+        <div class="jtbd-row success"><div class="k">Success</div><div class="v">Participant can name what was generated (procedures, monitors, alerts, scope), identify which goal each item ties to, and edit at least one item.</div></div>
+        <div class="jtbd-row tests"><div class="k">Tests</div><div class="v">Plan traceability (JTBD 2, "see what will change, where, and why"), blast-radius comprehension, editability of generated content.</div></div>
+      </div>
+
+      <div class="jtbd-card">
+        <div class="jtbd-card-head">
+          <div class="jtbd-card-num">3</div>
+          <h4>Test the staged plan before deploying</h4>
+        </div>
+        <div class="jtbd-scenario">"Before this goes live to customers, you want to make sure the AI handles refunds correctly. Test it."</div>
+        <div class="jtbd-row success"><div class="k">Success</div><div class="v">Participant finds the Test surface, runs an evaluation category against the staged plan, and interprets the readiness signal. Optionally uses the side panel test console for an ad-hoc conversation.</div></div>
+        <div class="jtbd-row tests"><div class="k">Tests</div><div class="v">Discoverability of staged-vs-production distinction, readiness signal comprehension, the separation of save from activate.</div></div>
+      </div>
+
+      <div class="jtbd-card">
+        <div class="jtbd-card-head">
+          <div class="jtbd-card-num">4</div>
+          <h4>Deploy with scope and capture a deploy note</h4>
+        </div>
+        <div class="jtbd-scenario">"You're ready to turn this on, but only for chat conversations from your US brand. Deploy it."</div>
+        <div class="jtbd-row success"><div class="k">Success</div><div class="v">Participant scopes via rule groups (channel + brand), writes a deploy note, confirms.</div></div>
+        <div class="jtbd-row tests"><div class="k">Tests</div><div class="v">Scope-then-activate pattern, rule group comprehension, whether the note feels valuable or like friction.</div></div>
+      </div>
+
+      <div class="jtbd-card">
+        <div class="jtbd-card-head">
+          <div class="jtbd-card-num">5</div>
+          <h4>Act on a post-deploy recommendation, inline</h4>
+        </div>
+        <div class="jtbd-scenario">"Two weeks in, your CSAT goal is drifting. Kustomer is recommending a procedure tweak. Apply it."</div>
+        <div class="jtbd-row success"><div class="k">Success</div><div class="v">Participant finds the suggestion where it lives in context (on the procedure card / in the suggestions queue), clicks <b>View suggestion</b>, the recommendation slides out with an inline edit view of the affected procedure, they apply or edit and confirm without leaving the current page.</div></div>
+        <div class="jtbd-row tests"><div class="k">Tests</div><div class="v">The closed-loop story (JTBD 3, "tell me which lever to pull"), inline slide-out edit pattern (no page jump), preview-before-apply, version history awareness.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Decision Records / Sprint 0 ============ -->
+<section id="adrs">
+  <div class="wrap">
+    <h2><span class="num">08</span>Decision records (Sprint 0)</h2>
+    <p>
+      The IA above is direction. Three architectural decision records translate
+      the highest-risk claims into committed schemas, state machines, and
+      contracts — the prerequisite for engineering build.
+    </p>
+    <div class="adr-grid">
+      <a class="adr-card" href="docs/ADR-001-automation-lifecycle-state-machine.md">
+        <span class="adr-num">ADR-001</span>
+        <h3>Automation Lifecycle State Machine</h3>
+        <p>Eight enumerated states, typed transitions, pessimistic locks for first-run mode, derived <code>firstRunMode</code>. Resolves the hidden state machine that the IA's <code>firstRunMode</code> boolean was hiding.</p>
+        <div class="adr-meta">Resolves <b>C-3</b> · Operating System §3.19, §3.20, §3.11, §3.8</div>
+      </a>
+      <a class="adr-card" href="docs/ADR-002-goal-kind-registry.md">
+        <span class="adr-num">ADR-002</span>
+        <h3>Goal as a Kind-Registered Primitive</h3>
+        <p>Goal is abstract; each kind registers its own schema, slide-out form, rollup tile, picker chip, and trajectory provider. Four AI kinds at launch; non-AI kinds reserved but deferred behind separate ADRs.</p>
+        <div class="adr-meta">Resolves <b>C-4</b> · Operating System §3.14, §3.18, §3.1</div>
+      </a>
+      <a class="adr-card" href="docs/ADR-003-performance-analyze-separation.md">
+        <span class="adr-num">ADR-003</span>
+        <h3>Performance ↔ Analyze Separation</h3>
+        <p>Performance is read-only aggregate. Analyze owns authoring. Chrome ribbons enforce mode; deep-link contract is the only path to act from rollup. 5s P95 / 30s max eventual-consistency SLA.</p>
+        <div class="adr-meta">Resolves <b>C-7</b> · Operating System §6, §3.19, §3.20, §3.2</div>
+      </a>
+    </div>
+    <p style="margin-top: 14px; color: var(--gray-95); font-size: 13px;">
+      See <a href="docs/README.md" style="color: var(--gray-120); text-decoration: underline;">docs/README.md</a> for the full index, cross-references, and recommended sequencing through Sprints 1–2.
+    </p>
+  </div>
+</section>
+
+<style>
+  .adr-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+  }
+  .adr-card {
+    display: block;
+    padding: 18px 20px;
+    background: #fff;
+    border: 1px solid var(--gray-30);
+    border-radius: 12px;
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 0.15s, transform 0.1s, box-shadow 0.15s;
+  }
+  .adr-card:hover {
+    border-color: var(--gray-50);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(15, 17, 22, 0.06);
+  }
+  .adr-num {
+    display: inline-block;
+    font-family: var(--font-mono, monospace);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--gray-95);
+    background: var(--gray-15);
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .adr-card h3 {
+    font-size: 16px; font-weight: 600;
+    color: var(--gray-120);
+    margin: 0 0 8px;
+    letter-spacing: -0.005em;
+  }
+  .adr-card p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--gray-95);
+    margin: 0 0 14px;
+  }
+  .adr-meta {
+    font-size: 11.5px;
+    color: var(--gray-90);
+    border-top: 1px solid var(--gray-30);
+    padding-top: 10px;
+  }
+  .adr-meta b { color: var(--gray-120); font-weight: 600; }
+  .adr-card code { font-family: var(--font-mono, monospace); font-size: 12px; background: var(--gray-15); padding: 1px 5px; border-radius: 4px; }
+
+  /* Resolution tags in the Risks table */
+  .res-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 999px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .res-tag.resolved  { background: var(--green-15); color: var(--green-80); }
+  .res-tag.mitigated { background: var(--blue-15);  color: var(--blue-95);  }
+  .res-tag.pending   { background: var(--gray-25);  color: var(--gray-95);  }
+
+  /* Stage 2.5 (shared) loop card */
+  .loop-step.shared {
+    border-color: var(--green-30, #B3E0CC);
+    background: linear-gradient(180deg, #F4FBF7 0%, #FFFFFF 100%);
+  }
+  .loop-step.shared .loop-stage {
+    color: var(--green-80);
+  }
+  .shared-only {
+    margin-left: 8px;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--green-80);
+    background: var(--green-15);
+    padding: 2px 7px;
+    border-radius: 999px;
+  }
+</style>
+
+<footer class="foot">
+  <div class="wrap">
+    Prepared for Amisha · source vision: Goals-First Kustomer (May 2026, Aditya Subramaniam) · baseline: current Kustomer production navigation.
+  </div>
+</footer>
+
+<!-- ============ Data + tree script ============ -->
+<script src="ia-tree-data.js"></script>
+<script src="ia-tree.js"></script>
+</body>
+</html>
+
+<style id="__om-edit-overrides">
+</style>

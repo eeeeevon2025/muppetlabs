@@ -1,0 +1,37 @@
+# Output Style Guide (corrected)
+
+This replaces the earlier draft, which guessed a generic "brutalist black-border" aesthetic. Pulling the real CSS out of the source file shows something more specific: this is the actual Kustomer product design system, not an invented style. Reuse it verbatim rather than reinventing it per report.
+
+## Typefaces
+- **Inter** — primary UI/body typeface. Used for h1-h4, body copy, tables, labels, everything functional.
+- **Fraunces** (serif, substitutes for the licensed "Quincy CF") — reserved for the hero headline and any other marketing/narrative display moment. Not used in body content, tables, or component chrome.
+- **JetBrains Mono** — for code, ids, and anything meant to read as a literal value.
+
+## Color system
+- The palette is a full 10-step-increment ramp per hue (Gray, Blue, Purple, Red, Yellow, Green, Teal), each running 10 (lightest) to 130 (darkest/ink).
+- Product UI should consume **semantic tokens**, not raw ramp values: `--text-primary`, `--bg-app`, `--bg-surface`, `--border-1`, `--color-success` / `--color-warning` / `--color-danger` / `--color-info` (each with a paired `-bg` token for the tint).
+- Yellow (`--bg-brand`) is the single brand accent — used for the "New" pill, highlighted phrases in the hero (`.hl`), selection color, and sparingly elsewhere. It is not a structural border color.
+- Severity/status in tables (Risk severity, friction resolution state) should map to the semantic state tokens — High risk → danger/red family, Medium → warning/yellow family, Low → a muted gray, Resolved → success/green — not a custom ad hoc palette per report.
+
+## Type scale & rhythm
+- Base 16px. Scale runs `--fs-12` through `--fs-96` in named steps (not arbitrary px values) — reuse the named scale.
+- Line-height and tracking are role-based (`--lh-tight` for display, `--lh-body` for paragraphs, `--tr-tight`/`--tr-snug`/`--tr-wide` for tracking) rather than set per element.
+
+## Spacing, radius, elevation
+- Spacing scale is 4px-based (`--space-1` = 4px up to `--space-24` = 96px) — pick from the scale, don't use arbitrary margins.
+- Radii range from `--radius-xs` (4px, tight chips/inputs) to `--radius-2xl` (32px, large cards); a `--radius-pill` for status pills. No sharp 0-radius edges except where a component explicitly calls for a flat, table-like frame (e.g. inline flow-branch cards).
+- Shadows are soft and layered (`--shadow-xs` through `--shadow-xl`), never hard-edged. This is a soft-elevation system, not a bordered/flat one.
+- Motion uses named eases (`--ease-standard`, `--ease-out`, `--ease-in`) and durations (`--dur-1` 120ms through `--dur-4` 400ms) — for expand/collapse and hover states in the tree explorer and cards.
+
+## Structural conventions specific to this report
+- **Section numbering:** `<h2><span class="num">01</span>Section title</h2>` — the number is a styled inline span, not a separate chip element. Section `id`s are semantic slugs (`summary`, `map`, `experience`, `loop`, `newprobs`, `redundancy`, `jtbd`), not literal "01"–"07".
+- **Page container:** every section wraps its content in a `.wrap` max-width container; sections stack full-bleed with their own background/padding.
+- **Principles (01):** a single `<ol>` inside `<aside class="principles">`, one `<li>` per principle, bold lead phrase + plain-text mechanism sentence in the same list item. Include a "⬇ Download .md" button that exports just this list.
+- **IA Tree (02):** NOT hand-written HTML per node — see `report-architecture.md` for the data-driven approach (a JS object tree rendered into a `#tree` / `#detail` two-pane layout).
+- **Journey (03):** sequential step blocks; branching moments use a `.flow-fork` grid of `.flow-branch` cards (flat, 1px hairline border is the one deliberate exception to the soft-shadow system, because it's mimicking a literal fork/diagram, not a content card).
+- **Loop (04):** `.loop-stage` frames in sequence, each containing `.loop-mini-card` example(s) and, for the final stage, a `.loop-targets` reference list.
+- **Risks (05) / Friction (06):** real `<table>` elements. Severity and resolution-state values render as colored pills using the semantic state tokens above, not custom colors.
+- **JTBD (07):** `.jtbd-pillar` groups, each containing `.jtbd-card` grid items with a numbered scenario, success criteria, and "Tests" tag-back reference.
+
+## Tone
+Declarative and terse in principles/contracts. Candid, specific, and unhedged in risks and friction ("Rail runs eight items deep before utility," not "may impact navigability"). Moderator-script voice in JTBD scenarios.

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=1440"/>
+<title>Goals · AI Monitoring · Kustomer</title>
+<link rel="stylesheet" href="kustomer/colors_and_type.css"/>
+<link rel="stylesheet" href="app/app.css"/>
+<link rel="stylesheet" href="app/v2.css"/>
+<style>
+  body { padding-top: 0; }
+  .app { height: 100vh !important; }
+</style>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="app/data.js"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="app/ui.jsx"></script>
+<script type="text/babel" src="app/shell.jsx"></script>
+<script type="text/babel" src="app/goals.jsx"></script>
+<script type="text/babel" src="app/monitors.jsx"></script>
+<script type="text/babel" src="app/inbox.jsx"></script>
+<script type="text/babel" src="app/wizards.jsx"></script>
+<script type="text/babel" src="app/tweaks-panel.jsx"></script>
+<script type="text/babel" src="app/v2.jsx"></script>
+<script type="text/babel" src="app/v4.jsx"></script>
+<script type="text/babel" src="app/v5.jsx"></script>
+
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accentColor": "#2563EB",
+  "density": "comfortable",
+  "showRelationshipStrip": true,
+  "showAlert": true,
+  "goalColumns": 2
+}/*EDITMODE-END*/;
+
+let ConversationDrawer;
+let MonitorsList;
+let MonitorDetail;
+let AnomaliesV2;
+
+function App() {
+  const [route, setRoute] = useState({ screen: 'goals' });
+  const [convoId, setConvoId] = useState(null);
+  const [newGoalOpen, setNewGoalOpen] = useState(false);
+  const [globalEditGoal, setGlobalEditGoal] = useState(null);
+  const [pendingNewGoal, setPendingNewGoal] = useState(null);
+  const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  const { TweaksPanel, TweakSection, TweakColor, TweakToggle, TweakRadio } = window;
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--blue-80', tweaks.accentColor);
+    document.documentElement.style.setProperty('--blue-70', tweaks.accentColor);
+  }, [tweaks.accentColor]);
+
+  // Allow tweak to hide the relationship strip
+  useEffect(() => {
+    window.K_V5_INTRO = !!tweaks.showRelationshipStrip;
+  }, [tweaks.showRelationshipStrip]);
+
+  const navigate = (r) => {
+    if (r.screen === 'newgoal') { setNewGoalOpen(true); return; }
+    setRoute(r);
+    window.scrollTo(0, 0);
+  };
+
+  const counts = {
+    goals: window.K_DATA.goals.length,
+    monitors: window.K_DATA.monitors.length,
+    monitorsNeedingReview: window.K_DATA.monitors.filter(m => m.passRate < m.threshold || m.breached).length,
+    inbox: window.K_DATA.suggestions.length + window.K_DATA.anomalies.length,
+    anomalies: window.K_DATA.anomalies.length,
+    computed: window.K_DATA.computedFields.length,
+  };
+
+  let main = null;
+  if (route.screen === 'goals') main = <GoalsHomeV2 navigate={navigate} openConvo={setConvoId} openNewGoal={() => setNewGoalOpen(true)} tweaks={tweaks} externalEditGoal={globalEditGoal} pendingNewGoal={pendingNewGoal} onPendingConsumed={() => setPendingNewGoal(null)} onExternalEditDone={() => setGlobalEditGoal(null)}/>;
+  else if (route.screen === 'goal') main = <GoalDetailV2 id={route.id} navigate={navigate} openConvo={setConvoId} openEdit={(g) => { setGlobalEditGoal(g); setRoute({ screen: 'goals' }); }}/>;
+  else if (route.screen === 'inbox') main = <InboxV2 navigate={navigate} openConvo={setConvoId} highlight={route.highlight}/>;
+  else if (route.screen === 'monitors') main = <MonitorsList navigate={navigate} editMonitorId={route.editMonitorId}/>;
+  else if (route.screen === 'monitor') main = <MonitorDetail id={route.id} navigate={navigate} openConvo={setConvoId}/>;
+  else if (route.screen === 'anomalies') main = <AnomaliesV2 navigate={navigate}/>;
+
+  return (
+    <ToastProvider>
+      <div className="app" data-screen-label={'AI Monitoring · ' + route.screen}>
+        <ShellV2 route={route} navigate={navigate} counts={counts}/>
+        <main className="main">
+          {main}
+        </main>
+        <ConversationDrawer id={convoId} onClose={() => setConvoId(null)} navigate={navigate}/>
+        <NewGoalQuickModal open={newGoalOpen} onClose={() => setNewGoalOpen(false)} onCreated={(g) => { setPendingNewGoal(g); setRoute({ screen: 'goals' }); }}/>
+        <TweaksPanel>
+          <TweakSection label="Colors">
+            <TweakColor label="Accent color" id="accentColor" value={tweaks.accentColor} onChange={v => setTweak('accentColor', v)}
+              options={['#2563EB','#7C3AED','#059669','#D97706','#DC2626']}/>
+          </TweakSection>
+          <TweakSection label="Goals home">
+            <TweakToggle label="Show goal↔monitor explainer" id="showRelationshipStrip" value={tweaks.showRelationshipStrip} onChange={v => setTweak('showRelationshipStrip', v)}/>
+            <TweakToggle label="Show alert banner" id="showAlert" value={tweaks.showAlert} onChange={v => setTweak('showAlert', v)}/>
+            <TweakRadio label="Goal columns" id="goalColumns" value={tweaks.goalColumns} onChange={v => setTweak('goalColumns', v)}
+              options={[{label:'1 col', value:1},{label:'2 col', value:2}]}/>
+          </TweakSection>
+          <TweakSection label="Density">
+            <TweakRadio label="Card density" id="density" value={tweaks.density} onChange={v => setTweak('density', v)}
+              options={[{label:'Compact', value:'compact'},{label:'Comfortable', value:'comfortable'}]}/>
+          </TweakSection>
+        </TweaksPanel>
+      </div>
+    </ToastProvider>
+  );
+}
+
+function mount() {
+  if (!window.GoalsHomeV2 || !window.ShellV2 || !window.InboxV2 || !window.ConversationDrawer || !window.NewGoalQuickModal || !window.useTweaks || !window.TweaksPanel || !window.MonitorsList || !window.AnomaliesV2 || !window.K_V5) {
+    return setTimeout(mount, 30);
+  }
+  ConversationDrawer = window.ConversationDrawer;
+  MonitorsList  = window.MonitorsList;
+  MonitorDetail = window.MonitorDetail;
+  AnomaliesV2   = window.AnomaliesV2;
+  ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+}
+mount();
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+---
+description: Apply when extracting or writing the Codified Principles section of an audit — the load-bearing rules a prototype follows.
+globs:
+alwaysApply: false
+---
+
+# Section 01 — Codified Principles
+
+## Purpose
+Before describing what was built, state the *rules* the prototype is implicitly following. This section forces the designer (or the AI reading the designer's work) to make every implicit decision explicit and falsifiable. A principle that can't be violated by some alternative screen isn't a principle — cut it.
+
+## Method
+1. Walk every screen and flow in the prototype.
+2. For every recurring structural decision (what lives where, what's shared vs. duplicated, what's promoted vs. demoted, what one thing governs many things), ask: *is this a one-off choice, or a rule the rest of the system obeys?*
+3. If it's a rule, write it as a principle: a short imperative or declarative title (3-6 words) + one sentence of mechanism.
+4. Order principles roughly from most load-bearing (structural, affects the whole IA) to most local (affects one interaction pattern).
+
+## Output format
+A numbered list. Each entry:
+- **Title** (bold, terse, quotable — should work as a standalone Slack message): e.g. "Goals are platform primitives."
+- **Mechanism** (1-2 sentences, concrete): what this means operationally, referencing real destinations/objects. e.g. "They live in the site rail. Every other destination references them."
+
+## Quality bar
+- Aim for 10-20 principles. Fewer than 8 usually means you stopped at the surface; more than 20 usually means you're listing screen-level decisions, not system-level rules.
+- Every principle must be checkable against the IA tree (Section 02) and the journey (Section 03) — if a principle isn't visibly obeyed somewhere in those sections, it's aspirational, not codified. Cut it or flag it as "not yet reflected in the prototype."
+- Prefer principles that resolve a *tension* (e.g. "Advanced is preserved, not promoted" implies a fight between power-user needs and simplicity that was explicitly settled). A principle with no opposing pull isn't doing any work.
+- Include at least one principle about vocabulary/naming discipline if the prototype introduces shared terms (lifecycle stages, status labels, etc.) — naming consistency is a common silent failure point.

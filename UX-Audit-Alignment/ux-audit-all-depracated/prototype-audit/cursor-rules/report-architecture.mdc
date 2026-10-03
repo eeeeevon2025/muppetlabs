@@ -1,0 +1,154 @@
+---
+description: Apply when building the actual HTML/CSS/JS report artifact — the IA_TREE data schema and per-section markup shapes.
+globs:
+alwaysApply: false
+---
+
+# Report Architecture & Data Schemas
+
+The methodology files (01-07) tell you *what* to figure out. This file tells you *how the output is actually built* — because this report is not static prose poured into a template. It's a single self-contained HTML file with a real data layer: content lives in JS objects, and small renderer functions turn those objects into the interactive tree, the tables, and the cards. Reuse this architecture rather than hand-writing HTML per section — it's what makes the report maintainable and what makes the tree explorer actually interactive.
+
+## Page skeleton
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>[Product], [Report Title]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400;1,14..32,500&display=swap" rel="stylesheet">
+  <style>/* design tokens — see output-style-guide.md, paste full :root block */</style>
+  <style>/* page-specific component CSS — grows per section, see component list below */</style>
+</head>
+<body>
+  <div class="hero">...</div>
+  <section id="summary">...</section>     <!-- 01 Codified Principles -->
+  <section id="map">...</section>         <!-- 02 IA Tree -->
+  <section id="experience">...</section>  <!-- 03 End-to-End Journey -->
+  <section id="loop">...</section>        <!-- 04 Core Pattern -->
+  <section id="newprobs">...</section>    <!-- 05 Risks -->
+  <section id="redundancy">...</section>  <!-- 06 Friction & Resolutions -->
+  <section id="jtbd">...</section>        <!-- 07 JTBD / Usability Test Plan -->
+  <script>/* IA_TREE data object + renderer, see below */</script>
+  <script>/* downloadPrinciplesMd() and any other export helpers */</script>
+</body>
+</html>
+```
+
+Every `<h2>` follows: `<h2><span class="num">01</span>Section title</h2>` — increment `num` per section, keep the semantic `id` on `<section>` (not the number).
+
+## Section 01 — Principles: no data layer needed
+Just an `<ol>` of `<li><b>Title.</b> Mechanism.</li>`. Wire a `downloadPrinciplesMd()` button that serializes the same list to a `.md` blob and triggers a download — this is the one section worth exporting standalone since it's the most quotable artifact in the report.
+
+## Section 02 — IA Tree: THIS is the part that needs a real data structure
+Do not hand-write nested `<div>`s per node. Define one JS object, `IA_TREE`, and one recursive renderer. This is what makes "click any node" actually work, and what makes the tree cheap to edit later (add a node = add an object, not rewrite markup).
+
+### Node schema
+```js
+{
+  id: "goals",                 // unique, used for dataset.id, breadcrumbs, deep-linking
+  label: "Goals",               // shown in the tree row
+  iconClass: "goals",           // CSS hook for icon color/background
+  iconName: "target",           // key into an ICON svg-path lookup table (or iconImg: "path/to.svg")
+  pills: [{ text: "New", kind: "new" }],   // status flags: new / moved / renamed / removed / legacy
+  detail: {
+    one_liner: "...",           // shown at top of detail pane when node is selected
+    purpose: "...",             // 1 sentence — what this destination is for
+    contents: ["...", "..."],   // bullet list, can include inline <b> for emphasis
+    rationale: "...",           // WHY it lives here — should reference a Section 01 principle
+    sketch: `ASCII sketch here`, // monospace block sketch of the screen, optional but high-value
+    sources: [{ kind: "canon"|"new", label: "...", note: "..." }], // provenance citations
+    touchpoints: ["<b>Site rail</b>, ..."], // where else this node is referenced
+    // section-specific extras are fine here (e.g. goal_cards: [...] for a live-data preview)
+  },
+  children: [ /* recurse — same schema */ ]
+}
+```
+
+### Renderer contract
+- Build a flat `nodeIndex` by walking the tree once (id → {node, path}) so breadcrumbs and deep-linking are O(1).
+- `renderNode(node, isOpen)` builds one row (icon, label, pills, chevron if it has children) and recurses into `.children` when expanded.
+- Clicking a row populates the `#detail` pane from `node.detail` — build one `renderDetail(node)` function that handles all the optional fields gracefully (skip a field if absent, don't render an empty heading).
+- Wire `#btn-expand` / `#btn-collapse` to toggle the `open` class across all nodes at once.
+- Mark `is-overflow` (or similar) on any node representing a catch-all/overflow menu so it can be styled distinctly (usually muted, since it's explicitly the lower-priority parking lot).
+
+## Section 03 — Journey: sequential steps + fork blocks
+No data object required — hand-write sequential HTML blocks, but follow this shape per step:
+```html
+<div class="flow-node">
+  <div class="num">5</div>
+  <h4>Build, in first-time mode</h4>
+  <div class="crumbs">Automations → Refund Order → Build</div>
+  <p>...</p>
+</div>
+```
+For a branching step, wrap the branches in a fork:
+```html
+<div class="flow-fork">
+  <div class="flow-branch"><h6>Fix it now</h6><p>...</p></div>
+  <div class="flow-branch"><h6>Deploy partial</h6><p>...</p></div>
+  <div class="flow-branch"><h6>Override</h6><p>...</p></div>
+</div>
+<div class="flow-merge">→ continue to Deploy</div>
+```
+
+## Section 04 — Pattern/Loop: staged frames
+```html
+<div class="loop-stage">
+  <h3>Stage 1, Signal</h3>
+  <ul class="loop-list"><li>...</li></ul>
+  <div class="loop-mini-card">/* concrete example pulled from Section 03 */</div>
+</div>
+```
+Repeat per stage. Close with:
+```html
+<div class="loop-targets">
+  <div class="loop-targets-head">The N target blocks a suggestion can open</div>
+  <div class="loop-target"><b>Apply in Procedure</b> — Opens the procedure body with AI changes inline...</div>
+  <!-- one per target type -->
+</div>
+```
+
+## Section 05 — Risks: plain table, severity as a pill
+```html
+<table>
+  <tr><th>#</th><th>Risk</th><th>Severity</th><th>Why it hurts</th></tr>
+  <tr><td>1</td><td>Rail real estate</td><td><span class="pill high">High</span></td><td>...</td></tr>
+</table>
+```
+`.pill.high/.med/.low` map to the danger/warning/gray semantic tokens from the style guide.
+
+## Section 06 — Friction: same table pattern, three columns
+```html
+<table>
+  <tr><th>Friction</th><th>What's happening</th><th>Contract (documented in IA)</th></tr>
+  <tr><td>Goal authoring entry points diverge</td><td>...</td><td>...</td></tr>
+</table>
+```
+Add a `resolved` row-modifier class for any row marked Resolved per the friction-audit methodology.
+
+## Section 07 — JTBD: pillar groups of cards
+```html
+<div class="jtbd-pillar">
+  <h3>Goals</h3>
+  <p class="jtbd-pillar-sub">Maps to monitoring JTBD 1, 4, 8 + the leadership rollup pattern</p>
+  <div class="jtbd-grid">
+    <div class="jtbd-card">
+      <div class="jtbd-card-num">1</div>
+      <h4>Declare a new business goal from scratch</h4>
+      <p class="jtbd-scenario">"You've been asked to..."</p>
+      <p><b>Success</b> ...</p>
+      <p><b>Tests</b> ...</p>
+    </div>
+  </div>
+</div>
+```
+Close the whole page with the plain-text footer line (not a component): `Prepared for [stakeholder] · source vision: [doc, author, date] · baseline: [current state]`.
+
+## Build order (practical sequence, not the reading order)
+1. Draft all section *content* first in markdown, following files 01-07 methodology — get the words right before touching markup.
+2. Paste in the design-token `:root` block and base type rules from the style guide, unchanged.
+3. Build the `IA_TREE` object from your Section 02 content and hand-code the renderer (or reuse it verbatim across reports — it rarely needs to change).
+4. Hand-place Sections 01, 03, 04, 05, 06, 07 as static HTML using the shapes above.
+5. Do a pass checking every destination name and node id referenced in 03/04/05/06/07 actually exists as a node id in `IA_TREE` — this is the same cross-check from the orchestrator file, now checkable literally via `Ctrl+F` on node ids.

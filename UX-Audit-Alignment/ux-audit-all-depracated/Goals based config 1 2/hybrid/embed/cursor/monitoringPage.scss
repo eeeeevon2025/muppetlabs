@@ -1,0 +1,111 @@
+@import 'globalsV2/globals';
+
+// Scoped CSS custom properties matching the Kustomer color tokens used by
+// the Claude Design AI Monitoring source HTML. These let inline styles
+// reference --gray-30, --blue-80 etc. without leaking globally.
+
+.monitoringPage {
+  // Gray (neutral)
+  --gray-10: #fcfdff;
+  --gray-15: #fafbfe;
+  --gray-20: #f6f7fa;
+  --gray-25: #f2f3f7;
+  --gray-30: #e8eaf0;
+  --gray-35: #e2e5ed;
+  --gray-40: #dce0e9;
+  --gray-45: #d7dbe5;
+  --gray-50: #d1d6e1;
+  --gray-55: #bbc2d2;
+  --gray-60: #b3bbcb;
+  --gray-65: #a7b0c0;
+  --gray-70: #9099ab;
+  --gray-75: #8992a4;
+  --gray-80: #7c8596;
+  --gray-85: #747d8e;
+  --gray-90: #697182;
+  --gray-95: #5f6675;
+  --gray-100: #545b68;
+  --gray-105: #4d535f;
+  --gray-110: #3f444f;
+  --gray-115: #2e333d;
+  --gray-120: #1f242d;
+  --gray-125: #1c212b;
+  --gray-130: #161b25;
+  --gray-135: #121720;
+  --gray-140: #0d1119;
+  --gray-145: #080b11;
+  --gray-150: #010307;
+
+  // Blue (action)
+  --blue-10: #ebf1ff;
+  --blue-15: #dbe7ff;
+  --blue-20: #cbdcff;
+  --blue-25: #bbd1ff;
+  --blue-30: #a3c1ff;
+  --blue-50: #3f8cff;
+  --blue-60: #007cff;
+  --blue-70: #006cec;
+  --blue-75: #0165e4;
+  --blue-80: #005bd8;
+  --blue-90: #0047b9;
+  --blue-100: #00349a;
+
+  // Yellow
+  --yellow-15: #fffde5;
+  --yellow-25: #fef8c3;
+  --yellow-40: #fced92;
+  --yellow-50: #f9df53;
+  --yellow-60: #f4cc10;
+  --yellow-70: #f1c91e;
+  --yellow-90: #af931d;
+  --yellow-100: #826f1c;
+  --yellow-110: #6c5e1c;
+  --yellow-115: #584e1c;
+
+  // Red
+  --red-15: #ffe8e9;
+  --red-30: #ffaaad;
+  --red-50: #ff4c55;
+  --red-70: #e21325;
+  --red-80: #c41923;
+  --red-90: #9e181e;
+  --red-100: #7a1518;
+
+  // Green
+  --green-15: #dbf5e0;
+  --green-30: #75d58a;
+  --green-50: #35a153;
+  --green-70: #008435;
+  --green-90: #005d24;
+  --green-100: #00481a;
+
+  // Page chrome — match the source's .main background
+  background: var(--gray-20);
+  min-height: 100%;
+  padding: 0;
+  overflow: auto;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+}
+
+// Match the source's .page wrapper sizing/padding
+.page {
+  padding: $spacing-7 $spacing-9 $spacing-9;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+// Align the tab bar with the page content and add vertical breathing room
+.tabNav {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: $spacing-7 $spacing-9 0;
+  box-sizing: border-box;
+}

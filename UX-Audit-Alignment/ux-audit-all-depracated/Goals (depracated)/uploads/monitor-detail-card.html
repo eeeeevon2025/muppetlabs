@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AIC AI-CSAT Monitor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: #F4F5F7;
+    min-height: 100vh;
+    padding: 32px 24px;
+  }
+
+  /* ── Page header ── */
+  .page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    max-width: 720px;
+  }
+  .back-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font: 400 13px/18px 'Inter', sans-serif;
+    color: #5A6478;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.12s;
+  }
+  .back-btn:hover { color: #1A1D23; }
+  .page-title { font: 700 20px/28px 'Inter', sans-serif; color: #1A1D23; }
+
+  /* ── Card ── */
+  .card {
+    background: #fff;
+    border: 1px solid #DCE0E9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+    overflow: hidden;
+    max-width: 720px;
+  }
+
+  /* ── Header ── */
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 16px 20px 14px;
+    border-bottom: 1px solid #DCE0E9;
+  }
+  .header-left { display: flex; flex-direction: column; gap: 5px; }
+  .header-title { display: flex; align-items: center; gap: 8px; }
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #1C6EF2; flex-shrink: 0; }
+  .monitor-name { font: 700 16px/20px 'Inter', sans-serif; color: #1A1D23; }
+  .badge-default {
+    font: 600 11px/14px 'Inter', sans-serif;
+    color: #5A6478;
+    background: #F4F5F7;
+    border: 1px solid #DCE0E9;
+    border-radius: 4px;
+    padding: 2px 7px;
+  }
+  .goal-row { display: flex; align-items: baseline; gap: 5px; }
+  .goal-micro { font: 400 11px/14px 'Inter', sans-serif; color: #8A94A6; }
+  .goal-link {
+    font: 600 12px/16px 'Inter', sans-serif;
+    color: #1C6EF2;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.12s;
+  }
+  .goal-link:hover { color: #1557CC; }
+  .edit-link {
+    font: 600 13px/18px 'Inter', sans-serif;
+    color: #1C6EF2;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.12s;
+    flex-shrink: 0;
+  }
+  .edit-link:hover { color: #1557CC; }
+
+  /* ── Edit panel (inline) ── */
+  .edit-panel {
+    display: none;
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px 20px;
+    background: #F8F9FB;
+    border-top: 1px solid #DCE0E9;
+    border-bottom: 1px solid #DCE0E9;
+  }
+  .edit-panel.open { display: flex; }
+  .edit-row { display: flex; flex-direction: column; gap: 5px; }
+  .edit-label { font: 600 11px/14px 'Inter', sans-serif; color: #5A6478; }
+  .edit-input {
+    font: 400 13px/20px 'Inter', sans-serif;
+    color: #1A1D23;
+    background: #fff;
+    border: 1px solid #DCE0E9;
+    border-radius: 6px;
+    padding: 7px 10px;
+    outline: none;
+    transition: border-color 0.12s;
+    width: 100%;
+  }
+  .edit-input:focus { border-color: #1C6EF2; box-shadow: 0 0 0 3px rgba(28,110,242,0.1); }
+  .edit-actions { display: flex; gap: 8px; justify-content: flex-end; padding-top: 4px; }
+  .btn-primary {
+    font: 600 13px/20px 'Inter', sans-serif;
+    color: #fff;
+    background: #1C6EF2;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: background 0.12s;
+  }
+  .btn-primary:hover { background: #1557CC; }
+  .btn-secondary {
+    font: 600 13px/20px 'Inter', sans-serif;
+    color: #5A6478;
+    background: #fff;
+    border: 1px solid #DCE0E9;
+    border-radius: 6px;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+  }
+  .btn-secondary:hover { background: #F4F5F7; color: #1A1D23; }
+
+  /* ── Save toast ── */
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(16px);
+    background: #1A1D23;
+    color: #fff;
+    font: 600 13px/20px 'Inter', sans-serif;
+    padding: 10px 18px;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+    white-space: nowrap;
+    z-index: 100;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ── Metrics row ── */
+  .metrics-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid #F0F2F6;
+  }
+  .stat-col {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 14px 20px;
+    border-right: 1px solid #DCE0E9;
+  }
+  .stat-col:last-child { border-right: none; }
+  .stat-label { font: 400 11px/14px 'Inter', sans-serif; color: #8A94A6; }
+  .stat-val-xl { font: 700 30px/36px 'Inter', sans-serif; color: #1C6EF2; }
+  .stat-val-sm { font: 600 13px/18px 'Inter', sans-serif; }
+  .stat-sub { font: 400 11px/14px 'Inter', sans-serif; color: #5A6478; }
+  .green { color: #22A05B; }
+  .trend-up { color: #22A05B; }
+
+  /* ── Bar ── */
+  .bar-section { padding: 10px 20px 12px; }
+  .bar-track {
+    height: 4px;
+    background: #E8EBF0;
+    border-radius: 2px;
+    position: relative;
+    margin-bottom: 6px;
+  }
+  .bar-fill {
+    height: 4px;
+    background: #1C6EF2;
+    border-radius: 2px;
+    transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+  .threshold-marker {
+    position: absolute;
+    top: -3px;
+    width: 2px;
+    height: 10px;
+    background: #B0B8C8;
+    border-radius: 1px;
+  }
+  .bar-footer { display: flex; align-items: center; justify-content: space-between; }
+  .threshold-label { font: 400 11px/14px 'Inter', sans-serif; color: #8A94A6; }
+  .passing-label { font: 600 11px/14px 'Inter', sans-serif; color: #1C6EF2; }
+
+  /* ── Actions ── */
+  .card-actions { border-top: 1px solid #DCE0E9; }
+  .action-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 20px;
+    border-bottom: 1px solid #DCE0E9;
+    cursor: pointer;
+    transition: background 0.1s;
+    user-select: none;
+  }
+  .action-row:last-child { border-bottom: none; }
+  .action-row:hover { background: #F8F9FB; }
+  .action-label { font: 600 13px/18px 'Inter', sans-serif; color: #1A1D23; }
+  .action-meta { display: flex; align-items: center; gap: 6px; }
+  .action-count { font: 400 12px/18px 'Inter', sans-serif; color: #8A94A6; }
+  .chevron {
+    color: #B0B8C8;
+    transition: transform 0.18s ease;
+    flex-shrink: 0;
+  }
+  .chevron.open { transform: rotate(90deg); }
+
+  /* ── Criteria drawer ── */
+  .criteria-drawer {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.24s ease;
+    border-bottom: 1px solid #DCE0E9;
+    background: #FAFBFC;
+  }
+  .criteria-drawer.open { max-height: 220px; }
+  .criteria-inner { padding: 4px 20px 14px; }
+  .criteria-evaluated {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #E8EBF0;
+    margin-bottom: 10px;
+  }
+  .crit-eval-label { font: 400 12px/16px 'Inter', sans-serif; color: #8A94A6; }
+  .crit-eval-val { font: 600 12px/16px 'Inter', sans-serif; color: #1A1D23; }
+  .criteria-list { display: flex; flex-direction: column; gap: 7px; }
+  .criteria-item { display: flex; align-items: center; justify-content: space-between; }
+  .criteria-name { font: 400 12px/16px 'Inter', sans-serif; color: #5A6478; }
+  .crit-score { font: 600 12px/16px 'Inter', sans-serif; }
+  .crit-green { color: #22A05B; }
+  .crit-amber { color: #D4A017; }
+
+  /* ── Conversations drawer ── */
+  .convs-drawer {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.24s ease;
+    background: #FAFBFC;
+  }
+  .convs-drawer.open { max-height: 240px; }
+  .convs-inner { padding: 4px 20px 14px; }
+  .conv-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 0;
+    border-bottom: 1px solid #E8EBF0;
+  }
+  .conv-item:last-child { border-bottom: none; }
+  .conv-left { display: flex; flex-direction: column; gap: 2px; }
+  .conv-id { font: 600 12px/16px 'Inter', sans-serif; color: #1C6EF2; cursor: pointer; }
+  .conv-id:hover { color: #1557CC; }
+  .conv-meta { font: 400 11px/14px 'Inter', sans-serif; color: #8A94A6; }
+  .conv-score { font: 700 13px/18px 'Inter', sans-serif; color: #C53030; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <button class="back-btn" onclick="history.back()">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M9 3L5 7l4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Monitors
+  </button>
+</div>
+
+<div class="card">
+
+  <!-- Header -->
+  <div class="card-header">
+    <div class="header-left">
+      <div class="header-title">
+        <div class="status-dot"></div>
+        <span class="monitor-name" id="monitor-name-display">AIC AI-CSAT Monitor</span>
+        <span class="badge-default">Default</span>
+      </div>
+      <div class="goal-row">
+        <span class="goal-micro">Linked goal:</span>
+        <a class="goal-link" id="goal-display">Increase CSAT</a>
+      </div>
+    </div>
+    <button class="edit-link" id="edit-toggle" onclick="toggleEdit()">Edit</button>
+  </div>
+
+  <!-- Edit panel -->
+  <div class="edit-panel" id="edit-panel">
+    <div class="edit-row">
+      <label class="edit-label" for="input-name">Monitor name</label>
+      <input class="edit-input" id="input-name" type="text" value="AIC AI-CSAT Monitor"/>
+    </div>
+    <div class="edit-row">
+      <label class="edit-label" for="input-goal">Linked goal</label>
+      <input class="edit-input" id="input-goal" type="text" value="Increase CSAT"/>
+    </div>
+    <div class="edit-row">
+      <label class="edit-label" for="input-threshold">Threshold (%)</label>
+      <input class="edit-input" id="input-threshold" type="number" min="0" max="100" value="75"/>
+    </div>
+    <div class="edit-actions">
+      <button class="btn-secondary" onclick="cancelEdit()">Cancel</button>
+      <button class="btn-primary" onclick="saveEdit()">Save changes</button>
+    </div>
+  </div>
+
+  <!-- Metrics row -->
+  <div class="metrics-row">
+    <div class="stat-col">
+      <span class="stat-label">Pass rate</span>
+      <span class="stat-val-xl" id="pass-rate-display">78%</span>
+    </div>
+    <div class="stat-col">
+      <span class="stat-label">Human reviewers</span>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:2px">
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+          <circle cx="7" cy="7" r="6" stroke="#22A05B" stroke-width="1.3"/>
+          <path d="M4 7l2.5 2.5L10 5" stroke="#22A05B" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="stat-val-sm green">87% agreed</span>
+      </div>
+      <span class="stat-sub">High confidence · this period</span>
+    </div>
+    <div class="stat-col">
+      <span class="stat-label">Trend</span>
+      <span class="stat-val-sm trend-up" style="margin-top:2px">↑ Trending up</span>
+      <span class="stat-sub">Last 7 days</span>
+    </div>
+  </div>
+
+  <!-- Bar -->
+  <div class="bar-section">
+    <div class="bar-track">
+      <div class="bar-fill" id="bar-fill" style="width:78%"></div>
+      <div class="threshold-marker" id="threshold-marker" style="left:75%"></div>
+    </div>
+    <div class="bar-footer">
+      <span class="threshold-label" id="threshold-label">Threshold: 75%</span>
+      <span class="passing-label" id="passing-label">78% passing</span>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="card-actions">
+
+    <!-- Scoring criteria -->
+    <div class="action-row" onclick="toggleCriteria()">
+      <span class="action-label">See scoring criteria</span>
+      <div class="action-meta">
+        <span class="action-count">4 criteria</span>
+        <svg class="chevron" id="criteria-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+    <div class="criteria-drawer" id="criteria-drawer">
+      <div class="criteria-inner">
+        <div class="criteria-evaluated">
+          <span class="crit-eval-label">Total evaluated this period</span>
+          <span class="crit-eval-val">4,218 conversations</span>
+        </div>
+        <div class="criteria-list">
+          <div class="criteria-item">
+            <span class="criteria-name">Tone &amp; empathy</span>
+            <span class="crit-score crit-green">84%</span>
+          </div>
+          <div class="criteria-item">
+            <span class="criteria-name">Need resolution</span>
+            <span class="crit-score crit-amber">71%</span>
+          </div>
+          <div class="criteria-item">
+            <span class="criteria-name">Response clarity</span>
+            <span class="crit-score crit-green">81%</span>
+          </div>
+          <div class="criteria-item">
+            <span class="criteria-name">Follow-up appropriateness</span>
+            <span class="crit-score crit-green">79%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review conversations -->
+    <div class="action-row" onclick="toggleConvs()">
+      <span class="action-label">Review low-scoring conversations</span>
+      <div class="action-meta">
+        <span class="action-count">2 conversations</span>
+        <svg class="chevron" id="convs-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M5 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+    <div class="convs-drawer" id="convs-drawer">
+      <div class="convs-inner">
+        <div class="conv-item">
+          <div class="conv-left">
+            <span class="conv-id">#48291 — Maria S.</span>
+            <span class="conv-meta">Need resolution · 14 min ago</span>
+          </div>
+          <span class="conv-score">52%</span>
+        </div>
+        <div class="conv-item">
+          <div class="conv-left">
+            <span class="conv-id">#48105 — James T.</span>
+            <span class="conv-meta">Need resolution · 2 hrs ago</span>
+          </div>
+          <span class="conv-score">61%</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">Changes saved</div>
+
+<script>
+  // Edit panel
+  function toggleEdit() {
+    const panel = document.getElementById('edit-panel');
+    const btn = document.getElementById('edit-toggle');
+    const open = panel.classList.toggle('open');
+    btn.textContent = open ? 'Cancel' : 'Edit';
+  }
+
+  function cancelEdit() {
+    const panel = document.getElementById('edit-panel');
+    panel.classList.remove('open');
+    document.getElementById('edit-toggle').textContent = 'Edit';
+    // reset inputs
+    document.getElementById('input-name').value = document.getElementById('monitor-name-display').textContent;
+    document.getElementById('input-goal').value = document.getElementById('goal-display').textContent;
+  }
+
+  function saveEdit() {
+    const name = document.getElementById('input-name').value.trim();
+    const goal = document.getElementById('input-goal').value.trim();
+    const threshold = parseInt(document.getElementById('input-threshold').value, 10);
+
+    if (name) document.getElementById('monitor-name-display').textContent = name;
+    if (goal) document.getElementById('goal-display').textContent = goal;
+    if (!isNaN(threshold)) {
+      document.getElementById('threshold-marker').style.left = threshold + '%';
+      document.getElementById('threshold-label').textContent = 'Threshold: ' + threshold + '%';
+    }
+
+    document.getElementById('edit-panel').classList.remove('open');
+    document.getElementById('edit-toggle').textContent = 'Edit';
+    showToast('Changes saved');
+  }
+
+  // Drawers
+  function toggleCriteria() {
+    const drawer = document.getElementById('criteria-drawer');
+    const chevron = document.getElementById('criteria-chevron');
+    const open = drawer.classList.toggle('open');
+    chevron.classList.toggle('open', open);
+  }
+
+  function toggleConvs() {
+    const drawer = document.getElementById('convs-drawer');
+    const chevron = document.getElementById('convs-chevron');
+    const open = drawer.classList.toggle('open');
+    chevron.classList.toggle('open', open);
+  }
+
+  // Toast
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2200);
+  }
+
+  // Animate bar on load
+  window.addEventListener('load', () => {
+    const fill = document.getElementById('bar-fill');
+    fill.style.width = '0%';
+    requestAnimationFrame(() => {
+      setTimeout(() => { fill.style.width = '78%'; }, 120);
+    });
+  });
+</script>
+</body>
+</html>

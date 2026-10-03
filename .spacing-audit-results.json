@@ -1,0 +1,6115 @@
+npm warn Unknown env config "devdir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+npm warn exec The following package was not found and will be installed: @framer/agent@0.0.44
+[ERROR] FAIL /Home Page not found: /Home
+{
+  "branch": "brief-spacing-normalize (ab6b1aowl)",
+  "totalOffScale": 7075,
+  "pagesScanned": 50,
+  "byBreakpoint": {
+    "desktop": 7075,
+    "tablet": 0,
+    "phone": 0
+  },
+  "offScaleValues": [
+    -14,
+    -13,
+    0.01,
+    0.550000011920929,
+    0.5600000023841858,
+    0.5699999928474426,
+    0.6000000238418579,
+    0.666670024394989,
+    0.800000011920929,
+    1.100000023841858,
+    1.1100000143051147,
+    1.1200000047683716,
+    1.2000000476837158,
+    1.6699999570846558,
+    2.009999990463257,
+    3,
+    3.4,
+    3.5,
+    3.555556058883667,
+    4,
+    4.05,
+    4.099999904632568,
+    4.110000133514404,
+    4.555555820465088,
+    5,
+    5.110000133514404,
+    5.284999847412109,
+    5.3,
+    5.414999961853027,
+    5.590000152587891,
+    5.949999809265137,
+    5.989999771118164,
+    5.99,
+    6,
+    6.555555820465088,
+    6.99,
+    7,
+    8.010000228881836,
+    8.5,
+    8.543330192565918,
+    8.555556297302246,
+    9,
+    9.2,
+    9.3,
+    9.7,
+    10,
+    10.210000038146973,
+    10.555556297302246,
+    11,
+    11.2,
+    11.33,
+    11.45,
+    11.46,
+    11.555556297302246,
+    11.8,
+    11.989999771118164,
+    11.99,
+    12,
+    13,
+    13.5,
+    13.550000190734863,
+    14,
+    14.119999885559082,
+    14.5,
+    15,
+    15.8,
+    15.9,
+    15.909090995788574,
+    16.01909065246582,
+    16.800003051757812,
+    16.800033569335938,
+    16.80029296875,
+    17,
+    17.5,
+    17.709999084472656,
+    18,
+    19.989999771118164,
+    20,
+    21.989999771118164,
+    22,
+    22.489999771118164,
+    23,
+    23.989999771118164,
+    24.010000228881836,
+    25,
+    26,
+    27,
+    28,
+    28.000001907348633,
+    30,
+    30.399988174438477,
+    30.399999618530273,
+    33,
+    35,
+    36,
+    37,
+    41,
+    43,
+    44,
+    45,
+    50,
+    51,
+    52,
+    52.5817985534668,
+    54,
+    58,
+    58.0099983215332,
+    60,
+    62,
+    63,
+    65,
+    65.28,
+    66,
+    67,
+    70,
+    74,
+    74.591796875,
+    79.19999694824219,
+    81.1500015258789,
+    84,
+    90,
+    100,
+    110,
+    121,
+    125,
+    126.12000274658203,
+    143.97999572753906,
+    146.72999572753906,
+    146.74000549316406,
+    149.43,
+    163.21,
+    168.5,
+    175.43,
+    195.60003662109375,
+    220,
+    232.34,
+    244,
+    245.9,
+    253.5,
+    271,
+    284.81,
+    295,
+    299.13,
+    309.32,
+    310.35,
+    361.3,
+    376.94,
+    402.05,
+    406.54,
+    411.23,
+    455.22,
+    576.95,
+    586.800048828125,
+    633.96,
+    646.63
+  ],
+  "topPages": [
+    [
+      "/work/kustomer",
+      760
+    ],
+    [
+      "/work/human-supervised-ai",
+      554
+    ],
+    [
+      "/work/surgicalapp",
+      536
+    ],
+    [
+      "/work/alignment",
+      468
+    ],
+    [
+      "/museum",
+      467
+    ],
+    [
+      "/work/visual-design",
+      428
+    ],
+    [
+      "/work/operating-model",
+      368
+    ],
+    [
+      "/mobile-home",
+      354
+    ],
+    [
+      "/page-4",
+      343
+    ],
+    [
+      "/teset",
+      240
+    ],
+    [
+      "/page",
+      240
+    ],
+    [
+      "/work/tokyo",
+      229
+    ],
+    [
+      "/work/agency",
+      185
+    ],
+    [
+      "/work/jetpack",
+      179
+    ],
+    [
+      "/work/visual-design-2",
+      130
+    ]
+  ],
+  "recruiterTotal": 288,
+  "briefTotal": 0,
+  "briefFindings": [],
+  "byValueSummary": {
+    "3": {
+      "count": 54,
+      "samples": [
+        {
+          "page": "/work/lean-research",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "3px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/lean-research",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "3px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/lean-research",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "3px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/lean-research",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "3px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/lean-research",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "3px",
+          "nearest": 0
+        }
+      ]
+    },
+    "4": {
+      "count": 772,
+      "samples": [
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "4px",
+          "nearest": 8
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "4px",
+          "nearest": 8
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "4px",
+          "nearest": 8
+        },
+        {
+          "page": "/about",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "4px",
+          "nearest": 8
+        },
+        {
+          "page": "/about",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "4px",
+          "nearest": 8
+        }
+      ]
+    },
+    "5": {
+      "count": 390,
+      "samples": [
+        {
+          "page": "/work",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "5px",
+          "nearest": 8
+        },
+        {
+          "page": "/work",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "5px",
+          "nearest": 8
+        },
+        {
+          "page": "/work",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "5px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Button",
+          "field": "padding",
+          "value": "5px 10px 5px 10px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Button",
+          "field": "padding",
+          "value": "5px 10px 5px 10px",
+          "nearest": 8
+        }
+      ]
+    },
+    "6": {
+      "count": 121,
+      "samples": [
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Mast Meta",
+          "field": "gap",
+          "value": "6px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "6px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "6px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "6px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "6px",
+          "nearest": 8
+        }
+      ]
+    },
+    "7": {
+      "count": 62,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Overlay+Border",
+          "field": "gap",
+          "value": "7px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "gap",
+          "value": "7px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Overlay+Border",
+          "field": "gap",
+          "value": "7px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "gap",
+          "value": "7px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Overlay+Border",
+          "field": "gap",
+          "value": "7px",
+          "nearest": 8
+        }
+      ]
+    },
+    "9": {
+      "count": 13,
+      "samples": [
+        {
+          "page": "/work/tokyo",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "9px 0px 9px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/mosh",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "9px 0px 9px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/insightbridge",
+          "bp": "desktop",
+          "name": "ai dash",
+          "field": "padding",
+          "value": "0px 64px 9px 64px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/insightbridge",
+          "bp": "desktop",
+          "name": "ai dash",
+          "field": "padding",
+          "value": "0px 64px 9px 64px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "SolutionSection",
+          "field": "gap",
+          "value": "9px",
+          "nearest": 8
+        }
+      ]
+    },
+    "10": {
+      "count": 2501,
+      "samples": [
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "10px",
+          "nearest": 8
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "10px",
+          "nearest": 8
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "10px",
+          "nearest": 8
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "10px",
+          "nearest": 8
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "10px",
+          "nearest": 8
+        }
+      ]
+    },
+    "11": {
+      "count": 7,
+      "samples": [
+        {
+          "page": "/work/design-strategy",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "11px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/design-strategy",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "11px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/design-strategy",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "11px",
+          "nearest": 8
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "HorizontalBorder",
+          "field": "padding",
+          "value": "11px 14px 11px 14px",
+          "nearest": 8
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "HorizontalBorder",
+          "field": "padding",
+          "value": "11px 14px 11px 14px",
+          "nearest": 8
+        }
+      ]
+    },
+    "12": {
+      "count": 462,
+      "samples": [
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "12px",
+          "nearest": 16
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "12px",
+          "nearest": 16
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "12px",
+          "nearest": 16
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "12px",
+          "nearest": 16
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "12px",
+          "nearest": 16
+        }
+      ]
+    },
+    "13": {
+      "count": 5,
+      "samples": [
+        {
+          "page": "/work/insightbridge",
+          "bp": "desktop",
+          "name": "jobs",
+          "field": "padding",
+          "value": "13px 0px 13px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "13px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "13px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "13px",
+          "nearest": 16
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "13px",
+          "nearest": 16
+        }
+      ]
+    },
+    "14": {
+      "count": 191,
+      "samples": [
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Mast Meta",
+          "field": "padding",
+          "value": "14px 0px 14px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "14px 28px 14px 28px",
+          "nearest": 16
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Mast Meta",
+          "field": "padding",
+          "value": "14px 0px 14px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "14px 28px 14px 28px",
+          "nearest": 16
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "14px 28px 14px 28px",
+          "nearest": 16
+        }
+      ]
+    },
+    "15": {
+      "count": 35,
+      "samples": [
+        {
+          "page": "/work",
+          "bp": "desktop",
+          "name": "Hero Content",
+          "field": "gap",
+          "value": "15px",
+          "nearest": 16
+        },
+        {
+          "page": "/work",
+          "bp": "desktop",
+          "name": "Hero Content",
+          "field": "gap",
+          "value": "15px",
+          "nearest": 16
+        },
+        {
+          "page": "/work",
+          "bp": "desktop",
+          "name": "Hero Content",
+          "field": "gap",
+          "value": "15px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+HorizontalBorder",
+          "field": "padding",
+          "value": "15px 22px 15px 22px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+HorizontalBorder",
+          "field": "padding",
+          "value": "15px 23.989999771118164px 15px 23.989999771118164px",
+          "nearest": 16
+        }
+      ]
+    },
+    "17": {
+      "count": 5,
+      "samples": [
+        {
+          "page": "/work/lean-research",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "17px",
+          "nearest": 16
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Slot → Summary",
+          "field": "padding",
+          "value": "17px 16px 17px 16px",
+          "nearest": 16
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Slot → Summary",
+          "field": "padding",
+          "value": "17px 16px 17px 16px",
+          "nearest": 16
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Slot → Summary",
+          "field": "padding",
+          "value": "17px 16px 17px 16px",
+          "nearest": 16
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Slot → Summary",
+          "field": "padding",
+          "value": "17px 16px 17px 16px",
+          "nearest": 16
+        }
+      ]
+    },
+    "18": {
+      "count": 159,
+      "samples": [
+        {
+          "page": "/work/rpm",
+          "bp": "desktop",
+          "name": "Agile Discovery",
+          "field": "padding",
+          "value": "18px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/rpm",
+          "bp": "desktop",
+          "name": "Actionable Insights",
+          "field": "padding",
+          "value": "18px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/rpm",
+          "bp": "desktop",
+          "name": "Reframing the Problem",
+          "field": "padding",
+          "value": "18px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/rpm",
+          "bp": "desktop",
+          "name": "Rapid Prototypes",
+          "field": "padding",
+          "value": "18px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/rpm",
+          "bp": "desktop",
+          "name": "Rapid Prototypes",
+          "field": "padding",
+          "value": "18px",
+          "nearest": 16
+        }
+      ]
+    },
+    "20": {
+      "count": 604,
+      "samples": [
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Cover Copy",
+          "field": "gap",
+          "value": "20px",
+          "nearest": 24
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Tile 05 Top",
+          "field": "gap",
+          "value": "20px",
+          "nearest": 24
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Continued Item",
+          "field": "padding",
+          "value": "20px 0px 20px 0px",
+          "nearest": 24
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Cover Copy",
+          "field": "gap",
+          "value": "20px",
+          "nearest": 24
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Tile 05 Top",
+          "field": "gap",
+          "value": "20px",
+          "nearest": 24
+        }
+      ]
+    },
+    "22": {
+      "count": 181,
+      "samples": [
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "22px 24px 26px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "22px 24px 26px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "22px 24px 26px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "22px 24px 26px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "22px 0px 26px 0px",
+          "nearest": 24
+        }
+      ]
+    },
+    "23": {
+      "count": 14,
+      "samples": [
+        {
+          "page": "/work/design-strategy",
+          "bp": "desktop",
+          "name": "Section",
+          "field": "gap",
+          "value": "23px",
+          "nearest": 24
+        },
+        {
+          "page": "/work/design-strategy",
+          "bp": "desktop",
+          "name": "Section",
+          "field": "gap",
+          "value": "23px",
+          "nearest": 24
+        },
+        {
+          "page": "/work/design-strategy",
+          "bp": "desktop",
+          "name": "Section",
+          "field": "gap",
+          "value": "23px",
+          "nearest": 24
+        },
+        {
+          "page": "/page",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "23px",
+          "nearest": 24
+        },
+        {
+          "page": "/page",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "23px",
+          "nearest": 24
+        }
+      ]
+    },
+    "25": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/insightbridge",
+          "bp": "desktop",
+          "name": "ai",
+          "field": "padding",
+          "value": "0px 25px 0px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/work/insightbridge",
+          "bp": "desktop",
+          "name": "ai",
+          "field": "padding",
+          "value": "0px 25px 0px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/work/insightbridge",
+          "bp": "desktop",
+          "name": "ai",
+          "field": "padding",
+          "value": "0px 25px 0px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/work/ai-first",
+          "bp": "desktop",
+          "name": "problem",
+          "field": "padding",
+          "value": "25px",
+          "nearest": 24
+        }
+      ]
+    },
+    "26": {
+      "count": 53,
+      "samples": [
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "22px 24px 26px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "22px 24px 26px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "22px 24px 26px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "22px 24px 26px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "22px 0px 26px 0px",
+          "nearest": 24
+        }
+      ]
+    },
+    "27": {
+      "count": 2,
+      "samples": [
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "27px 16.800033569335938px 27px 16.800003051757812px",
+          "nearest": 24
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "27px 16.800033569335938px 27px 16.800003051757812px",
+          "nearest": 24
+        }
+      ]
+    },
+    "28": {
+      "count": 113,
+      "samples": [
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "24px 28px 28px 28px",
+          "nearest": 32
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Tile 03 Item",
+          "field": "padding",
+          "value": "28px 28px 32px 28px",
+          "nearest": 32
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "24px 28px 28px 28px",
+          "nearest": 32
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "14px 28px 14px 28px",
+          "nearest": 32
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Cover Copy",
+          "field": "padding",
+          "value": "28px 0px 24px 0px",
+          "nearest": 32
+        }
+      ]
+    },
+    "30": {
+      "count": 147,
+      "samples": [
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Copy Email",
+          "field": "padding",
+          "value": "16px 30px 16px 30px",
+          "nearest": 32
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Copy Email",
+          "field": "padding",
+          "value": "16px 30px 16px 30px",
+          "nearest": 32
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Copy Email",
+          "field": "padding",
+          "value": "16px 30px 16px 30px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "30px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "30px",
+          "nearest": 32
+        }
+      ]
+    },
+    "33": {
+      "count": 1,
+      "samples": [
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "The journey loops from improving the AI agent back to configuration",
+          "field": "gap",
+          "value": "33px",
+          "nearest": 32
+        }
+      ]
+    },
+    "35": {
+      "count": 22,
+      "samples": [
+        {
+          "page": "/work/mosh",
+          "bp": "desktop",
+          "name": "research methodology",
+          "field": "padding",
+          "value": "35px 24px 35px 24px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/mosh",
+          "bp": "desktop",
+          "name": "research methodology",
+          "field": "padding",
+          "value": "35px 24px 35px 24px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/mosh",
+          "bp": "desktop",
+          "name": "research methodology",
+          "field": "padding",
+          "value": "35px 24px 35px 24px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/mosh",
+          "bp": "desktop",
+          "name": "research methodology",
+          "field": "padding",
+          "value": "35px 24px 35px 24px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/mosh",
+          "bp": "desktop",
+          "name": "research methodology",
+          "field": "padding",
+          "value": "35px 24px 35px 24px",
+          "nearest": 32
+        }
+      ]
+    },
+    "36": {
+      "count": 24,
+      "samples": [
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Tile 05 Item",
+          "field": "padding",
+          "value": "32px 36px 36px 36px",
+          "nearest": 40
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Tile 05 Item",
+          "field": "padding",
+          "value": "32px 36px 36px 36px",
+          "nearest": 40
+        },
+        {
+          "page": "/work/agency",
+          "bp": "desktop",
+          "name": "qual mobie",
+          "field": "padding",
+          "value": "36px",
+          "nearest": 40
+        },
+        {
+          "page": "/page",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "36px",
+          "nearest": 40
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 0px 36px 0px",
+          "nearest": 40
+        }
+      ]
+    },
+    "37": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "37px",
+          "nearest": 40
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "37px",
+          "nearest": 40
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "37px",
+          "nearest": 40
+        },
+        {
+          "page": "/page",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "37px",
+          "nearest": 40
+        }
+      ]
+    },
+    "41": {
+      "count": 5,
+      "samples": [
+        {
+          "page": "/work/tokyo",
+          "bp": "desktop",
+          "name": "Images",
+          "field": "padding",
+          "value": "41px 24px 41px 24px",
+          "nearest": 40
+        },
+        {
+          "page": "/work/tokyo",
+          "bp": "desktop",
+          "name": "Images",
+          "field": "padding",
+          "value": "41px 24px 41px 24px",
+          "nearest": 40
+        },
+        {
+          "page": "/work/tokyo",
+          "bp": "desktop",
+          "name": "Images",
+          "field": "padding",
+          "value": "41px 24px 41px 24px",
+          "nearest": 40
+        },
+        {
+          "page": "/work/tokyo",
+          "bp": "desktop",
+          "name": "Images",
+          "field": "padding",
+          "value": "41px 24px 41px 24px",
+          "nearest": 40
+        },
+        {
+          "page": "/work/tokyo",
+          "bp": "desktop",
+          "name": "Images",
+          "field": "padding",
+          "value": "41px 24px 41px 24px",
+          "nearest": 40
+        }
+      ]
+    },
+    "43": {
+      "count": 1,
+      "samples": [
+        {
+          "page": "/work/agency",
+          "bp": "desktop",
+          "name": "survey mobel",
+          "field": "padding",
+          "value": "43px",
+          "nearest": 40
+        }
+      ]
+    },
+    "44": {
+      "count": 21,
+      "samples": [
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Continued Head",
+          "field": "padding",
+          "value": "44px 0px 24px 0px",
+          "nearest": 48
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Archive Section",
+          "field": "padding",
+          "value": "44px 0px 72px 0px",
+          "nearest": 48
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Continued Head",
+          "field": "padding",
+          "value": "44px 0px 24px 0px",
+          "nearest": 48
+        },
+        {
+          "page": "/blog",
+          "bp": "desktop",
+          "name": "Archive Section",
+          "field": "padding",
+          "value": "44px 0px 72px 0px",
+          "nearest": 48
+        },
+        {
+          "page": "/org-impact",
+          "bp": "desktop",
+          "name": "dave mobile",
+          "field": "gap",
+          "value": "44px",
+          "nearest": 48
+        }
+      ]
+    },
+    "45": {
+      "count": 2,
+      "samples": [
+        {
+          "page": "/teset",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "45px",
+          "nearest": 48
+        },
+        {
+          "page": "/teset",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "45px",
+          "nearest": 48
+        }
+      ]
+    },
+    "50": {
+      "count": 3,
+      "samples": [
+        {
+          "page": "/work/design-leadership",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "50px",
+          "nearest": 48
+        },
+        {
+          "page": "/work/design-leadership",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "50px",
+          "nearest": 48
+        },
+        {
+          "page": "/work/design-leadership",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "50px",
+          "nearest": 48
+        }
+      ]
+    },
+    "51": {
+      "count": 1,
+      "samples": [
+        {
+          "page": "/video",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "51px 48px 51px 48px",
+          "nearest": 48
+        }
+      ]
+    },
+    "52": {
+      "count": 5,
+      "samples": [
+        {
+          "page": "/teset",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "52px",
+          "nearest": 56
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "BEFORE",
+          "field": "padding",
+          "value": "52px 0px 0px 0px",
+          "nearest": 56
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "BEFORE",
+          "field": "padding",
+          "value": "52px 0px 0px 0px",
+          "nearest": 56
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "BEFORE",
+          "field": "padding",
+          "value": "52px 0px 0px 0px",
+          "nearest": 56
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "BEFORE",
+          "field": "padding",
+          "value": "52px 0px 0px 0px",
+          "nearest": 56
+        }
+      ]
+    },
+    "54": {
+      "count": 2,
+      "samples": [
+        {
+          "page": "/work/ai-first",
+          "bp": "desktop",
+          "name": "Information",
+          "field": "gap",
+          "value": "54px",
+          "nearest": 56
+        },
+        {
+          "page": "/work/ai-first",
+          "bp": "desktop",
+          "name": "Information",
+          "field": "gap",
+          "value": "54px",
+          "nearest": 56
+        }
+      ]
+    },
+    "58": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "AFTER",
+          "field": "padding",
+          "value": "58.0099983215332px 0px 58px 0px",
+          "nearest": 56
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "AFTER",
+          "field": "padding",
+          "value": "58.0099983215332px 0px 58px 0px",
+          "nearest": 56
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "AFTER",
+          "field": "padding",
+          "value": "58.0099983215332px 0px 58px 0px",
+          "nearest": 56
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "AFTER",
+          "field": "padding",
+          "value": "58.0099983215332px 0px 58px 0px",
+          "nearest": 56
+        }
+      ]
+    },
+    "60": {
+      "count": 52,
+      "samples": [
+        {
+          "page": "/work",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "60px",
+          "nearest": 64
+        },
+        {
+          "page": "/work",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "60px",
+          "nearest": 64
+        },
+        {
+          "page": "/work",
+          "bp": "desktop",
+          "name": "Desktop",
+          "field": "gap",
+          "value": "60px",
+          "nearest": 64
+        },
+        {
+          "page": "/work",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "60px",
+          "nearest": 64
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "HeroSection",
+          "field": "gap",
+          "value": "60px",
+          "nearest": 64
+        }
+      ]
+    },
+    "62": {
+      "count": 1,
+      "samples": [
+        {
+          "page": "/page",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "62px",
+          "nearest": 64
+        }
+      ]
+    },
+    "63": {
+      "count": 3,
+      "samples": [
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "learning loop",
+          "field": "padding",
+          "value": "63px",
+          "nearest": 64
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "learning loop",
+          "field": "padding",
+          "value": "63px",
+          "nearest": 64
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "learning loop",
+          "field": "padding",
+          "value": "63px",
+          "nearest": 64
+        }
+      ]
+    },
+    "65": {
+      "count": 1,
+      "samples": [
+        {
+          "page": "/work/insightbridge",
+          "bp": "desktop",
+          "name": "ai",
+          "field": "padding",
+          "value": "65px",
+          "nearest": 64
+        }
+      ]
+    },
+    "66": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Section - HERO",
+          "field": "padding",
+          "value": "66px 22px 24px 22px",
+          "nearest": 64
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Section - HERO",
+          "field": "padding",
+          "value": "66px 22px 24px 22px",
+          "nearest": 64
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Section - HERO",
+          "field": "padding",
+          "value": "66px 22px 24px 22px",
+          "nearest": 64
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Section - HERO",
+          "field": "padding",
+          "value": "66px 22px 24px 22px",
+          "nearest": 64
+        }
+      ]
+    },
+    "67": {
+      "count": 18,
+      "samples": [
+        {
+          "page": "/work/insightbridge",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "67px",
+          "nearest": 64
+        },
+        {
+          "page": "/work/insightbridge",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "67px",
+          "nearest": 64
+        },
+        {
+          "page": "/work/maui",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "67px",
+          "nearest": 64
+        },
+        {
+          "page": "/work/maui",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "67px",
+          "nearest": 64
+        },
+        {
+          "page": "/work/maui",
+          "bp": "desktop",
+          "field": "gap",
+          "value": "67px",
+          "nearest": 64
+        }
+      ]
+    },
+    "70": {
+      "count": 7,
+      "samples": [
+        {
+          "page": "/work/rpm",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "70px",
+          "nearest": 72
+        },
+        {
+          "page": "/teset",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "70px",
+          "nearest": 72
+        },
+        {
+          "page": "/teset",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "70px",
+          "nearest": 72
+        },
+        {
+          "page": "/teset",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "70px",
+          "nearest": 72
+        },
+        {
+          "page": "/before-after",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "70px",
+          "nearest": 72
+        }
+      ]
+    },
+    "74": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/ai-first",
+          "bp": "desktop",
+          "name": "arkady-abbrev",
+          "field": "padding",
+          "value": "64px 74px 64px 84px",
+          "nearest": 72
+        },
+        {
+          "page": "/work/ai-first",
+          "bp": "desktop",
+          "name": "arkady-abbrev",
+          "field": "padding",
+          "value": "64px 74px 64px 84px",
+          "nearest": 72
+        },
+        {
+          "page": "/work/ai-first",
+          "bp": "desktop",
+          "name": "arkady-abbrev",
+          "field": "padding",
+          "value": "64px 74px 64px 84px",
+          "nearest": 72
+        },
+        {
+          "page": "/work/ai-first",
+          "bp": "desktop",
+          "name": "arkady-hz",
+          "field": "padding",
+          "value": "64px 74px 64px 84px",
+          "nearest": 72
+        }
+      ]
+    },
+    "84": {
+      "count": 24,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "agency-desk1",
+          "field": "gap",
+          "value": "84px",
+          "nearest": 88
+        },
+        {
+          "page": "/work/jetpack-backups",
+          "bp": "desktop",
+          "name": "agency-desk1",
+          "field": "gap",
+          "value": "84px",
+          "nearest": 88
+        },
+        {
+          "page": "/work/rpm",
+          "bp": "desktop",
+          "name": "agency-desk1",
+          "field": "gap",
+          "value": "84px",
+          "nearest": 88
+        },
+        {
+          "page": "/work/lean-research",
+          "bp": "desktop",
+          "name": "agency-desk1",
+          "field": "gap",
+          "value": "84px",
+          "nearest": 88
+        },
+        {
+          "page": "/work/tokyo",
+          "bp": "desktop",
+          "name": "agency-desk1",
+          "field": "gap",
+          "value": "84px",
+          "nearest": 88
+        }
+      ]
+    },
+    "90": {
+      "count": 2,
+      "samples": [
+        {
+          "page": "/work/insightbridge",
+          "bp": "desktop",
+          "name": "ai",
+          "field": "padding",
+          "value": "90px",
+          "nearest": 88
+        },
+        {
+          "page": "/work/insightbridge",
+          "bp": "desktop",
+          "name": "ai",
+          "field": "padding",
+          "value": "90px",
+          "nearest": 88
+        }
+      ]
+    },
+    "100": {
+      "count": 27,
+      "samples": [
+        {
+          "page": "/work/visual-design-2",
+          "bp": "desktop",
+          "name": "HeroSection",
+          "field": "padding",
+          "value": "100px 64px 0px 64px",
+          "nearest": 104
+        },
+        {
+          "page": "/work/agency",
+          "bp": "desktop",
+          "name": "objective",
+          "field": "gap",
+          "value": "100px",
+          "nearest": 104
+        },
+        {
+          "page": "/work/agency",
+          "bp": "desktop",
+          "name": "objective",
+          "field": "gap",
+          "value": "100px",
+          "nearest": 104
+        },
+        {
+          "page": "/work/agency",
+          "bp": "desktop",
+          "name": "objective",
+          "field": "gap",
+          "value": "100px",
+          "nearest": 104
+        },
+        {
+          "page": "/work/agency",
+          "bp": "desktop",
+          "name": "objective",
+          "field": "gap",
+          "value": "100px",
+          "nearest": 104
+        }
+      ]
+    },
+    "110": {
+      "count": 1,
+      "samples": [
+        {
+          "page": "/page",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16px 16.800033569335938px 110px 16.800003051757812px",
+          "nearest": 112
+        }
+      ]
+    },
+    "121": {
+      "count": 2,
+      "samples": [
+        {
+          "page": "/work/visual-design",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "121px 0px 121px 0px",
+          "nearest": 120
+        },
+        {
+          "page": "/work/visual-design",
+          "bp": "desktop",
+          "field": "padding",
+          "value": "121px 0px 121px 0px",
+          "nearest": 120
+        }
+      ]
+    },
+    "125": {
+      "count": 3,
+      "samples": [
+        {
+          "page": "/work/design-leadership",
+          "bp": "desktop",
+          "name": "HeroSection",
+          "field": "padding",
+          "value": "125px 64px 0px 64px",
+          "nearest": 128
+        },
+        {
+          "page": "/work/design-strategy",
+          "bp": "desktop",
+          "name": "HeroSection",
+          "field": "padding",
+          "value": "125px 64px 0px 64px",
+          "nearest": 128
+        },
+        {
+          "page": "/work/design-processes",
+          "bp": "desktop",
+          "name": "HeroSection",
+          "field": "padding",
+          "value": "125px 64px 0px 64px",
+          "nearest": 128
+        }
+      ]
+    },
+    "220": {
+      "count": 2,
+      "samples": [
+        {
+          "page": "/styleguide",
+          "bp": "desktop",
+          "name": "Content",
+          "field": "padding",
+          "value": "0px 0px 0px 220px",
+          "nearest": 224
+        },
+        {
+          "page": "/styleguide",
+          "bp": "desktop",
+          "name": "Content",
+          "field": "padding",
+          "value": "0px 0px 0px 220px",
+          "nearest": 224
+        }
+      ]
+    },
+    "244": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "HorizontalBorder",
+          "field": "gap",
+          "value": "244px",
+          "nearest": 248
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "HorizontalBorder",
+          "field": "gap",
+          "value": "244px",
+          "nearest": 248
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "HorizontalBorder",
+          "field": "gap",
+          "value": "244px",
+          "nearest": 248
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "HorizontalBorder",
+          "field": "gap",
+          "value": "244px",
+          "nearest": 248
+        }
+      ]
+    },
+    "271": {
+      "count": 1,
+      "samples": [
+        {
+          "page": "/page",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "271px",
+          "nearest": 272
+        }
+      ]
+    },
+    "295": {
+      "count": 1,
+      "samples": [
+        {
+          "page": "/page",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "295px",
+          "nearest": 296
+        }
+      ]
+    },
+    "-14": {
+      "count": 8,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 5.684341886080802e-14px 0px 0px",
+          "nearest": -16
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "padding",
+          "value": "0px 5.684341886080802e-14px 0px 0px",
+          "nearest": -16
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "padding",
+          "value": "0px 5.684341886080802e-14px 0px 0px",
+          "nearest": -16
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "padding",
+          "value": "0px 5.684341886080802e-14px 0px 0px",
+          "nearest": -16
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 5.684341886080802e-14px 0px 0px",
+          "nearest": -16
+        }
+      ]
+    },
+    "-13": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 1.1368683772161603e-13px 11.989999771118164px 0px",
+          "nearest": -16
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 1.1368683772161603e-13px 11.989999771118164px 0px",
+          "nearest": -16
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 1.1368683772161603e-13px 11.989999771118164px 0px",
+          "nearest": -16
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 1.1368683772161603e-13px 11.989999771118164px 0px",
+          "nearest": -16
+        }
+      ]
+    },
+    "0.01": {
+      "count": 11,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "gap",
+          "value": "0.01px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "gap",
+          "value": "0.01px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "gap",
+          "value": "0.01px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "gap",
+          "value": "0.01px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/rpm",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "gap",
+          "value": "0.01px",
+          "nearest": 0
+        }
+      ]
+    },
+    "0.550000011920929": {
+      "count": 52,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.550000011920929px 0px 1.1200000047683716px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.550000011920929px 0px 0.5600000023841858px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Strong",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 0.550000011920929px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.550000011920929px 0px 1.1200000047683716px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.550000011920929px 0px 1.1200000047683716px 0px",
+          "nearest": 0
+        }
+      ]
+    },
+    "0.5600000023841858": {
+      "count": 36,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 1.1100000143051147px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.550000011920929px 0px 0.5600000023841858px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Strong",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 0.550000011920929px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 1.1100000143051147px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 1.1100000143051147px 0px",
+          "nearest": 0
+        }
+      ]
+    },
+    "0.5699999928474426": {
+      "count": 21,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.550000011920929px 0px 0.5699999928474426px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.550000011920929px 0px 0.5699999928474426px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.550000011920929px 0px 0.5699999928474426px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.550000011920929px 0px 0.5699999928474426px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.550000011920929px 0px 0.5699999928474426px 0px",
+          "nearest": 0
+        }
+      ]
+    },
+    "0.6000000238418579": {
+      "count": 21,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.6000000238418579px 0px 0px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.6000000238418579px 0px 0px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.6000000238418579px 0px 0px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.6000000238418579px 0px 0px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.6000000238418579px 0px 0px 0px",
+          "nearest": 0
+        }
+      ]
+    },
+    "0.666670024394989": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Background+Border",
+          "field": "padding",
+          "value": "0.666670024394989px",
+          "nearest": 0
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Background+Border",
+          "field": "padding",
+          "value": "0.666670024394989px",
+          "nearest": 0
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Background+Border",
+          "field": "padding",
+          "value": "0.666670024394989px",
+          "nearest": 0
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Background+Border",
+          "field": "padding",
+          "value": "0.666670024394989px",
+          "nearest": 0
+        }
+      ]
+    },
+    "0.800000011920929": {
+      "count": 6,
+      "samples": [
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 0
+        }
+      ]
+    },
+    "1.100000023841858": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Heading 2",
+          "field": "padding",
+          "value": "1.100000023841858px 0px 0px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Heading 2",
+          "field": "padding",
+          "value": "1.100000023841858px 0px 0px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Heading 2",
+          "field": "padding",
+          "value": "1.100000023841858px 0px 0px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Heading 2",
+          "field": "padding",
+          "value": "1.100000023841858px 0px 0px 0px",
+          "nearest": 0
+        }
+      ]
+    },
+    "1.1100000143051147": {
+      "count": 16,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 1.1100000143051147px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "1.1100000143051147px 0px 1.6699999570846558px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 1.1100000143051147px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 1.1100000143051147px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 1.1100000143051147px 0px",
+          "nearest": 0
+        }
+      ]
+    },
+    "1.1200000047683716": {
+      "count": 19,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.550000011920929px 0px 1.1200000047683716px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.550000011920929px 0px 1.1200000047683716px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.550000011920929px 0px 1.1200000047683716px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.550000011920929px 0px 1.1200000047683716px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.550000011920929px 0px 1.1200000047683716px 0px",
+          "nearest": 0
+        }
+      ]
+    },
+    "1.2000000476837158": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Heading 2",
+          "field": "padding",
+          "value": "1.2000000476837158px 0px 0px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Heading 2",
+          "field": "padding",
+          "value": "1.2000000476837158px 0px 0px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Heading 2",
+          "field": "padding",
+          "value": "1.2000000476837158px 0px 0px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Heading 2",
+          "field": "padding",
+          "value": "1.2000000476837158px 0px 0px 0px",
+          "nearest": 0
+        }
+      ]
+    },
+    "1.6699999570846558": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "1.1100000143051147px 0px 1.6699999570846558px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "1.1100000143051147px 0px 1.6699999570846558px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "1.1100000143051147px 0px 1.6699999570846558px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "1.1100000143051147px 0px 1.6699999570846558px 0px",
+          "nearest": 0
+        }
+      ]
+    },
+    "2.009999990463257": {
+      "count": 30,
+      "samples": [
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "2.009999990463257px 0px 0px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "2.009999990463257px 0px 0px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "2.009999990463257px 0px 0px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "2.009999990463257px 0px 0px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "2.009999990463257px 0px 0px 0px",
+          "nearest": 0
+        }
+      ]
+    },
+    "3.4": {
+      "count": 21,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "3.4px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "3.4px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "3.4px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "3.4px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "3.4px",
+          "nearest": 0
+        }
+      ]
+    },
+    "3.5": {
+      "count": 8,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Details",
+          "field": "padding",
+          "value": "3.5px 0px 0px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Details",
+          "field": "padding",
+          "value": "3.5px 0px 0px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "3.5px 0px 17.5px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "3.5px 0px 17.5px 0px",
+          "nearest": 0
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Details",
+          "field": "padding",
+          "value": "3.5px 0px 0px 0px",
+          "nearest": 0
+        }
+      ]
+    },
+    "3.555556058883667": {
+      "count": 15,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "3.555556058883667px 6.555555820465088px 3.555556058883667px 6.555555820465088px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "3.555556058883667px 6.555555820465088px 3.555556058883667px 6.555555820465088px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+Border",
+          "field": "padding",
+          "value": "3.555556058883667px 8.555556297302246px 3.555556058883667px 8.555556297302246px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+Border",
+          "field": "padding",
+          "value": "3.555556058883667px 8.555556297302246px 3.555556058883667px 8.555556297302246px",
+          "nearest": 0
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "3.555556058883667px 6.555555820465088px 3.555556058883667px 6.555555820465088px",
+          "nearest": 0
+        }
+      ]
+    },
+    "4.05": {
+      "count": 2,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "4.05px",
+          "nearest": 8
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "4.05px",
+          "nearest": 8
+        }
+      ]
+    },
+    "4.099999904632568": {
+      "count": 7,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.099999904632568px 8.555556297302246px 4.110000133514404px 8.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.099999904632568px 8.555556297302246px 4.110000133514404px 8.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.099999904632568px 8.555556297302246px 4.110000133514404px 8.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.099999904632568px 8.555556297302246px 4.110000133514404px 8.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.099999904632568px 8.555556297302246px 4.110000133514404px 8.555556297302246px",
+          "nearest": 8
+        }
+      ]
+    },
+    "4.110000133514404": {
+      "count": 7,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.099999904632568px 8.555556297302246px 4.110000133514404px 8.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.099999904632568px 8.555556297302246px 4.110000133514404px 8.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.099999904632568px 8.555556297302246px 4.110000133514404px 8.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.099999904632568px 8.555556297302246px 4.110000133514404px 8.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.099999904632568px 8.555556297302246px 4.110000133514404px 8.555556297302246px",
+          "nearest": 8
+        }
+      ]
+    },
+    "4.555555820465088": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.555555820465088px 10.555556297302246px 4.555555820465088px 10.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.555555820465088px 10.555556297302246px 4.555555820465088px 10.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.555555820465088px 10.555556297302246px 4.555555820465088px 10.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.555555820465088px 10.555556297302246px 4.555555820465088px 10.555556297302246px",
+          "nearest": 8
+        }
+      ]
+    },
+    "5.110000133514404": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Overlay+Border",
+          "field": "padding",
+          "value": "5.110000133514404px 11.555556297302246px 5.110000133514404px 11.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Overlay+Border",
+          "field": "padding",
+          "value": "5.110000133514404px 11.555556297302246px 5.110000133514404px 11.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Overlay+Border",
+          "field": "padding",
+          "value": "5.110000133514404px 11.555556297302246px 5.110000133514404px 11.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Overlay+Border",
+          "field": "padding",
+          "value": "5.110000133514404px 11.555556297302246px 5.110000133514404px 11.555556297302246px",
+          "nearest": 8
+        }
+      ]
+    },
+    "5.284999847412109": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "5.284999847412109px 0px 0px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "5.284999847412109px 0px 0px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "5.284999847412109px 0px 0px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "5.284999847412109px 0px 0px 0px",
+          "nearest": 8
+        }
+      ]
+    },
+    "5.3": {
+      "count": 45,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "5.3px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "5.3px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "5.3px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "5.3px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "5.3px",
+          "nearest": 8
+        }
+      ]
+    },
+    "5.414999961853027": {
+      "count": 7,
+      "samples": [
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "5.414999961853027px 0px 0px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "5.414999961853027px 0px 0px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "5.414999961853027px 0px 0px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "5.414999961853027px 0px 0px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "5.414999961853027px 0px 0px 0px",
+          "nearest": 8
+        }
+      ]
+    },
+    "5.590000152587891": {
+      "count": 14,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 0px 5.590000152587891px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 0px 5.590000152587891px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 0px 5.590000152587891px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 0px 5.590000152587891px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 0px 5.590000152587891px 0px",
+          "nearest": 8
+        }
+      ]
+    },
+    "5.949999809265137": {
+      "count": 2,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container:css-transform",
+          "field": "padding",
+          "value": "5.949999809265137px 0px 5.949999809265137px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container:css-transform",
+          "field": "padding",
+          "value": "5.949999809265137px 0px 5.949999809265137px 0px",
+          "nearest": 8
+        }
+      ]
+    },
+    "5.989999771118164": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "5.989999771118164px 0px 0px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "5.989999771118164px 0px 0px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "5.989999771118164px 0px 0px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "5.989999771118164px 0px 0px 0px",
+          "nearest": 8
+        }
+      ]
+    },
+    "5.99": {
+      "count": 49,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "5.99px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "5.99px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "5.99px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "5.99px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "5.99px",
+          "nearest": 8
+        }
+      ]
+    },
+    "6.555555820465088": {
+      "count": 8,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "3.555556058883667px 6.555555820465088px 3.555556058883667px 6.555555820465088px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "3.555556058883667px 6.555555820465088px 3.555556058883667px 6.555555820465088px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "3.555556058883667px 6.555555820465088px 3.555556058883667px 6.555555820465088px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "3.555556058883667px 6.555555820465088px 3.555556058883667px 6.555555820465088px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "3.555556058883667px 6.555555820465088px 3.555556058883667px 6.555555820465088px",
+          "nearest": 8
+        }
+      ]
+    },
+    "6.99": {
+      "count": 7,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+Border",
+          "field": "gap",
+          "value": "6.99px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+Border",
+          "field": "gap",
+          "value": "6.99px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+Border",
+          "field": "gap",
+          "value": "6.99px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+Border",
+          "field": "gap",
+          "value": "6.99px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+Border",
+          "field": "gap",
+          "value": "6.99px",
+          "nearest": 8
+        }
+      ]
+    },
+    "8.010000228881836": {
+      "count": 7,
+      "samples": [
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 0px 8.010000228881836px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 0px 8.010000228881836px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 0px 8.010000228881836px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 0px 8.010000228881836px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 0px 8.010000228881836px 0px",
+          "nearest": 8
+        }
+      ]
+    },
+    "8.5": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Section - CONTACT",
+          "field": "gap",
+          "value": "8.5px",
+          "nearest": 8
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Section - CONTACT",
+          "field": "gap",
+          "value": "8.5px",
+          "nearest": 8
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Section - CONTACT",
+          "field": "gap",
+          "value": "8.5px",
+          "nearest": 8
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Section - CONTACT",
+          "field": "gap",
+          "value": "8.5px",
+          "nearest": 8
+        }
+      ]
+    },
+    "8.543330192565918": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "HorizontalBorder",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 8.543330192565918px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "HorizontalBorder",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 8.543330192565918px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "HorizontalBorder",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 8.543330192565918px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "HorizontalBorder",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 8.543330192565918px 0px",
+          "nearest": 8
+        }
+      ]
+    },
+    "8.555556297302246": {
+      "count": 14,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+Border",
+          "field": "padding",
+          "value": "3.555556058883667px 8.555556297302246px 3.555556058883667px 8.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.099999904632568px 8.555556297302246px 4.110000133514404px 8.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+Border",
+          "field": "padding",
+          "value": "3.555556058883667px 8.555556297302246px 3.555556058883667px 8.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.099999904632568px 8.555556297302246px 4.110000133514404px 8.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+Border",
+          "field": "padding",
+          "value": "3.555556058883667px 8.555556297302246px 3.555556058883667px 8.555556297302246px",
+          "nearest": 8
+        }
+      ]
+    },
+    "9.2": {
+      "count": 11,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "List",
+          "field": "gap",
+          "value": "9.2px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "List",
+          "field": "gap",
+          "value": "9.2px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "List",
+          "field": "gap",
+          "value": "9.2px",
+          "nearest": 8
+        },
+        {
+          "page": "/casestudy",
+          "bp": "desktop",
+          "name": "List",
+          "field": "gap",
+          "value": "9.2px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "List",
+          "field": "gap",
+          "value": "9.2px",
+          "nearest": 8
+        }
+      ]
+    },
+    "9.3": {
+      "count": 8,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "header",
+          "field": "gap",
+          "value": "9.3px",
+          "nearest": 8
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "header",
+          "field": "gap",
+          "value": "9.3px",
+          "nearest": 8
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "header",
+          "field": "gap",
+          "value": "9.3px",
+          "nearest": 8
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "header",
+          "field": "gap",
+          "value": "9.3px",
+          "nearest": 8
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "9.3px",
+          "nearest": 8
+        }
+      ]
+    },
+    "9.7": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "9.7px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "9.7px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "9.7px",
+          "nearest": 8
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "9.7px",
+          "nearest": 8
+        }
+      ]
+    },
+    "10.210000038146973": {
+      "count": 8,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 10.210000038146973px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 10.210000038146973px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 10.210000038146973px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 10.210000038146973px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0.5600000023841858px 0px 10.210000038146973px 0px",
+          "nearest": 8
+        }
+      ]
+    },
+    "10.555556297302246": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.555555820465088px 10.555556297302246px 4.555555820465088px 10.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.555555820465088px 10.555556297302246px 4.555555820465088px 10.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.555555820465088px 10.555556297302246px 4.555555820465088px 10.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "4.555555820465088px 10.555556297302246px 4.555555820465088px 10.555556297302246px",
+          "nearest": 8
+        }
+      ]
+    },
+    "11.2": {
+      "count": 13,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.2px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.2px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.2px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "11.2px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "11.2px",
+          "nearest": 8
+        }
+      ]
+    },
+    "11.33": {
+      "count": 5,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.33px",
+          "nearest": 8
+        },
+        {
+          "page": "/casestudy",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.33px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.33px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/alignment",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.33px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/operating-model",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.33px",
+          "nearest": 8
+        }
+      ]
+    },
+    "11.45": {
+      "count": 3,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.45px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.45px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/operating-model",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.45px",
+          "nearest": 8
+        }
+      ]
+    },
+    "11.46": {
+      "count": 17,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.46px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.46px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.46px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.46px",
+          "nearest": 8
+        },
+        {
+          "page": "/casestudy",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.46px",
+          "nearest": 8
+        }
+      ]
+    },
+    "11.555556297302246": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Overlay+Border",
+          "field": "padding",
+          "value": "5.110000133514404px 11.555556297302246px 5.110000133514404px 11.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Overlay+Border",
+          "field": "padding",
+          "value": "5.110000133514404px 11.555556297302246px 5.110000133514404px 11.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Overlay+Border",
+          "field": "padding",
+          "value": "5.110000133514404px 11.555556297302246px 5.110000133514404px 11.555556297302246px",
+          "nearest": 8
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Overlay+Border",
+          "field": "padding",
+          "value": "5.110000133514404px 11.555556297302246px 5.110000133514404px 11.555556297302246px",
+          "nearest": 8
+        }
+      ]
+    },
+    "11.8": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "11.8px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "11.8px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "11.8px",
+          "nearest": 8
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "11.8px",
+          "nearest": 8
+        }
+      ]
+    },
+    "11.989999771118164": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 1.1368683772161603e-13px 11.989999771118164px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 1.1368683772161603e-13px 11.989999771118164px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 1.1368683772161603e-13px 11.989999771118164px 0px",
+          "nearest": 8
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 1.1368683772161603e-13px 11.989999771118164px 0px",
+          "nearest": 8
+        }
+      ]
+    },
+    "11.99": {
+      "count": 3,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.99px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.99px",
+          "nearest": 8
+        },
+        {
+          "page": "/work/operating-model",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "gap",
+          "value": "11.99px",
+          "nearest": 8
+        }
+      ]
+    },
+    "13.5": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Heading 2",
+          "field": "padding",
+          "value": "0px 0px 13.5px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Heading 2",
+          "field": "padding",
+          "value": "0px 0px 13.5px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Heading 2",
+          "field": "padding",
+          "value": "0px 0px 13.5px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Heading 2",
+          "field": "padding",
+          "value": "0px 0px 13.5px 0px",
+          "nearest": 16
+        }
+      ]
+    },
+    "13.550000190734863": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "13.550000190734863px 0px 14.119999885559082px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "13.550000190734863px 0px 14.119999885559082px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "13.550000190734863px 0px 14.119999885559082px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "13.550000190734863px 0px 14.119999885559082px 0px",
+          "nearest": 16
+        }
+      ]
+    },
+    "14.119999885559082": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "13.550000190734863px 0px 14.119999885559082px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "13.550000190734863px 0px 14.119999885559082px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "13.550000190734863px 0px 14.119999885559082px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "13.550000190734863px 0px 14.119999885559082px 0px",
+          "nearest": 16
+        }
+      ]
+    },
+    "14.5": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "header",
+          "field": "padding",
+          "value": "7px 0px 14.5px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "header",
+          "field": "padding",
+          "value": "7px 0px 14.5px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "header",
+          "field": "padding",
+          "value": "7px 0px 14.5px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "header",
+          "field": "padding",
+          "value": "7px 0px 14.5px 0px",
+          "nearest": 16
+        }
+      ]
+    },
+    "15.8": {
+      "count": 3,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Section - GROUP 2 · JETPACK BACKUPS",
+          "field": "gap",
+          "value": "15.8px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Section - GROUP 2 · JETPACK BACKUPS",
+          "field": "gap",
+          "value": "15.8px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/operating-model",
+          "bp": "desktop",
+          "name": "Section - GROUP 2 · JETPACK BACKUPS",
+          "field": "gap",
+          "value": "15.8px",
+          "nearest": 16
+        }
+      ]
+    },
+    "15.9": {
+      "count": 5,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Section - GROUP 3 · ENTERPRISE AGENCY DASHBOARD",
+          "field": "gap",
+          "value": "15.9px",
+          "nearest": 16
+        },
+        {
+          "page": "/casestudy",
+          "bp": "desktop",
+          "name": "Section - GROUP 3 · ENTERPRISE AGENCY DASHBOARD",
+          "field": "gap",
+          "value": "15.9px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Section - GROUP 3 · ENTERPRISE AGENCY DASHBOARD",
+          "field": "gap",
+          "value": "15.9px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/alignment",
+          "bp": "desktop",
+          "name": "Section - GROUP 3 · ENTERPRISE AGENCY DASHBOARD",
+          "field": "gap",
+          "value": "15.9px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/operating-model",
+          "bp": "desktop",
+          "name": "Section - GROUP 3 · ENTERPRISE AGENCY DASHBOARD",
+          "field": "gap",
+          "value": "15.9px",
+          "nearest": 16
+        }
+      ]
+    },
+    "15.909090995788574": {
+      "count": 19,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "15.909090995788574px 0px 0px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "15.909090995788574px 0px 0px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "15.909090995788574px 0px 0px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "15.909090995788574px 0px 0px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/rpm",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "15.909090995788574px 0px 0px 0px",
+          "nearest": 16
+        }
+      ]
+    },
+    "16.01909065246582": {
+      "count": 3,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "16.01909065246582px 0px 0px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "16.01909065246582px 0px 0px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/operating-model",
+          "bp": "desktop",
+          "name": "Border",
+          "field": "padding",
+          "value": "16.01909065246582px 0px 0px 0px",
+          "nearest": 16
+        }
+      ]
+    },
+    "16.800003051757812": {
+      "count": 10,
+      "samples": [
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "27px 16.800033569335938px 27px 16.800003051757812px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 16
+        }
+      ]
+    },
+    "16.800033569335938": {
+      "count": 10,
+      "samples": [
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "27px 16.800033569335938px 27px 16.800003051757812px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 16
+        }
+      ]
+    },
+    "16.80029296875": {
+      "count": 6,
+      "samples": [
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16.80029296875px 16.800033569335938px 0.800000011920929px 16.800003051757812px",
+          "nearest": 16
+        }
+      ]
+    },
+    "17.5": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "3.5px 0px 17.5px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "3.5px 0px 17.5px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "3.5px 0px 17.5px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "3.5px 0px 17.5px 0px",
+          "nearest": 16
+        }
+      ]
+    },
+    "17.709999084472656": {
+      "count": 3,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 17.709999084472656px 0px 17.709999084472656px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 17.709999084472656px 0px 17.709999084472656px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/operating-model",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 17.709999084472656px 0px 17.709999084472656px",
+          "nearest": 16
+        }
+      ]
+    },
+    "19.989999771118164": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "20px 0px 19.989999771118164px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "20px 0px 19.989999771118164px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "20px 0px 19.989999771118164px 0px",
+          "nearest": 16
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "20px 0px 19.989999771118164px 0px",
+          "nearest": 16
+        }
+      ]
+    },
+    "21.989999771118164": {
+      "count": 19,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "padding",
+          "value": "21.989999771118164px 24px 146.74000549316406px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "padding",
+          "value": "21.989999771118164px 24px 24px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "padding",
+          "value": "21.989999771118164px 24px 0px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "21.989999771118164px 24px 126.12000274658203px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "padding",
+          "value": "21.989999771118164px 24px 146.74000549316406px 24px",
+          "nearest": 24
+        }
+      ]
+    },
+    "22.489999771118164": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "diff",
+          "field": "padding",
+          "value": "0px 0px 22.489999771118164px 0px",
+          "nearest": 24
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "diff",
+          "field": "padding",
+          "value": "0px 0px 22.489999771118164px 0px",
+          "nearest": 24
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "diff",
+          "field": "padding",
+          "value": "0px 0px 22.489999771118164px 0px",
+          "nearest": 24
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "diff",
+          "field": "padding",
+          "value": "0px 0px 22.489999771118164px 0px",
+          "nearest": 24
+        }
+      ]
+    },
+    "23.989999771118164": {
+      "count": 7,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+HorizontalBorder",
+          "field": "padding",
+          "value": "15px 23.989999771118164px 15px 23.989999771118164px",
+          "nearest": 24
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+HorizontalBorder",
+          "field": "padding",
+          "value": "15px 23.989999771118164px 15px 23.989999771118164px",
+          "nearest": 24
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+HorizontalBorder",
+          "field": "padding",
+          "value": "15px 23.989999771118164px 15px 23.989999771118164px",
+          "nearest": 24
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+HorizontalBorder",
+          "field": "padding",
+          "value": "15px 23.989999771118164px 15px 23.989999771118164px",
+          "nearest": 24
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+HorizontalBorder",
+          "field": "padding",
+          "value": "15px 23.989999771118164px 15px 23.989999771118164px",
+          "nearest": 24
+        }
+      ]
+    },
+    "24.010000228881836": {
+      "count": 5,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "padding",
+          "value": "20px 24.010000228881836px 20px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/casestudy",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "padding",
+          "value": "20px 24.010000228881836px 20px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "padding",
+          "value": "20px 24.010000228881836px 20px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/work/alignment",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "padding",
+          "value": "20px 24.010000228881836px 20px 24px",
+          "nearest": 24
+        },
+        {
+          "page": "/work/operating-model",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "padding",
+          "value": "20px 24.010000228881836px 20px 24px",
+          "nearest": 24
+        }
+      ]
+    },
+    "28.000001907348633": {
+      "count": 22,
+      "samples": [
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16px -0.0000019073486328125px 0px 28.000001907348633px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16px -0.0000019073486328125px 0px 28.000001907348633px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16px -0.0000019073486328125px 0px 28.000001907348633px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16px -0.0000019073486328125px 0px 28.000001907348633px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "16px -0.0000019073486328125px 0px 28.000001907348633px",
+          "nearest": 32
+        }
+      ]
+    },
+    "30.399988174438477": {
+      "count": 11,
+      "samples": [
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "ImplementationSection",
+          "field": "padding",
+          "value": "48px 30.399988174438477px 0px 30.399999618530273px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "ImplementationSection",
+          "field": "padding",
+          "value": "48px 30.399988174438477px 0px 30.399999618530273px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "ImplementationSection",
+          "field": "padding",
+          "value": "48px 30.399988174438477px 0px 30.399999618530273px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "ImplementationSection",
+          "field": "padding",
+          "value": "48px 30.399988174438477px 0px 30.399999618530273px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "ImplementationSection",
+          "field": "padding",
+          "value": "48px 30.399988174438477px 0px 30.399999618530273px",
+          "nearest": 32
+        }
+      ]
+    },
+    "30.399999618530273": {
+      "count": 11,
+      "samples": [
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "ImplementationSection",
+          "field": "padding",
+          "value": "48px 30.399988174438477px 0px 30.399999618530273px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "ImplementationSection",
+          "field": "padding",
+          "value": "48px 30.399988174438477px 0px 30.399999618530273px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "ImplementationSection",
+          "field": "padding",
+          "value": "48px 30.399988174438477px 0px 30.399999618530273px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "ImplementationSection",
+          "field": "padding",
+          "value": "48px 30.399988174438477px 0px 30.399999618530273px",
+          "nearest": 32
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "ImplementationSection",
+          "field": "padding",
+          "value": "48px 30.399988174438477px 0px 30.399999618530273px",
+          "nearest": 32
+        }
+      ]
+    },
+    "52.5817985534668": {
+      "count": 26,
+      "samples": [
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "74.591796875px 52.5817985534668px 52.5817985534668px 52.5817985534668px",
+          "nearest": 56
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "74.591796875px 52.5817985534668px 52.5817985534668px 52.5817985534668px",
+          "nearest": 56
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "74.591796875px 52.5817985534668px 52.5817985534668px 52.5817985534668px",
+          "nearest": 56
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "74.591796875px 52.5817985534668px 52.5817985534668px 52.5817985534668px",
+          "nearest": 56
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "74.591796875px 52.5817985534668px 52.5817985534668px 52.5817985534668px",
+          "nearest": 56
+        }
+      ]
+    },
+    "58.0099983215332": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "AFTER",
+          "field": "padding",
+          "value": "58.0099983215332px 0px 58px 0px",
+          "nearest": 56
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "AFTER",
+          "field": "padding",
+          "value": "58.0099983215332px 0px 58px 0px",
+          "nearest": 56
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "AFTER",
+          "field": "padding",
+          "value": "58.0099983215332px 0px 58px 0px",
+          "nearest": 56
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "AFTER",
+          "field": "padding",
+          "value": "58.0099983215332px 0px 58px 0px",
+          "nearest": 56
+        }
+      ]
+    },
+    "65.28": {
+      "count": 2,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "65.28px",
+          "nearest": 64
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "65.28px",
+          "nearest": 64
+        }
+      ]
+    },
+    "74.591796875": {
+      "count": 26,
+      "samples": [
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "74.591796875px 52.5817985534668px 52.5817985534668px 52.5817985534668px",
+          "nearest": 72
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "74.591796875px 52.5817985534668px 52.5817985534668px 52.5817985534668px",
+          "nearest": 72
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "74.591796875px 52.5817985534668px 52.5817985534668px 52.5817985534668px",
+          "nearest": 72
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "74.591796875px 52.5817985534668px 52.5817985534668px 52.5817985534668px",
+          "nearest": 72
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Background",
+          "field": "padding",
+          "value": "74.591796875px 52.5817985534668px 52.5817985534668px 52.5817985534668px",
+          "nearest": 72
+        }
+      ]
+    },
+    "79.19999694824219": {
+      "count": 2,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 79.19999694824219px 0px 0px",
+          "nearest": 80
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "0px 79.19999694824219px 0px 0px",
+          "nearest": 80
+        }
+      ]
+    },
+    "81.1500015258789": {
+      "count": 3,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "22px 24px 81.1500015258789px 24px",
+          "nearest": 80
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "22px 24px 81.1500015258789px 24px",
+          "nearest": 80
+        },
+        {
+          "page": "/work/operating-model",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "22px 24px 81.1500015258789px 24px",
+          "nearest": 80
+        }
+      ]
+    },
+    "126.12000274658203": {
+      "count": 5,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "21.989999771118164px 24px 126.12000274658203px 24px",
+          "nearest": 128
+        },
+        {
+          "page": "/casestudy",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "21.989999771118164px 24px 126.12000274658203px 24px",
+          "nearest": 128
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "21.989999771118164px 24px 126.12000274658203px 24px",
+          "nearest": 128
+        },
+        {
+          "page": "/work/alignment",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "21.989999771118164px 24px 126.12000274658203px 24px",
+          "nearest": 128
+        },
+        {
+          "page": "/work/operating-model",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "padding",
+          "value": "21.989999771118164px 24px 126.12000274658203px 24px",
+          "nearest": 128
+        }
+      ]
+    },
+    "143.97999572753906": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Link:align-flex-start",
+          "field": "padding",
+          "value": "0px 143.97999572753906px 0px 1px",
+          "nearest": 144
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Link:align-flex-start",
+          "field": "padding",
+          "value": "0px 143.97999572753906px 0px 1px",
+          "nearest": 144
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Link:align-flex-start",
+          "field": "padding",
+          "value": "0px 143.97999572753906px 0px 1px",
+          "nearest": 144
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Link:align-flex-start",
+          "field": "padding",
+          "value": "0px 143.97999572753906px 0px 1px",
+          "nearest": 144
+        }
+      ]
+    },
+    "146.72999572753906": {
+      "count": 3,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "padding",
+          "value": "22px 24px 146.72999572753906px 24px",
+          "nearest": 144
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "padding",
+          "value": "22px 24px 146.72999572753906px 24px",
+          "nearest": 144
+        },
+        {
+          "page": "/work/operating-model",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "padding",
+          "value": "22px 24px 146.72999572753906px 24px",
+          "nearest": 144
+        }
+      ]
+    },
+    "146.74000549316406": {
+      "count": 6,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "padding",
+          "value": "21.989999771118164px 24px 146.74000549316406px 24px",
+          "nearest": 144
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "padding",
+          "value": "21.989999771118164px 24px 146.74000549316406px 24px",
+          "nearest": 144
+        },
+        {
+          "page": "/casestudy",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "padding",
+          "value": "21.989999771118164px 24px 146.74000549316406px 24px",
+          "nearest": 144
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "padding",
+          "value": "21.989999771118164px 24px 146.74000549316406px 24px",
+          "nearest": 144
+        },
+        {
+          "page": "/work/alignment",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "padding",
+          "value": "21.989999771118164px 24px 146.74000549316406px 24px",
+          "nearest": 144
+        }
+      ]
+    },
+    "149.43": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "button",
+          "field": "gap",
+          "value": "149.43px",
+          "nearest": 152
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "button",
+          "field": "gap",
+          "value": "149.43px",
+          "nearest": 152
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "button",
+          "field": "gap",
+          "value": "149.43px",
+          "nearest": 152
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "button",
+          "field": "gap",
+          "value": "149.43px",
+          "nearest": 152
+        }
+      ]
+    },
+    "163.21": {
+      "count": 2,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "163.21px",
+          "nearest": 160
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "163.21px",
+          "nearest": 160
+        }
+      ]
+    },
+    "168.5": {
+      "count": 3,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "padding",
+          "value": "22px 24px 168.5px 24px",
+          "nearest": 168
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "padding",
+          "value": "22px 24px 168.5px 24px",
+          "nearest": 168
+        },
+        {
+          "page": "/work/operating-model",
+          "bp": "desktop",
+          "name": "VerticalBorder",
+          "field": "padding",
+          "value": "22px 24px 168.5px 24px",
+          "nearest": 168
+        }
+      ]
+    },
+    "175.43": {
+      "count": 6,
+      "samples": [
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "175.43px",
+          "nearest": 176
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "175.43px",
+          "nearest": 176
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "175.43px",
+          "nearest": 176
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "175.43px",
+          "nearest": 176
+        },
+        {
+          "page": "/mobile-home",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "175.43px",
+          "nearest": 176
+        }
+      ]
+    },
+    "195.60003662109375": {
+      "count": 10,
+      "samples": [
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Text",
+          "field": "padding",
+          "value": "0px 195.60003662109375px 0px 0px",
+          "nearest": 192
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Text",
+          "field": "padding",
+          "value": "0px 195.60003662109375px 0px 0px",
+          "nearest": 192
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Text",
+          "field": "padding",
+          "value": "0px 195.60003662109375px 0px 0px",
+          "nearest": 192
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Text",
+          "field": "padding",
+          "value": "0px 195.60003662109375px 0px 0px",
+          "nearest": 192
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Text",
+          "field": "padding",
+          "value": "0px 195.60003662109375px 0px 0px",
+          "nearest": 192
+        }
+      ]
+    },
+    "232.34": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "232.34px",
+          "nearest": 232
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "232.34px",
+          "nearest": 232
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "232.34px",
+          "nearest": 232
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "232.34px",
+          "nearest": 232
+        }
+      ]
+    },
+    "245.9": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "245.9px",
+          "nearest": 248
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "245.9px",
+          "nearest": 248
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "245.9px",
+          "nearest": 248
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "245.9px",
+          "nearest": 248
+        }
+      ]
+    },
+    "253.5": {
+      "count": 5,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Paragraph+HorizontalBorder",
+          "field": "gap",
+          "value": "253.5px",
+          "nearest": 256
+        },
+        {
+          "page": "/casestudy",
+          "bp": "desktop",
+          "name": "Paragraph+HorizontalBorder",
+          "field": "gap",
+          "value": "253.5px",
+          "nearest": 256
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Paragraph+HorizontalBorder",
+          "field": "gap",
+          "value": "253.5px",
+          "nearest": 256
+        },
+        {
+          "page": "/work/alignment",
+          "bp": "desktop",
+          "name": "Paragraph+HorizontalBorder",
+          "field": "gap",
+          "value": "253.5px",
+          "nearest": 256
+        },
+        {
+          "page": "/work/operating-model",
+          "bp": "desktop",
+          "name": "Paragraph+HorizontalBorder",
+          "field": "gap",
+          "value": "253.5px",
+          "nearest": 256
+        }
+      ]
+    },
+    "284.81": {
+      "count": 7,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+HorizontalBorder",
+          "field": "gap",
+          "value": "284.81px",
+          "nearest": 288
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+HorizontalBorder",
+          "field": "gap",
+          "value": "284.81px",
+          "nearest": 288
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+HorizontalBorder",
+          "field": "gap",
+          "value": "284.81px",
+          "nearest": 288
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+HorizontalBorder",
+          "field": "gap",
+          "value": "284.81px",
+          "nearest": 288
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+HorizontalBorder",
+          "field": "gap",
+          "value": "284.81px",
+          "nearest": 288
+        }
+      ]
+    },
+    "299.13": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+HorizontalBorder",
+          "field": "gap",
+          "value": "299.13px",
+          "nearest": 296
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+HorizontalBorder",
+          "field": "gap",
+          "value": "299.13px",
+          "nearest": 296
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Background+HorizontalBorder",
+          "field": "gap",
+          "value": "299.13px",
+          "nearest": 296
+        },
+        {
+          "page": "/page-4",
+          "bp": "desktop",
+          "name": "Background+HorizontalBorder",
+          "field": "gap",
+          "value": "299.13px",
+          "nearest": 296
+        }
+      ]
+    },
+    "309.32": {
+      "count": 12,
+      "samples": [
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "309.32px",
+          "nearest": 312
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "309.32px",
+          "nearest": 312
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "309.32px",
+          "nearest": 312
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "309.32px",
+          "nearest": 312
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "309.32px",
+          "nearest": 312
+        }
+      ]
+    },
+    "310.35": {
+      "count": 7,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "310.35px",
+          "nearest": 312
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "310.35px",
+          "nearest": 312
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "310.35px",
+          "nearest": 312
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "310.35px",
+          "nearest": 312
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "310.35px",
+          "nearest": 312
+        }
+      ]
+    },
+    "361.3": {
+      "count": 3,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "gap",
+          "value": "361.3px",
+          "nearest": 360
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "gap",
+          "value": "361.3px",
+          "nearest": 360
+        },
+        {
+          "page": "/work/operating-model",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "gap",
+          "value": "361.3px",
+          "nearest": 360
+        }
+      ]
+    },
+    "376.94": {
+      "count": 7,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "376.94px",
+          "nearest": 376
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "376.94px",
+          "nearest": 376
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "376.94px",
+          "nearest": 376
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "376.94px",
+          "nearest": 376
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "376.94px",
+          "nearest": 376
+        }
+      ]
+    },
+    "402.05": {
+      "count": 3,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Paragraph+HorizontalBorder",
+          "field": "gap",
+          "value": "402.05px",
+          "nearest": 400
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Paragraph+HorizontalBorder",
+          "field": "gap",
+          "value": "402.05px",
+          "nearest": 400
+        },
+        {
+          "page": "/work/operating-model",
+          "bp": "desktop",
+          "name": "Paragraph+HorizontalBorder",
+          "field": "gap",
+          "value": "402.05px",
+          "nearest": 400
+        }
+      ]
+    },
+    "406.54": {
+      "count": 7,
+      "samples": [
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "406.54px",
+          "nearest": 408
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "406.54px",
+          "nearest": 408
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "406.54px",
+          "nearest": 408
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "406.54px",
+          "nearest": 408
+        },
+        {
+          "page": "/work/surgicalapp",
+          "bp": "desktop",
+          "name": "Paragraph",
+          "field": "gap",
+          "value": "406.54px",
+          "nearest": 408
+        }
+      ]
+    },
+    "411.23": {
+      "count": 5,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "gap",
+          "value": "411.23px",
+          "nearest": 408
+        },
+        {
+          "page": "/casestudy",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "gap",
+          "value": "411.23px",
+          "nearest": 408
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "gap",
+          "value": "411.23px",
+          "nearest": 408
+        },
+        {
+          "page": "/work/alignment",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "gap",
+          "value": "411.23px",
+          "nearest": 408
+        },
+        {
+          "page": "/work/operating-model",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "gap",
+          "value": "411.23px",
+          "nearest": 408
+        }
+      ]
+    },
+    "455.22": {
+      "count": 3,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "gap",
+          "value": "455.22px",
+          "nearest": 456
+        },
+        {
+          "page": "/work/human-supervised-ai",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "gap",
+          "value": "455.22px",
+          "nearest": 456
+        },
+        {
+          "page": "/work/operating-model",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "gap",
+          "value": "455.22px",
+          "nearest": 456
+        }
+      ]
+    },
+    "576.95": {
+      "count": 6,
+      "samples": [
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "gap",
+          "value": "576.95px",
+          "nearest": 576
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "gap",
+          "value": "576.95px",
+          "nearest": 576
+        },
+        {
+          "page": "/work/jetpack",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "gap",
+          "value": "576.95px",
+          "nearest": 576
+        },
+        {
+          "page": "/work/rpm",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "gap",
+          "value": "576.95px",
+          "nearest": 576
+        },
+        {
+          "page": "/work/rpm",
+          "bp": "desktop",
+          "name": "Paragraph+Background+HorizontalBorder",
+          "field": "gap",
+          "value": "576.95px",
+          "nearest": 576
+        }
+      ]
+    },
+    "586.800048828125": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Text",
+          "field": "padding",
+          "value": "0px 586.800048828125px 0px 0px",
+          "nearest": 584
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Text",
+          "field": "padding",
+          "value": "0px 586.800048828125px 0px 0px",
+          "nearest": 584
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Text",
+          "field": "padding",
+          "value": "0px 586.800048828125px 0px 0px",
+          "nearest": 584
+        },
+        {
+          "page": "/page",
+          "bp": "desktop",
+          "name": "Text",
+          "field": "padding",
+          "value": "0px 586.800048828125px 0px 0px",
+          "nearest": 584
+        }
+      ]
+    },
+    "633.96": {
+      "count": 4,
+      "samples": [
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "633.96px",
+          "nearest": 632
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "633.96px",
+          "nearest": 632
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "633.96px",
+          "nearest": 632
+        },
+        {
+          "page": "/page",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "633.96px",
+          "nearest": 632
+        }
+      ]
+    },
+    "646.63": {
+      "count": 10,
+      "samples": [
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "646.63px",
+          "nearest": 648
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "646.63px",
+          "nearest": 648
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "646.63px",
+          "nearest": 648
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "646.63px",
+          "nearest": 648
+        },
+        {
+          "page": "/work/kustomer",
+          "bp": "desktop",
+          "name": "Container",
+          "field": "gap",
+          "value": "646.63px",
+          "nearest": 648
+        }
+      ]
+    }
+  },
+  "recruiterByValue": {
+    "4": 60,
+    "5": 3,
+    "10": 199,
+    "12": 9,
+    "15": 3,
+    "20": 8,
+    "44": 2,
+    "60": 4
+  }
+}

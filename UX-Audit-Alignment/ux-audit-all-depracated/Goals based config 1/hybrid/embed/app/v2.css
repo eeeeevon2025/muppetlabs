@@ -1,0 +1,376 @@
+/* ============================================================
+   v2 OVERLAY — augments app.css with calmer, more focused styles.
+   Loaded AFTER app.css so these win on conflicts.
+   ============================================================ */
+
+:root {
+  --content-max: 1200px;
+}
+
+/* Calmer page background */
+body { background: #FAFBFC; }
+
+/* ---------- Loop strip ---------- */
+.loop-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  background: white;
+  border: 1px solid var(--gray-30);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 22px;
+}
+.loop-step {
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-right: 1px solid var(--gray-30);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.loop-step:last-child { border-right: none; }
+.loop-step:hover { background: var(--gray-15); }
+.loop-step__dot {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--gray-25);
+  color: var(--gray-90);
+  display: grid; place-items: center;
+  font-weight: 600;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+.loop-step--active .loop-step__dot { background: var(--blue-70); color: white; }
+.loop-step--done .loop-step__dot { background: var(--green-70); color: white; }
+.loop-step__label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gray-90);
+  font-weight: 600;
+  margin-bottom: 1px;
+}
+.loop-step__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-130);
+  letter-spacing: -0.005em;
+}
+.loop-step__count {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gray-95);
+  background: var(--gray-25);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+.loop-step--alert .loop-step__count { background: var(--yellow-25); color: var(--yellow-100); }
+
+/* ---------- Daily summary (the new "hero" of Goals home) ---------- */
+.summary {
+  background: linear-gradient(180deg, white 0%, var(--gray-15) 100%);
+  border: 1px solid var(--gray-30);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 22px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+}
+.summary__greeting {
+  font-size: 12px;
+  color: var(--gray-95);
+  margin-bottom: 6px;
+}
+.summary__headline {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--gray-130);
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+  margin: 0 0 10px;
+  text-wrap: pretty;
+  max-width: 720px;
+}
+.summary__headline em {
+  font-style: normal;
+  background: linear-gradient(180deg, transparent 60%, var(--yellow-25) 60%);
+  padding: 0 2px;
+}
+.summary__pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.summary-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 18px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: filter 0.1s;
+}
+.summary-pill:hover { filter: brightness(0.97); }
+.summary-pill--good { background: var(--green-15); color: var(--green-100); }
+.summary-pill--watch { background: var(--yellow-25); color: var(--yellow-100); }
+.summary-pill--neutral { background: var(--gray-25); color: var(--gray-105); }
+.summary__cta {
+  display: flex; flex-direction: column; gap: 6px; align-items: flex-end;
+}
+.summary__cta-num {
+  font-size: 32px; font-weight: 600; color: var(--gray-130); letter-spacing: -0.02em; line-height: 1;
+}
+.summary__cta-label {
+  font-size: 11px; color: var(--gray-95); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;
+}
+
+/* ---------- Section headers ---------- */
+.section-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin: 4px 0 12px;
+}
+.section-head__title { font-size: 15px; font-weight: 600; color: var(--gray-130); margin: 0; letter-spacing: -0.005em; }
+.section-head__sub { font-size: 12px; color: var(--gray-95); margin-top: 2px; }
+
+/* ---------- Goal card v2 — calmer, less data-slop ---------- */
+.gcard {
+  background: white;
+  border: 1px solid var(--gray-30);
+  border-radius: 14px;
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: border-color 0.12s, box-shadow 0.12s, transform 0.12s;
+  display: flex; flex-direction: column;
+  position: relative;
+  min-width: 250px;
+}
+.gcard:hover {
+  border-color: var(--gray-50);
+  box-shadow: 0 1px 3px rgba(15,30,55,0.04), 0 6px 16px rgba(15,30,55,0.06);
+}
+.gcard__head { display: flex; flex-direction: column; gap: 0; }
+.gcard__name { font-size: 14px; font-weight: 600; color: var(--gray-130); margin: 0 0 4px; letter-spacing: -0.01em; }
+.gcard__measuring { font-size: 12px; color: var(--gray-95); }
+
+.gcard__progress {
+  display: grid; grid-template-columns: 1fr; gap: 6px;
+}
+.gcard__big {
+  display: flex; align-items: baseline; gap: 8px;
+}
+.gcard__big-val { font-size: 36px; font-weight: 600; color: var(--gray-130); letter-spacing: -0.025em; line-height: 1; }
+.gcard__big-target { font-size: 13px; color: var(--gray-90); }
+.gcard__bar { height: 6px; background: var(--gray-25); border-radius: 4px; overflow: hidden; }
+.gcard__bar-fill { height: 100%; border-radius: 4px; transition: width 0.4s; }
+.gcard__bar-fill--good { background: linear-gradient(90deg, var(--green-50), var(--green-70)); }
+.gcard__bar-fill--neutral { background: linear-gradient(90deg, var(--blue-40), var(--blue-60)); }
+.gcard__bar-fill--watch { background: linear-gradient(90deg, var(--yellow-50), var(--yellow-70)); }
+
+.gcard__why {
+  background: var(--gray-15);
+  border: 1px solid var(--gray-30);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: var(--gray-105);
+  line-height: 1.5;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.gcard__why-icon {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--blue-15);
+  color: var(--blue-80);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.gcard__why-icon--watch { background: var(--yellow-25); color: var(--yellow-100); }
+.gcard__why-icon--good { background: var(--green-15); color: var(--green-100); }
+
+.gcard__foot {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px; color: var(--gray-95);
+}
+.gcard__cta {
+  font-size: 12px; font-weight: 500; color: var(--blue-80);
+  display: inline-flex; align-items: center; gap: 4px;
+}
+
+/* ---------- Why-this-score panel ---------- */
+.why-panel {
+  background: var(--blue-10);
+  border: 1px solid var(--blue-25);
+  border-left: 3px solid var(--blue-70);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+.why-panel__head {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue-100);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.why-panel__body {
+  font-size: 13px;
+  color: var(--blue-100);
+  line-height: 1.55;
+}
+
+/* ---------- Trace chain (suggestion traceability) ---------- */
+.trace {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
+  gap: 0;
+  background: var(--gray-15);
+  border: 1px solid var(--gray-30);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.trace__step {
+  padding: 12px 14px;
+  border-right: 1px solid var(--gray-30);
+  display: flex; flex-direction: column; gap: 4px;
+  position: relative;
+  min-width: 0;
+}
+.trace__step:last-child { border-right: none; }
+.trace__step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -8px; top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 11px;
+  color: var(--gray-90);
+  z-index: 1;
+  border: 1px solid var(--gray-30);
+}
+.trace__label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray-90); font-weight: 600; }
+.trace__value { font-size: 13px; color: var(--gray-115); font-weight: 500; line-height: 1.35; }
+.trace__value strong { color: var(--gray-130); }
+
+/* ---------- Quick-start monitor card ---------- */
+.qs-card {
+  background: white;
+  border: 1px solid var(--gray-30);
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+.qs-card__title { font-size: 16px; font-weight: 600; color: var(--gray-130); margin: 0 0 14px; }
+.advanced-toggle {
+  font-size: 12px;
+  color: var(--blue-80);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 0;
+  font-weight: 500;
+}
+.advanced-section {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--gray-40);
+}
+
+/* ---------- Next-action footer (per-screen) ---------- */
+.next-action {
+  background: linear-gradient(180deg, white, var(--gray-15));
+  border: 1px solid var(--gray-30);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.next-action__icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: var(--blue-15);
+  color: var(--blue-80);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+}
+.next-action__title { font-size: 13px; font-weight: 600; color: var(--gray-130); margin-bottom: 2px; }
+.next-action__body { font-size: 12px; color: var(--gray-95); line-height: 1.5; }
+
+/* Calmer suggestion card */
+.sug-card {
+  background: white;
+  border: 1px solid var(--gray-30);
+  border-radius: 12px;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.sug-card__chrome {
+  display: flex; gap: 6px; flex-wrap: wrap; align-items: center;
+}
+.sug-card__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gray-130);
+  letter-spacing: -0.005em;
+  line-height: 1.35;
+  margin: 0;
+}
+.sug-card__rationale {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--gray-110);
+  margin: 0;
+}
+.sug-card__expand {
+  font-size: 12px;
+  color: var(--blue-80);
+  background: none; border: none; padding: 0;
+  cursor: pointer; font-weight: 500;
+  display: inline-flex; align-items: center; gap: 4px;
+}
+
+/* Severity adjustment — softer reds */
+.badge--watch { background: var(--yellow-25); color: var(--yellow-100); }
+.badge--info-soft { background: var(--blue-10); color: var(--blue-90); }
+
+/* Override v1 metric grid usage on Goals home */
+.compact-metric {
+  display: flex; align-items: center; gap: 12px;
+}
+.compact-metric__num { font-size: 20px; font-weight: 600; color: var(--gray-130); letter-spacing: -0.015em; }
+.compact-metric__label { font-size: 12px; color: var(--gray-95); }
+
+/* Subtle scope chip */
+.scope-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  background: var(--gray-25);
+  color: var(--gray-105);
+}

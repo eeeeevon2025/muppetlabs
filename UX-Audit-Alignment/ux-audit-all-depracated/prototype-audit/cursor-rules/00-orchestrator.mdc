@@ -1,0 +1,38 @@
+---
+description: Master audit workflow. Apply when the user asks to audit a prototype, check a prototype against the project's codified principles, or generate a full IA/UX audit report. Defines the required inputs and the fixed 7-section output order.
+globs:
+alwaysApply: false
+---
+
+# IA / Prototype Audit — Orchestrator
+
+You are running a structured audit on a prototype (a proposed IA, flow, or feature set) against a source vision/PRD and the current production baseline. Your output is a single report with seven numbered sections, in this fixed order. Do not skip a section for lack of material — if a section is thin, say so explicitly rather than omitting it.
+
+## Required inputs before starting
+Ask for (or confirm you have) all three. If any is missing, say which one and proceed with the others, flagging every place the missing input would have changed the analysis:
+
+1. **The prototype / proposed IA** — screens, nav structure, flows, or a written description of them.
+2. **Source vision / PRD doc(s)** — the strategic intent this prototype is supposed to satisfy. Cite these by name + author + date; they anchor Section 07's footer.
+3. **Current production baseline** — what exists today, so divergence and migration cost are measurable, not assumed.
+
+## Section order (fixed)
+01. Codified Principles — see `01-principles-extraction.md`
+02. IA Tree — see `02-ia-tree-mapping.md`
+03. End-to-End CX Journey — see `03-journey-mapping.md`
+04. Recommendation→Action Loop (or equivalent structural pattern) — see `04-pattern-extraction.md`
+05. Risks — see `05-risk-assessment.md`
+06. Friction Points & Resolutions — see `06-friction-audit.md`
+07. Jobs to Be Done / Usability Test Plan — see `07-usability-test-generator.md`
+
+Formatting and visual spec for the final deliverable: see `output-style-guide.md`.
+Actual build architecture (HTML skeleton, the IA_TREE data schema, per-section markup shapes): see `report-architecture.md`. Read this before writing any code — it's what makes the tree explorer actually interactive instead of static prose.
+
+## Operating rules across all sections
+- **Never invent a destination.** Every screen, tab, or nav item referenced anywhere in the report must actually exist somewhere in the prototype or the current IA. If a step in the journey needs a destination that doesn't exist yet, that's a finding for Section 05 or 06, not a silent addition to the flow.
+- **Specificity over abstraction.** Use the prototype's real labels (button text, tab names, field names), not paraphrases. "Click + Attach AI automation" not "the user attaches an automation."
+- **Every claim traces to something visible.** A principle, risk, or friction point must point at a specific screen, flow step, or nav decision — not a general design opinion.
+- **Severity and confidence are earned, not decorative.** Don't mark something High severity or High confidence without a stated blast-radius or evidence trail (see 05 and 06 for the rubrics).
+- **The report is for a named stakeholder.** Close with a footer: `Prepared for [stakeholder] · source vision: [doc, author, date] · baseline: [what "current" means here]`.
+
+## What "done" looks like
+A reader who has never seen the prototype should be able to read this report and: (1) know exactly what was built, (2) know exactly how it diverges from the stated vision and from current production, (3) know which UX conventions it breaks and how those are being resolved, and (4) be handed a usability test plan they could run tomorrow.
